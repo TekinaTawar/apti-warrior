@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   height: 100%;
 }
 
