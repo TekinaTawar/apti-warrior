@@ -2,10 +2,10 @@ import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 
-import bg from "public/bg.png";
+import bg from "public/images/bg.png";
 
 const BgContainer = styled.div`
-position: absolute;
+position: absolute; 
 height: 100%;
 width: 100%;
 z-index: -99;
