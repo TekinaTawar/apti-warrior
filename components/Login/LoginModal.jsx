@@ -1,8 +1,7 @@
 import Modal from "components/shared/Modal";
-import Image from "next/legacy/image";
 import styled from "styled-components";
 
-import buttonBorder from "public/images/buttonBorder.svg";
+import BorderButton from "components/shared/BorderButton";
 
 const _LoginModal = styled(Modal)`
   //to position the content inside the modal
@@ -103,18 +102,6 @@ const PhNoSection = styled.div`
   }
 `;
 
-const BorderButton = styled.button`
-  background-color: var(--military-green);
-  color: var(--golden-yellow4);
-  text-transform: uppercase;
-  font-family: metropolis;
-  font-weight: 800;
-  padding: 0.8rem 1.5rem; //maybe change later.
-  border-radius: 5px;
-  position: relative; //to position border;
-  border: none;
-`;
-
 const LoginModal = () => {
   return (
     <_LoginModal modalHead="Login">
@@ -129,8 +116,7 @@ const LoginModal = () => {
       </PhNoSection>
 
       <BorderButton>
-        <Image src={buttonBorder} alt="bg" layout="fill" objectFit="fill" />
-        CONTINUE
+       Continue
       </BorderButton>
       <strong>OR</strong>
 
