@@ -1,5 +1,7 @@
-import LoginModal from "components/Login/LoginModal";
+//import useState from react
+
 import styled from "styled-components";
+
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -10,12 +12,16 @@ const MainContainer = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  
 `;
 
 const test = () => {
+  
+
   return (
     <MainContainer>
-      <LoginModal />
+      
     </MainContainer>
   );
 };

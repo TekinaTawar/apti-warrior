@@ -5,9 +5,10 @@
   - React
   - Next js
   - Styled Components
+  - react-otp-input (https://www.npmjs.com/package/react-otp-input)
 
 
-## For Developers
+## For Developers Who might work on this in future.
 - These are some custom rules that are bieng used and need to be followed.
   - avoid using npm i unless you are installing an individual package rather use ``npm ci``.
   - react should not be imported anywhere in the project at the top.
