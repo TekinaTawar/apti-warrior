@@ -10,6 +10,20 @@ const GlobalStyle = createGlobalStyle`
 }
 
 @font-face {
+  font-family: metropolis;
+  src: url(/fonts/metropolis/metropolis-Light.otf);
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: metropolis;
+  src: url(/fonts/metropolis/metropolis-LightItalic.otf);
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
   font-family: Metropolis;
   src: url(/fonts/metropolis/Metropolis-Regular.otf); //not used till now
   font-weight: normal;
@@ -74,6 +88,7 @@ const GlobalStyle = createGlobalStyle`
 
   //Dynamic spaces
   /* @link https://utopia.fyi/space/calculator?c=360,19,1.16,1920,24,1.21,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6, */
+  --space-4xs: clamp(0.19rem, calc(0.17rem + 0.06vw), 0.25rem);
   --space-3xs: clamp(0.31rem, calc(0.30rem + 0.06vw), 0.38rem);
   --space-2xs: clamp(0.63rem, calc(0.60rem + 0.13vw), 0.75rem);
   --space-xs: clamp(0.88rem, calc(0.82rem + 0.26vw), 1.13rem);
@@ -85,6 +100,7 @@ const GlobalStyle = createGlobalStyle`
   --space-3xl: clamp(7.13rem, calc(6.69rem + 1.92vw), 9.00rem);
 
   /* One-up pairs */
+  --space-4xs-3xs: clamp(0.19rem, calc(0.14rem + 0.19vw), 0.38rem);
   --space-3xs-2xs: clamp(0.31rem, calc(0.21rem + 0.45vw), 0.75rem);
   --space-2xs-xs: clamp(0.63rem, calc(0.51rem + 0.51vw), 1.13rem);
   --space-xs-s: clamp(0.88rem, calc(0.73rem + 0.64vw), 1.50rem);
@@ -93,6 +109,7 @@ const GlobalStyle = createGlobalStyle`
   --space-l-xl: clamp(2.38rem, calc(1.88rem + 2.18vw), 4.50rem);
   --space-xl-2xl: clamp(3.56rem, calc(3.00rem + 2.50vw), 6.00rem);
   --space-2xl-3xl: clamp(4.75rem, calc(3.77rem + 4.36vw), 9.00rem);
+
 
   /* Custom pairs */
 
