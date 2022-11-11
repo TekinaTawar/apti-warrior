@@ -31,46 +31,78 @@ const GlobalStyle = createGlobalStyle`
 }
 
 :root{
-  //Colors (black, white, military green, golden yellow, yellow)
+  //Colors
+  --black: hsl(0, 0%, 0%);
+  --whtie: hsl(0, 0%, 100%);
+
+  --gray--200: hsl(0, 0%, 83%);
+  --gray--100: hsl(0, 0%, 67%);
+  --gray-0: hsl(0, 0%, 50%);
+  --gray-100: hsl(0, 0%, 33%);
+  --gray-200: hsl(0, 0%, 17%);
+
+  --primary--300: hsl(40, 100%, 83%):
+  --primary--200: hsl(49, 100%, 61%);
+  --primary--100: hsl(43, 100%, 67%);
+  --primary-0: hsl(48, 97%, 50%);
+  --primary-100: hsl(43, 100%, 50%);
+  --primary-200: hsl(43, 80%, 50%);
+  --primary-300: hsl(43, 70%, 48%);
+
+  --secondary--300: hsl(79, 50%, 83%);
+  --secondary--200: hsl(79, 21%, 67%);
+  --secondary--100: hsl(79, 21%, 50%);
+  --secondary-0: hsl(79, 21%, 33%);
+  --secondary-100: hsl(79, 100%, 17%);
+
+  --good: #89CC13;
+  --bad: #EF0B0B;
+  --neutral: #E38D01;
+  
+  //Font sizes
+  /* @link https://utopia.fyi/type/calculator?c=360,19,1.16,1920,24,1.21,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+  --step--3: clamp(0.76rem, calc(0.74rem + 0.09vw), 0.85rem);
+  --step--2: clamp(0.88rem, calc(0.85rem + 0.15vw), 1.02rem);
+  --step--1: clamp(1.02rem, calc(0.97rem + 0.22vw), 1.24rem); //use it as the most normal size
+  --step-0: clamp(1.19rem, calc(1.12rem + 0.32vw), 1.50rem);
+  --step-1: clamp(1.38rem, calc(1.28rem + 0.45vw), 1.82rem);
+  --step-2: clamp(1.60rem, calc(1.46rem + 0.61vw), 2.20rem);
+  --step-3: clamp(1.85rem, calc(1.67rem + 0.82vw), 2.66rem);
+  --step-4: clamp(2.15rem, calc(1.90rem + 1.09vw), 3.22rem);
+  --step-5: clamp(2.49rem, calc(2.17rem + 1.43vw), 3.89rem);
+
+
+  //Dynamic spaces
+  /* @link https://utopia.fyi/space/calculator?c=360,19,1.16,1920,24,1.21,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6, */
+  --space-3xs: clamp(0.31rem, calc(0.30rem + 0.06vw), 0.38rem);
+  --space-2xs: clamp(0.63rem, calc(0.60rem + 0.13vw), 0.75rem);
+  --space-xs: clamp(0.88rem, calc(0.82rem + 0.26vw), 1.13rem);
+  --space-s: clamp(1.19rem, calc(1.12rem + 0.32vw), 1.50rem);
+  --space-m: clamp(1.81rem, calc(1.71rem + 0.45vw), 2.25rem);
+  --space-l: clamp(2.38rem, calc(2.23rem + 0.64vw), 3.00rem);
+  --space-xl: clamp(3.56rem, calc(3.35rem + 0.96vw), 4.50rem);
+  --space-2xl: clamp(4.75rem, calc(4.46rem + 1.28vw), 6.00rem);
+  --space-3xl: clamp(7.13rem, calc(6.69rem + 1.92vw), 9.00rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.31rem, calc(0.21rem + 0.45vw), 0.75rem);
+  --space-2xs-xs: clamp(0.63rem, calc(0.51rem + 0.51vw), 1.13rem);
+  --space-xs-s: clamp(0.88rem, calc(0.73rem + 0.64vw), 1.50rem);
+  --space-s-m: clamp(1.19rem, calc(0.94rem + 1.09vw), 2.25rem);
+  --space-m-l: clamp(1.81rem, calc(1.54rem + 1.22vw), 3.00rem);
+  --space-l-xl: clamp(2.38rem, calc(1.88rem + 2.18vw), 4.50rem);
+  --space-xl-2xl: clamp(3.56rem, calc(3.00rem + 2.50vw), 6.00rem);
+  --space-2xl-3xl: clamp(4.75rem, calc(3.77rem + 4.36vw), 9.00rem);
+
+  /* Custom pairs */
+
+    // deprecated
   --golden-yellow1: hsl(37, 80%, 60%); //underline
   --golden-yellow2: hsl(40.19704433497537, 98.06763285024155%, 40.588235294117645%); //input border
   --golden-yellow3: hsl(30.697674418604652, 94.50549450549451%, 64.31372549019608%); //or
   --golden-yellow4: hsl(43.357664233576635, 100%, 73.13725490196079%) ;//continue text
   --military-green: hsl(78.85714285714288, 20.710059171597635%, 33.13725490196079%);
-  //Font sizes
-  --step--2: clamp(0.91rem, calc(0.90rem + 0.05vw), 0.96rem);
-  --step--1: clamp(1.09rem, calc(1.07rem + 0.11vw), 1.20rem);
-  --step-0: clamp(1.31rem, calc(1.27rem + 0.19vw), 1.50rem);
-  --step-1: clamp(1.58rem, calc(1.51rem + 0.31vw), 1.88rem);
-  --step-2: clamp(1.89rem, calc(1.79rem + 0.47vw), 2.34rem);
-  --step-3: clamp(2.27rem, calc(2.12rem + 0.68vw), 2.93rem);
-  --step-4: clamp(2.72rem, calc(2.50rem + 0.96vw), 3.66rem);
-  --step-5: clamp(3.27rem, calc(2.96rem + 1.35vw), 4.58rem);
-
-  //Dynamic spaces
-  --space-3xs: clamp(0.31rem, calc(0.30rem + 0.06vw), 0.38rem);
-  --space-2xs: clamp(0.69rem, calc(0.67rem + 0.06vw), 0.75rem);
-  --space-xs: clamp(1.00rem, calc(0.97rem + 0.13vw), 1.13rem);
-  --space-s: clamp(1.31rem, calc(1.27rem + 0.19vw), 1.50rem);
-  --space-m: clamp(2.00rem, calc(1.94rem + 0.26vw), 2.25rem);
-  --space-l: clamp(2.63rem, calc(2.54rem + 0.38vw), 3.00rem);
-  --space-xl: clamp(3.94rem, calc(3.81rem + 0.58vw), 4.50rem);
-  --space-2xl: clamp(5.25rem, calc(5.08rem + 0.77vw), 6.00rem);
-  --space-3xl: clamp(7.88rem, calc(7.62rem + 1.15vw), 9.00rem);
-
-  /* One-up pairs */
-  --space-3xs-2xs: clamp(0.31rem, calc(0.21rem + 0.45vw), 0.75rem);
-  --space-2xs-xs: clamp(0.69rem, calc(0.59rem + 0.45vw), 1.13rem);
-  --space-xs-s: clamp(1.00rem, calc(0.88rem + 0.51vw), 1.50rem);
-  --space-s-m: clamp(1.31rem, calc(1.10rem + 0.96vw), 2.25rem);
-  --space-m-l: clamp(2.00rem, calc(1.77rem + 1.03vw), 3.00rem);
-  --space-l-xl: clamp(2.63rem, calc(2.19rem + 1.92vw), 4.50rem);
-  --space-xl-2xl: clamp(3.94rem, calc(3.46rem + 2.12vw), 6.00rem);
-  --space-2xl-3xl: clamp(5.25rem, calc(4.38rem + 3.85vw), 9.00rem);
-
-  /* Custom pairs */
-  --space-s-l: clamp(1.31rem, calc(0.92rem + 1.73vw), 3.00rem);
-
+  --primary-yellow:  rgba(252, 206, 29, 1);
 }
 
 
@@ -110,7 +142,6 @@ a {
 input {
   font-family: 'Courier New', Courier, monospace;
 }
-
 
 /*
 scroll bar styles

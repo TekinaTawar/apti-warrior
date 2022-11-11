@@ -25,7 +25,6 @@
 
 
 
-- Naming conventions:
 - Page Heirarchy (not mentioning absolute positioned things without no further heirarcy)
   - :root
     - html
@@ -33,6 +32,10 @@
         - _next
           - BgContainer (absolute)
           - mainContainer (height and width 100% always used to divide and align items in page) (unique to every page).
+
+### Naming Covention:
+- **Components**: PascalCase
+- **classNames**: camelCase
 
 - css style possible approachs:
   - inside out approach: use unit rem for everything (drawback content will overflow if screen size is smaller then sum of rem).
