@@ -53,6 +53,10 @@ const Home = () => {
           <Link href="/training-area/1">training-area/1</Link>
           <span>: not done</span>
         </li>
+        <li>
+          <Link href="/test">test</Link>
+          <span>: For the Deloper only to test current things.</span>
+        </li>
       </ul>
     </MainContainer>
   );

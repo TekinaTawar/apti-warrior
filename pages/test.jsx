@@ -1,7 +1,7 @@
 //import useState from react
 
 import styled from "styled-components";
-
+import IconButton from 'components/shared/IconButton';
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -21,7 +21,7 @@ const test = () => {
 
   return (
     <MainContainer>
-      
+      <IconButton/>
     </MainContainer>
   );
 };
