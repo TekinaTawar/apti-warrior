@@ -39,6 +39,13 @@ const GlobalStyle = createGlobalStyle`
 
 @font-face {
   font-family: Metropolis;
+  src: url(/fonts/metropolis/Metropolis-Bold.otf);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Metropolis;
   src: url(/fonts/metropolis/Metropolis-ExtraBold.otf);
   font-weight: 800;
   font-style: normal;
