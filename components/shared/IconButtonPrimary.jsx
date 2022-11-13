@@ -3,10 +3,10 @@ import buttonBorder from "public/images/buttonBorder2.svg";
 import styled from "styled-components";
 
 
-const _IconButton = styled.button`
+const _IconButtonPrimary = styled.button`
   // this is a transparent button which contains absolute "borderImage" and "borderButtonContianer" is black and have width and height such that it seems it is indise the borderImage.
   position: relative;
-  color: white;
+  color: Black;
   font-family: stormfaze;
   font-size: var(--step-3);
   background-color: transparent;
@@ -19,22 +19,27 @@ const _IconButton = styled.button`
     width: 99%;
     height: 90%;
     margin-inline: auto;
-    background-color: var(--gray-200);
+    /* background-color: var(--primary-200); */
+    background-image: linear-gradient(180deg, var(--primary-0), var(--primary-200));
     display: grid;
-    grid-template-columns: repeat(2, fit-content(1px));
-    justify-content: space-around;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
     align-content: stretch;
     align-items: center;
     padding-inline: var(--space-2xs);
 
     i {
-      position: relative;
+      position: absolute;
       /* background-color: blue; */
-      width: var(--space-xl-2xl);
+      justify-self: stretch;
+      /* width: 200px; */
+      width: 60%;
       height: var(--space-xl-2xl);
+      height: 100%
     }
 
     .buttonContent {
+      grid-column: 2/3;
       /* background-color: orange; */
       align-self: stretch;
       display: flex;
@@ -43,9 +48,9 @@ const _IconButton = styled.button`
   }
 `;
 
-const IconButton = ({children, icon}) => {
+const IconButtonPrimary = ({children, icon}) => {
   return (
-    <_IconButton>
+    <_IconButtonPrimary>
       <Image src={buttonBorder} alt="button border" layout="fill" />
       <div className="borderbuttonContainer">
         <i>
@@ -53,7 +58,7 @@ const IconButton = ({children, icon}) => {
         </i>
         <div className="buttonContent">{children}</div>
       </div>
-    </_IconButton>
+    </_IconButtonPrimary>
   );
 };
-export default IconButton;
+export default IconButtonPrimary;

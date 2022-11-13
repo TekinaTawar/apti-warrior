@@ -3,6 +3,12 @@ import { FaMoneyBill } from "react-icons/fa";
 // import diamond icon from react-icons
 import { IoDiamondOutline } from "react-icons/io5";
 import { BsGear } from "react-icons/bs";
+import IconButton from "components/shared/IconButton";
+import book from "public/images/dashboard/book.svg";
+import analytics from "public/images/dashboard/analytics.svg";
+import trophy from "public/images/dashboard/trophy.svg";
+import IconButtonPrimary from "components/shared/IconButtonPrimary";
+import gun from "public/images/dashboard/gun.svg"
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -13,11 +19,7 @@ const MainContainer = styled.main`
 
 const Header = styled.header`
   color: white;
-  background-image: linear-gradient(
-    to right,
-    var(--gray-0),
-    var(--gray-200)
-  );
+  background-image: linear-gradient(to right, var(--gray-0), var(--gray-200));
   padding-right: var(--space-2xs-xs);
   display: grid;
   grid-template-columns: repeat(4, fit-content(50px));
@@ -41,7 +43,6 @@ const Header = styled.header`
     clip-path: polygon(0 0, 92% 0, 100% 100%, 0% 100%);
 
     .profilePhotoContainer {
-      
       grid-area: profilePhoto;
       width: var(--space-l-xl);
       height: var(--space-l-xl);
@@ -57,16 +58,15 @@ const Header = styled.header`
 
     .username {
       grid-area: username;
-      
+
       /* overflow: hidden; */
       font-size: var(--step-0);
       /* background-color: pink; */
       align-self: end;
 
-      @media (min-width : 600px) {
+      @media (min-width: 600px) {
         white-space: nowrap;
-      } 
-      
+      }
     }
 
     .level {
@@ -81,7 +81,8 @@ const Header = styled.header`
     }
   }
 
-  .moneyDetail, .diamondDetail {
+  .moneyDetail,
+  .diamondDetail {
     /* background-color: teal; */
     display: flex;
     align-items: center;
@@ -99,7 +100,8 @@ const Header = styled.header`
     & * {
       width: 100%;
       height: 100%;
-      align-self: center;}
+      align-self: center;
+    }
   }
 `;
 
@@ -128,6 +130,10 @@ const dashboard = () => {
           <BsGear />
         </i>
       </Header>
+      <IconButton icon={book}>Training</IconButton>
+      <IconButton icon={analytics}>Analytics</IconButton>
+      <IconButton icon={trophy}>LeaderBoard</IconButton>
+      <IconButtonPrimary icon={gun}>Battle</IconButtonPrimary>
     </MainContainer>
   );
 };
