@@ -39,11 +39,11 @@ const Home = () => {
         </li>
         <li>
           <Link href="/otp">otp</Link>
-          <span>: not done</span>
+          <span>: design done</span>
         </li>
         <li>
           <Link href="/dashboard">dashboard</Link>
-          <span>: not done</span>
+          <span>: design done (mobile layout some confusions)</span>
         </li>
         <li>
           <Link href="/training-area">training-area</Link>

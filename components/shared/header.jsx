@@ -14,6 +14,7 @@ const _Header = styled.header`
 
   font-family: stormfaze;
   font-size: var(--step-2);
+  grid-area: header;
 
   .userDetailSection {
     /* justify-self: start; */
