@@ -6,7 +6,7 @@ import styled from "styled-components";
 const _Modal = styled.div`
   position: relative; //to position the image
   width: clamp(22.5rem, calc(6.51rem + 71.05vw), 30.94rem);
-  height: clamp(550px, 8vh, 650px);
+  height: clamp(500px, 8vh, 650px);
   padding-block: 4rem 2rem; // to accomodate the border top and bottom.
   color: white;
 
