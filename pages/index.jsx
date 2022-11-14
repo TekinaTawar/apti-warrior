@@ -46,12 +46,12 @@ const Home = () => {
           <span>: design done (mobile layout some confusions)</span>
         </li>
         <li>
-          <Link href="/training-area">training-area</Link>
-          <span>: not done</span>
+          <Link href="/training">training-area</Link>
+          <span>: done</span>
         </li>
         <li>
-          <Link href="/training-area/1">training-area/1</Link>
-          <span>: not done</span>
+          <Link href="/training2">training-area/1</Link>
+          <span>: done</span>
         </li>
         <li>
           <Link href="/test">test</Link>
