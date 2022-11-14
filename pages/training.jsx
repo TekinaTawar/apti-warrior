@@ -3,10 +3,9 @@ import styled from "styled-components";
 import horizontalContainer from "public/images/training/horizontalContainer.svg";
 
 // import backArrow from "public/images/training/backArrow.svg";
-import Header from "components/shared/header";
+import Header from "@/components/shared/Header";
 import buttonBorder2 from "public/images/buttonBorder2.svg";
 import HorizontalCardContainer from "components/shared/HorizontalCardContainer"; // this is vertical not horizontal
-
 
 const MainContainer = styled.main`
   position: absolute;
@@ -16,7 +15,7 @@ const MainContainer = styled.main`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: fit-content(50px) 1fr;
-  grid-template-areas: "header header" "subjectsContainer modulesContainer";
+  grid-template-areas: "Header Header" "subjectsContainer modulesContainer";
   column-gap: var(--space-xs-s);
   row-gap: var(--space-2xs-xs);
 
@@ -37,7 +36,6 @@ const MainContainer = styled.main`
     justify-self: center;
   }
 `;
-
 
 const ModuleCards = styled.div`
   /* background-color: pink; */
@@ -125,7 +123,7 @@ const training = () => {
   return (
     <MainContainer>
       <Header />
-      <HorizontalCardContainer/>
+      <HorizontalCardContainer />
       <div className="modulesContainer">
         <Image
           src={horizontalContainer}

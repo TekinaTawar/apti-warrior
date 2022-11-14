@@ -14,7 +14,7 @@ const _Header = styled.header`
 
   font-family: stormfaze;
   font-size: var(--step-2);
-  grid-area: header;
+  grid-area: Header;
 
   .userDetailSection {
     /* justify-self: start; */
@@ -92,30 +92,30 @@ const _Header = styled.header`
   }
 `;
 
-const header = () => {
+const Header = () => {
   return (
     <_Header>
-        <div className="userDetailSection">
-          <div className="profilePhotoContainer">{/* image */}</div>
-          <h3 className="username">Hemant Kant Malviya</h3>
-          <h5 className="level">Level 28</h5>
-        </div>
-        <div className="moneyDetail">
-          <i>
-            <FaMoneyBill />
-          </i>
-          <span>3.5M</span>
-        </div>
-        <div className="diamondDetail">
-          <i>
-            <IoDiamondOutline />
-          </i>
-          <span>289</span>
-        </div>
-        <i className="settingsIcon">
-          <BsGear />
+      <div className="userDetailSection">
+        <div className="profilePhotoContainer">{/* image */}</div>
+        <h3 className="username">Hemant Kant Malviya</h3>
+        <h5 className="level">Level 28</h5>
+      </div>
+      <div className="moneyDetail">
+        <i>
+          <FaMoneyBill />
         </i>
-      </_Header>
-  )
-}
-export default header
+        <span>3.5M</span>
+      </div>
+      <div className="diamondDetail">
+        <i>
+          <IoDiamondOutline />
+        </i>
+        <span>289</span>
+      </div>
+      <i className="settingsIcon">
+        <BsGear />
+      </i>
+    </_Header>
+  );
+};
+export default Header;

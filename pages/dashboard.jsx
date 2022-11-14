@@ -1,7 +1,7 @@
 import Image from "next/legacy/image";
 import armyMan from "public/images/dashboard/armyMan.png";
 import styled from "styled-components";
-import Header from "components/shared/header";
+import Header from "@/components/shared/Header";
 
 import IconButton from "components/shared/IconButton";
 import book from "public/images/dashboard/book.svg";
@@ -25,7 +25,7 @@ const MainContainer = styled.main`
   display: grid;
   grid-template-rows: fit-content(50px) 1fr; //maybe change that 1fr to minmax or 100% or something.
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "header header header" "diamondButtonSection armyManSection iconButtonSection";
+  grid-template-areas: "Header Header Header" "diamondButtonSection armyManSection iconButtonSection";
 
   align-items: center;
 
@@ -45,7 +45,7 @@ const MainContainer = styled.main`
       align-items: center;
       gap: var(--space-2xs);
 
-      label{
+      label {
         color: white;
         font-family: stormfaze;
         font-size: var(--step-1);
