@@ -1,4 +1,4 @@
-import Modalsvg from "public/images/Modal.svg";
+import modalsvg from "@/public/images/modal.svg";
 import Image from "next/legacy/image";
 
 import styled from "styled-components";
@@ -30,7 +30,7 @@ const _Modal = styled.div`
 const Modal = ({ className, children, modalHead }) => {
   return (
     <_Modal className={className}>
-      <Image src={Modalsvg} alt="login modal" layout="fill" objectFit="fill" />
+      <Image src={modalsvg} alt="login modal" layout="fill" objectFit="fill" />
       <h1 className="modalHead">{modalHead}</h1>
       {children}
     </_Modal>

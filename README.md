@@ -36,6 +36,9 @@
 ### Naming Covention:
 - **Components**: PascalCase
 - **classNames**: camelCase
+- **Image Names**: camelCase
+- **folders in images** folder: camelCase
+- **folders in components**: cascalCase
 
 - css style possible approachs:
   - inside out approach: use unit rem for everything (drawback content will overflow if screen size is smaller then sum of rem).

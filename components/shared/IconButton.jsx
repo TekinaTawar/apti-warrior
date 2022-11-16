@@ -1,5 +1,5 @@
 import Image from "next/legacy/image";
-import buttonBorder from "public/images/buttonBorder2.svg";
+import buttonBorder from "@/public/images/buttonBorder2.svg";
 import styled from "styled-components";
 
 

@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 import BorderContainer from "@/components/shared/BorderContainer";
-import borderVid from "@/public/images/Training2/borderVid.svg";
+import borderVid from "@/public/images/training2/borderVid.svg";
 
 const MainContainer = styled.main`
   /* background-color: orange; */

@@ -1,11 +1,11 @@
 import Image from "next/legacy/image";
 import styled from "styled-components";
-import horizontalContainer from "public/images/training/horizontalContainer.svg";
+import horizontalContainer from "@/public/images/training/horizontalContainer.svg";
 
 // import backArrow from "public/images/training/backArrow.svg";
 import Header from "@/components/shared/Header";
-import buttonBorder2 from "public/images/buttonBorder2.svg";
-import HorizontalCardContainer from "components/shared/HorizontalCardContainer"; // this is vertical not horizontal
+import buttonBorder2 from "@/public/images/buttonBorder2.svg";
+import VerticalCardContainer from "@/components/shared/VerticalCardContainer"; // this is vertical not horizontal
 
 const MainContainer = styled.main`
   position: absolute;
@@ -119,11 +119,11 @@ const ModuleCards = styled.div`
   }
 `;
 
-const training = () => {
+const Training = () => {
   return (
     <MainContainer>
       <Header />
-      <HorizontalCardContainer />
+      <VerticalCardContainer />
       <div className="modulesContainer">
         <Image
           src={horizontalContainer}
@@ -151,4 +151,4 @@ const training = () => {
     </MainContainer>
   );
 };
-export default training;
+export default Training;

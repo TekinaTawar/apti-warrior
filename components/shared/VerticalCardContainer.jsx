@@ -1,4 +1,4 @@
-import verticalContainer from "public/images/training/verticalContainer.svg";
+import verticalContainer from "@/public/images/training/verticalContainer.svg";
 import styled from "styled-components";
 import Image from "next/legacy/image";
 
@@ -95,7 +95,7 @@ const SubjectCards = styled.div`
   }
 `;
 
-const HorizontalCardContainer = () => {
+const VerticalCardContainer = () => {
   return (
     <_HorizontalCardContainer>
       <Image src={verticalContainer} alt="horizontalContainer" layout="fill" />
@@ -117,4 +117,4 @@ const HorizontalCardContainer = () => {
     </_HorizontalCardContainer>
   );
 };
-export default HorizontalCardContainer;
+export default VerticalCardContainer;

@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import Image from "next/legacy/image";
 
 import Header from "@/components/shared/Header";
-import HorizontalCardContainer from "@/components/shared/HorizontalCardContainer";
+import HorizontalCardContainer from "@/components/shared/VerticalCardContainer";
 
 import BorderContainer from "@/components/shared/BorderContainer";
-import borderVid from "@/public/images/Training2/borderVid.svg";
-import border3 from "@/public/images/Training2/border3.svg";
+import borderVid from "@/public/images/training2/borderVid.svg";
+import border3 from "@/public/images/training2/border3.svg";
 import { FaPlay } from "react-icons/fa";
 
 const MainContainer = styled.main`
@@ -88,7 +87,7 @@ const ModuleTopicContainer = styled(BorderContainer)`
   }
 `;
 
-const training2 = () => {
+const Training2 = () => {
   return (
     <MainContainer>
       <Header />
@@ -171,4 +170,4 @@ const training2 = () => {
     </MainContainer>
   );
 };
-export default training2;
+export default Training2;
