@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import buttonBorder from "public/images/buttonBorder.svg";
+import buttonBorder from "@/public/images/buttonBorder.svg";
 import Image from "next/legacy/image";
-import { Children } from "react";
 
 const _BorderButton = styled.button`
   background-color: var(--military-green);

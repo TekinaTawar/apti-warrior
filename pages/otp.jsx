@@ -2,8 +2,8 @@ import { useState } from "react";
 import styled from "styled-components";
 import OtpInput from "react-otp-input";
 
-import Modal from "components/shared/Modal";
-import BorderButton from "components/shared/BorderButton";
+import Modal from "@/components/shared/Modal";
+import BorderButton from "@/components/shared/BorderButton";
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -44,7 +44,7 @@ const OtpModal = styled(Modal)`
   }
 `;
 
-const login = () => {
+const Otp = () => {
   const [otp, setOtp] = useState();
 
   return (
@@ -68,4 +68,4 @@ const login = () => {
     </MainContainer>
   );
 };
-export default login;
+export default Otp;

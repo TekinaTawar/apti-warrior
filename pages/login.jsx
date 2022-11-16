@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LoginModal from "components/Login/LoginModal";
+import LoginModal from "@/components/login/LoginModal";
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -12,11 +12,11 @@ const MainContainer = styled.main`
   align-items: center;
 `;
 
-const login = () => {
+const Login = () => {
   return (
     <MainContainer>
       <LoginModal />
     </MainContainer>
   );
 };
-export default login;
+export default Login;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Modal from "components/shared/Modal";
+import Modal from "@/components/shared/Modal";
 
-import BorderButton from 'components/shared/BorderButton';
+import BorderButton from '@/components/shared/BorderButton';
 const MainContainer = styled.main`
   position: absolute;
   width: 100%;
@@ -93,7 +93,7 @@ const PhNoSection = styled.div`
   }
 `;
 
-const signup = () => {
+const Signup = () => {
   return (
     <MainContainer>
       <SignupModal modalHead="SIGN UP">
@@ -122,4 +122,4 @@ const signup = () => {
     </MainContainer>
   );
 };
-export default signup;
+export default Signup;

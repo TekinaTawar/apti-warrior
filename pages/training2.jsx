@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import Image from "next/legacy/image";
 
 import Header from "@/components/shared/Header";
-import HorizontalCardContainer from "@/components/shared/HorizontalCardContainer";
+import HorizontalCardContainer from "@/components/shared/VerticalCardContainer";
 
 import BorderContainer from "@/components/shared/BorderContainer";
-import borderVid from "@/public/images/Training2/borderVid.svg";
-import border3 from "@/public/images/Training2/border3.svg";
+import borderVid from "@/public/images/training2/borderVid.svg";
+import border3 from "@/public/images/training2/border3.svg";
 import { FaPlay } from "react-icons/fa";
 
 const MainContainer = styled.main`
@@ -88,7 +87,7 @@ const ModuleTopicContainer = styled(BorderContainer)`
   }
 `;
 
-const training2 = () => {
+const Training2 = () => {
   return (
     <MainContainer>
       <Header />
@@ -145,7 +144,7 @@ const training2 = () => {
       <ModuleTopicContainer border={border3} widthpercent={"98%"}>
         <div className="content">
           <ul>
-            <h2>Topic 1: The Tigers's of Cave</h2>
+            <h2>Topic 1: The Tigers&apos;s of Cave</h2>
             <li>1.1: Quiz</li>
             <li>1.1: Should plastic be banned?</li>
             <li>1.1: Should plastic be banned?</li>
@@ -156,7 +155,7 @@ const training2 = () => {
             <li>1.1: Quiz</li>
           </ul>
           <ul>
-            <h2>Topic 1: The Tigers's of Cave</h2>
+            <h2>Topic 1: The Tigers&apos;s of Cave</h2>
             <li>1.1: Quiz</li>
             <li>1.1: Should plastic be banned?</li>
             <li>1.1: Should plastic be banned?</li>
@@ -171,4 +170,4 @@ const training2 = () => {
     </MainContainer>
   );
 };
-export default training2;
+export default Training2;
