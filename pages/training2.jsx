@@ -144,7 +144,7 @@ const Training2 = () => {
       <ModuleTopicContainer border={border3} widthpercent={"98%"}>
         <div className="content">
           <ul>
-            <h2>Topic 1: The Tigers's of Cave</h2>
+            <h2>Topic 1: The Tigers&apos;s of Cave</h2>
             <li>1.1: Quiz</li>
             <li>1.1: Should plastic be banned?</li>
             <li>1.1: Should plastic be banned?</li>
@@ -155,7 +155,7 @@ const Training2 = () => {
             <li>1.1: Quiz</li>
           </ul>
           <ul>
-            <h2>Topic 1: The Tigers's of Cave</h2>
+            <h2>Topic 1: The Tigers&apos;s of Cave</h2>
             <li>1.1: Quiz</li>
             <li>1.1: Should plastic be banned?</li>
             <li>1.1: Should plastic be banned?</li>
