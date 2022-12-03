@@ -2,7 +2,7 @@ import verticalContainer from "@/public/images/training/verticalContainer.svg";
 import styled from "styled-components";
 import Image from "next/legacy/image";
 
-const _HorizontalCardContainer = styled.div`
+const _VerticalCardContainer = styled.div`
   /* background-color: pink; */
   grid-area: subjectsContainer;
   position: relative;
@@ -97,7 +97,7 @@ const SubjectCards = styled.div`
 
 const VerticalCardContainer = () => {
   return (
-    <_HorizontalCardContainer>
+    <_VerticalCardContainer>
       <Image src={verticalContainer} alt="horizontalContainer" layout="fill" />
       <h3 className="title">Subject</h3>
       <SubjectCards>
@@ -114,7 +114,7 @@ const VerticalCardContainer = () => {
           </div>
         ))}
       </SubjectCards>
-    </_HorizontalCardContainer>
+    </_VerticalCardContainer>
   );
 };
 export default VerticalCardContainer;

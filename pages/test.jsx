@@ -1,14 +1,18 @@
 //import useState from react
 
 import styled from "styled-components";
-import BorderContainer from "@/components/shared/BorderContainer";
-import borderVid from "@/public/images/training2/borderVid.svg";
+import VerticalContainer from "@/components/shared/VerticalContainer";
+
 
 const MainContainer = styled.main`
   /* background-color: orange; */
   position: absolute;
   width: 100%;
   height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
   //center the content vertically and horizontally
   /* display: grid;
   grid-template-columns: 1fr 3fr;
@@ -21,15 +25,7 @@ const MainContainer = styled.main`
 const test = () => {
   return (
     <MainContainer>
-      <BorderContainer border={borderVid}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolorem
-        quod iste blanditiis, velit eligendi rem exercitationem! Ratione
-        repellendus voluptatem aut illo molestias id minus ipsam quo
-        consequatur. Eveniet odit corrupti iste voluptatum, dolores optio nulla
-        assumenda, debitis explicabo at mollitia maiores similique eos provident
-        pariatur? Reprehenderit distinctio possimus doloremque incidunt
-        corporis, corrupti fugit labore magnam veritatis velit ullam.
-      </BorderContainer>
+     <VerticalContainer />
     </MainContainer>
   );
 };

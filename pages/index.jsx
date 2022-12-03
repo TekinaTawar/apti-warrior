@@ -44,11 +44,11 @@ const Banner = styled(BorderContainer)`
       font-weight: 400;
     }
 
-    h4{
+    h4 {
       font-size: var(--step--1);
     }
-    
-    li{
+
+    li {
       padding-bottom: var(--space-3xs);
     }
   }
@@ -60,9 +60,7 @@ const Home = () => {
       <Banner border={borderVid}>
         <div className="content">
           <h2>Apti Warrior</h2>
-          <h4>
-            Check the Progress by Clicking the links below.
-          </h4>
+          <h4>Check the Progress by Clicking the links below.</h4>
           <ul>
             <li>
               <Link href="/login"> Login</Link>
@@ -90,7 +88,15 @@ const Home = () => {
             </li>
             <li>
               <Link href="/test">test</Link>
-              <span>: For the Deloper only to test current things.</span>
+              <span>: For the Developer only to test current things.</span>
+            </li>
+            <li>
+              <Link href="/practice&learn">Practice&Learn</Link>
+              <span>: For the Developer only to test current things.</span>
+            </li>
+            <li>
+              <Link href="/multiplayerDashboard">Multiplayer Dashboard</Link>
+              <span>: For the Developer only to test current things.</span>
             </li>
           </ul>
         </div>
