@@ -1,11 +1,11 @@
 import Image from "next/legacy/image";
 import styled from "styled-components";
 import horizontalContainer from "@/public/images/training/horizontalContainer.svg";
-
-// import backArrow from "public/images/training/backArrow.svg";
 import Header from "@/components/shared/Header";
 import buttonBorder2 from "@/public/images/buttonBorder2.svg";
 import VerticalCardContainer from "@/components/shared/VerticalCardContainer"; // this is vertical not horizontal
+
+
 
 const MainContainer = styled.main`
   position: absolute;

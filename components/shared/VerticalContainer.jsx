@@ -13,7 +13,7 @@ const _VerticalContainer = styled(BorderContainer)`
     grid-template-columns: 1fr;
     justify-items: stretch;
     justify-content: stretch;
-    align-items: stretch;;
+    align-items: stretch;
     align-content: stretch;
     grid-template-areas: "containerTitle" "containerContent";
   }
@@ -24,7 +24,7 @@ const _VerticalContainer = styled(BorderContainer)`
     align-self: center;
     justify-self: center;
     font-size: var(--step-0);
-    font-weight: 700;    
+    font-weight: 700;
   }
 
   .containerContent {
@@ -32,9 +32,13 @@ const _VerticalContainer = styled(BorderContainer)`
   }
 `;
 
-const VerticalContainer = ({ children, title }) => {
+const VerticalContainer = ({ className, children, title }) => {
   return (
-    <_VerticalContainer border={verticalContainer} widthpercent="97%">
+    <_VerticalContainer
+      className={className}
+      border={verticalContainer}
+      widthpercent="97%"
+    >
       <div className="containerTitle">{title}</div>
       <div className="containerContent">{children}</div>
     </_VerticalContainer>

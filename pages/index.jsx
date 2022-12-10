@@ -98,6 +98,10 @@ const Home = () => {
               <Link href="/multiplayerDashboard">Multiplayer Dashboard</Link>
               <span>: For the Developer only to test current things.</span>
             </li>
+            <li>
+              <Link href="/streakTest">Streak Test</Link>
+              <span>: For the Developer only to test current things.</span>
+            </li>
           </ul>
         </div>
       </Banner>

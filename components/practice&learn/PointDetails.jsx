@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import styled from "styled-components";
 import questionCircle from "@/public/images/Practice&Learn/questionCircle.svg";
 import time from "@/public/images/Practice&Learn/time.svg";
@@ -9,9 +8,9 @@ import diamond from "@/public/images/Practice&Learn/diamond.svg";
 
 const _PointDetails = styled.div`
   font-family: metropolis;
-  font-size: 0.6rem;
+  font-size: var(--step--3);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr fit-content(50px);
 
   white-space: nowrap;
 
@@ -53,7 +52,7 @@ const PointDetails = () => {
         </li>
         <li className="point">
           <Image src={time} alt="time" width={20} height={20} />
-          <p>5minutes</p>
+          <p>5 minutes</p>
         </li>
         <li className="point">
           <Image src={checkmark} alt="checkmark" width={20} height={20} />
