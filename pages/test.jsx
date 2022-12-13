@@ -1,7 +1,7 @@
 //import useState from react
 
 import styled from "styled-components";
-import BorderContainer from "@/components/shared/BorderContainer";
+import ContainerWithImage from "@/components/shared/ContainerWithImage";
 import borderVid from "@/public/images/training2/borderVid.svg";
 
 const MainContainer = styled.main`
@@ -21,7 +21,7 @@ const MainContainer = styled.main`
 const test = () => {
   return (
     <MainContainer>
-      <BorderContainer border={borderVid}>
+      <ContainerWithImage image={borderVid}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolorem
         quod iste blanditiis, velit eligendi rem exercitationem! Ratione
         repellendus voluptatem aut illo molestias id minus ipsam quo
@@ -29,7 +29,7 @@ const test = () => {
         assumenda, debitis explicabo at mollitia maiores similique eos provident
         pariatur? Reprehenderit distinctio possimus doloremque incidunt
         corporis, corrupti fugit labore magnam veritatis velit ullam.
-      </BorderContainer>
+      </ContainerWithImage>
     </MainContainer>
   );
 };

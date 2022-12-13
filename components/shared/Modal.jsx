@@ -1,5 +1,5 @@
-import modalsvg from "@/public/images/modal.svg";
-import Image from "next/legacy/image";
+import modalsvg from "@/public/images/authContainer.svg";
+import Image from "next/image";
 
 import styled from "styled-components";
 
@@ -30,7 +30,15 @@ const _Modal = styled.form`
 const Modal = ({ className, children, modalHead }) => {
   return (
     <_Modal className={className}>
-      <Image src={modalsvg} alt="login modal" layout="fill" objectFit="fill" />
+      <Image
+        src={modalsvg}
+        alt="login modal"
+        fill
+        sizes="100vw"
+        priority
+        style={{
+          objectFit: "fill"
+        }} />
       <h1 className="modalHead">{modalHead}</h1>
       {children}
     </_Modal>

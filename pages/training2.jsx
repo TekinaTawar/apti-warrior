@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Header from "@/components/shared/Header";
 import HorizontalCardContainer from "@/components/shared/VerticalCardContainer";
 
-import BorderContainer from "@/components/shared/BorderContainer";
+import ContainerWithImage from "@/components/shared/ContainerWithImage";
 import borderVid from "@/public/images/training2/borderVid.svg";
 import border3 from "@/public/images/training2/border3.svg";
 import { FaPlay } from "react-icons/fa";
@@ -24,7 +24,7 @@ const MainContainer = styled.main`
   row-gap: var(--space-2xs-xs);
 `;
 
-const VideoContainer = styled(BorderContainer)`
+const VideoContainer = styled(ContainerWithImage)`
   grid-area: videoContainer;
 `;
 
@@ -52,7 +52,7 @@ const VideoTextContainer = styled.div`
   }
 `;
 
-const ModuleTopicContainer = styled(BorderContainer)`
+const ModuleTopicContainer = styled(ContainerWithImage)`
   grid-area: moduleTopicContainer;
   margin-right: var(--space-2xs-xs);
 
@@ -94,7 +94,7 @@ const Training2 = () => {
       {/* modulecontainer */}
       <HorizontalCardContainer />
       {/* videoContainer */}
-      <VideoContainer border={borderVid} widthpercent={"98%"}>
+      <VideoContainer image={borderVid} widthpercent={"98%"}>
         <FaPlay size={50} />
       </VideoContainer>
       {/* videoTextContainer */}
@@ -141,7 +141,7 @@ const Training2 = () => {
         </p>
       </VideoTextContainer>
       {/* moduleTopicContainer */}
-      <ModuleTopicContainer border={border3} widthpercent={"98%"}>
+      <ModuleTopicContainer image={border3} widthpercent={"98%"}>
         <div className="content">
           <ul>
             <h2>Topic 1: The Tigers&apos;s of Cave</h2>

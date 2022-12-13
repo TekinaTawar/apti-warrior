@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import BorderContainer from "@/components/shared/BorderContainer";
+import ContainerWithImage from "@/components/shared/ContainerWithImage";
 import borderVid from "@/public/images/training2/borderVid.svg";
 
 const MainContainer = styled.main`
@@ -24,7 +24,7 @@ const MainContainer = styled.main`
   }
 `;
 
-const Banner = styled(BorderContainer)`
+const Banner = styled(ContainerWithImage)`
   width: 60%;
   height: 60%;
 
@@ -44,11 +44,11 @@ const Banner = styled(BorderContainer)`
       font-weight: 400;
     }
 
-    h4{
+    h4 {
       font-size: var(--step--1);
     }
-    
-    li{
+
+    li {
       padding-bottom: var(--space-3xs);
     }
   }
@@ -57,12 +57,10 @@ const Banner = styled(BorderContainer)`
 const Home = () => {
   return (
     <MainContainer>
-      <Banner border={borderVid}>
+      <Banner image={borderVid}>
         <div className="content">
           <h2>Apti Warrior</h2>
-          <h4>
-            Check the Progress by Clicking the links below.
-          </h4>
+          <h4>Check the Progress by Clicking the links below.</h4>
           <ul>
             <li>
               <Link href="/login"> Login</Link>

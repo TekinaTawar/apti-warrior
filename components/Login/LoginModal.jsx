@@ -1,5 +1,5 @@
 import Modal from "components/shared/Modal";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 import BorderButton from "components/shared/BorderButton";
 import { useForm } from "react-hook-form";
