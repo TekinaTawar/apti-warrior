@@ -3,7 +3,7 @@ import Image from "next/legacy/image";
 
 import styled from "styled-components";
 
-const _Modal = styled.div`
+const _Modal = styled.form`
   position: relative; //to position the image
   width: clamp(22.5rem, calc(6.51rem + 71.05vw), 30.94rem);
   height: clamp(500px, 8vh, 650px);
