@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styled from "styled-components";
 
 import bg from "public/images/bg.png";

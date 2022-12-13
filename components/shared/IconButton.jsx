@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import buttonBorder from "@/public/images/buttonBorder2.svg";
 import styled from "styled-components";
 
@@ -46,10 +46,10 @@ const _IconButton = styled.button`
 const IconButton = ({children, icon}) => {
   return (
     <_IconButton>
-      <Image src={buttonBorder} alt="button border" layout="fill" />
+      <Image src={buttonBorder} alt="button border" fill sizes="100vw" />
       <div className="borderbuttonContainer">
         <i>
-          <Image src={icon} alt="book" layout="fill" />
+          <Image src={icon} alt="book" fill sizes="100vw" />
         </i>
         <div className="buttonContent">{children}</div>
       </div>

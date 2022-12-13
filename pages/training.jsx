@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styled from "styled-components";
 import horizontalContainer from "@/public/images/training/horizontalContainer.svg";
 import Header from "@/components/shared/Header";
@@ -125,17 +125,13 @@ const Training = () => {
       <Header />
       <VerticalCardContainer />
       <div className="modulesContainer">
-        <Image
-          src={horizontalContainer}
-          alt="verticalContainer"
-          layout="fill"
-        />
+        <Image src={horizontalContainer} alt="verticalContainer" fill sizes="100vw" />
         <h3 className="title">Modules</h3>
 
         <ModuleCards>
           {[...Array(9)].map((_, i) => (
             <div key={i} className="moduleCard">
-              <Image src={buttonBorder2} alt="buttonBorder" layout="fill" />
+              <Image src={buttonBorder2} alt="buttonBorder" fill sizes="100vw" />
               <div className="moduleImage"></div>
               <div className="moduleTitle">Module {i}</div>
               <div className="moduleProgress">

@@ -61,3 +61,5 @@
     - 2560px
 
 https://utopia.fyi/space/calculator/?c=360,19,1.16,1920,24,1.21,5,3,1000&s=0.75|0.5|0.25|0.15,1.5|2|3|4|6|8|18,4xs-3xs
+
+- first use of a particular image should determine it's name

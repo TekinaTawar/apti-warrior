@@ -1,6 +1,6 @@
 import verticalContainer from "@/public/images/training/verticalContainer.svg";
 import styled from "styled-components";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const _VerticalCardContainer = styled.div`
   /* background-color: pink; */
@@ -98,7 +98,7 @@ const SubjectCards = styled.div`
 const VerticalCardContainer = () => {
   return (
     <_VerticalCardContainer>
-      <Image src={verticalContainer} alt="horizontalContainer" layout="fill" />
+      <Image src={verticalContainer} alt="horizontalContainer" fill sizes="100vw" />
       <h3 className="title">Subject</h3>
       <SubjectCards>
         {[...Array(4)].map((e, i) => (

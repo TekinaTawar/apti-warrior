@@ -1,6 +1,6 @@
-import RadioButtonGroup from "@/components/shared/RadioButtonGroup";
-import { useState } from "react";
 import styled from "styled-components";
+import ContainerWithImage from "@/components/shared/ContainerWithImage";
+import borderVid from "@/public/images/training2/borderVid.svg";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -13,15 +13,17 @@ const MainContainer = styled.main`
 `;
 
 const Test = () => {
-  const [color, setColor] = useState({});
   return (
     <MainContainer>
-      <RadioButtonGroup
-        groupName="Colors"
-        values={["orange", "pink", "Black", "White"]}
-        option={color}
-        setOption={setColor}
-      />
+      <ContainerWithImage image={borderVid}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolorem
+        quod iste blanditiis, velit eligendi rem exercitationem! Ratione
+        repellendus voluptatem aut illo molestias id minus ipsam quo
+        consequatur. Eveniet odit corrupti iste voluptatum, dolores optio nulla
+        assumenda, debitis explicabo at mollitia maiores similique eos provident
+        pariatur? Reprehenderit distinctio possimus doloremque incidunt
+        corporis, corrupti fugit labore magnam veritatis velit ullam.
+      </ContainerWithImage>
     </MainContainer>
   );
 };

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-
 const _DiamondButton = styled.div`
   width: var(--space-xl-2xl);
   height: var(--space-xl-2xl);
@@ -36,17 +35,18 @@ const _DiamondButton = styled.div`
   }
 `;
 
-
-const DiamondButton = ({icon}) => {
+const DiamondButton = ({ icon }) => {
+  console.log("🚀 ~ file: DiamondButton.jsx:45 ~ DiamondButton ~ icon", icon)
   return (
     <_DiamondButton>
-        <button>
-          {/* this is needed so that the image does not overflow out of the button */}
-          <div className="iconContainer">
-            <Image src={icon} alt="daily task" fill/>
-          </div>
-        </button>
-      </_DiamondButton>
-  )
-}
-export default DiamondButton
+      <button>
+        {/* this is needed so that the image does not overflow out of the button */}
+        <div className="iconContainer">
+          <Image src={icon} alt="" fill />
+          
+        </div>
+      </button>
+    </_DiamondButton>
+  );
+};
+export default DiamondButton;
