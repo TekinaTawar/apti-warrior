@@ -1,24 +1,21 @@
 import styled from "styled-components";
 import BorderButton from "../shared/BorderButton";
-import VerticalContainer from "../shared/VerticalContainer";
 import RadioButtonGroup from "../shared/RadioButtonGroup";
 import { useState } from "react";
+import ContainerWithHead from "../shared/ContainerWithHead";
 
-const _Mathematics = styled(VerticalContainer)`
-  grid-area: Mathematics;
-
-  .containerContent {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr fit-content(50px);
-    grid-template-areas: "questionSection options" "buttons buttons";
-    /* background-color: blue; */
-    width: 98%;
-    height: 98%;
-    align-self: center;
-    justify-self: center;
-    row-gap: var(--space-xs);
-  }
+const _Mathematics = styled(ContainerWithHead)`
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr fit-content(50px);
+  grid-template-areas: "questionSection options" "buttons buttons";
+  /* background-color: blue; */
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  justify-self: center;
+  row-gap: var(--space-xs);
+  padding: 1%;
 `;
 
 const QuestionSection = styled.div`
@@ -101,7 +98,7 @@ const Mathematics = () => {
 
   console.log(optionsValue);
   return (
-    <_Mathematics title="Mathematics">
+    <_Mathematics title="Mathematics" grid-area="Mathematics">
       <QuestionSection>
         <p className="question">
           Q. Annual income of A is 10% more than of B whereas income of B is 20%

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Header from "@/components/shared/Header";
-import HorizontalCardContainer from "@/components/shared/VerticalCardContainer";
+import HorizontalCardContainer from "@/components/training/SubjectsContainer";
 
 import ContainerWithImage from "@/components/shared/ContainerWithImage";
 import borderVid from "@/public/images/training2/borderVid.svg";

@@ -17,7 +17,7 @@ const MainContainer = styled.main`
     "Header  Header"
     "mapTitle  chooseBattle"
     "mapContainer  chooseBattle";
-  row-gap: var(--space-xs-s)
+  row-gap: var(--space-xs-s);
   
 `;
 

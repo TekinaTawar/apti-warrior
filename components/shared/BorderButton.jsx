@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import buttonBorder from "@/public/images/buttonBorder.svg";
+import buttonBorder1 from "@/public/images/buttonBorder1.svg";
 import Image from "next/image";
 
 const _BorderButton = styled.button`
@@ -18,13 +18,14 @@ const BorderButton = ({ children }) => {
   return (
     <_BorderButton>
       <Image
-        src={buttonBorder}
+        src={buttonBorder1}
         alt="bg"
         fill
         sizes="100vw"
         style={{
-          objectFit: "fill"
-        }} />
+          objectFit: "fill",
+        }}
+      />
       {children}
     </_BorderButton>
   );

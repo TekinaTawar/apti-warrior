@@ -1,12 +1,10 @@
 import styled from "styled-components";
-import VerticalContainer from "@/components/shared/VerticalContainer";
 import { CgProfile } from "react-icons/cg";
 import { AiFillStar } from "react-icons/ai";
 import { BsFillCircleFill } from "react-icons/bs";
+import ContainerWithHead from "../shared/ContainerWithHead";
 
-const _OnlinePlayers = styled(VerticalContainer)`
-  grid-area: onlinePlayers;
-
+const _OnlinePlayers = styled(ContainerWithHead)`
   .leaderBoardContainer {
     display: grid;
     align-items: center;
@@ -38,12 +36,10 @@ const _OnlinePlayers = styled(VerticalContainer)`
 
 const OnlinePlayers = () => {
   return (
-    <_OnlinePlayers title="Online Players">
+    <_OnlinePlayers title="Online Players" grid-area="onlinePlayers">
       {[...Array(6)].map((e, i) => (
         <div className="leaderBoardContainer" key={i}>
-          <div className="medal">
-            200
-          </div>
+          <div className="medal">200</div>
           <div className="profileIcon">
             <CgProfile />
           </div>

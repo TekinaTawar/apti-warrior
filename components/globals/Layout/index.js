@@ -9,6 +9,7 @@ const BgImage = styled(Image)`
   height: 100%;
   width: 100%;
   object-fit: cover;
+  z-index: -99;
 `;
 
 const Layout = ({ children }) => {
