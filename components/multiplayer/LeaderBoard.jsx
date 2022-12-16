@@ -7,6 +7,12 @@ import { AiFillStar } from "react-icons/ai";
 const _LeaderBoardSection = styled(VerticalContainer)`
   grid-area: leaderBoard;
   font-family: "Metropolis";
+  .containerContent {
+    width: 95%;
+    height: 95%;
+    align-self: center;
+    justify-self: center;
+  }
 
   .leaderBoardContainer {
     display: grid;
@@ -16,6 +22,7 @@ const _LeaderBoardSection = styled(VerticalContainer)`
     padding-block: var(--space-4xs-3xs);
     padding-inline: var(--space-xs-s);
     grid-gap: var(--space-2xs-xs);
+    
     .profileName {
       display: flex;
       justify-content: space-around;

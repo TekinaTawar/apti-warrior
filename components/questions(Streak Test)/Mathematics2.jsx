@@ -3,6 +3,8 @@ import BorderButton from "../shared/BorderButton";
 import VerticalContainer from "../shared/VerticalContainer";
 import RadioButtonGroup from "../shared/RadioButtonGroup";
 import { useState } from "react";
+import { IoTimerOutline } from "react-icons/io5";
+import { FaSearchMinus, FaSearchPlus } from "react-icons/fa";
 
 const _Mathematics = styled(VerticalContainer)`
   grid-area: Mathematics;
@@ -10,14 +12,35 @@ const _Mathematics = styled(VerticalContainer)`
   .containerContent {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr fit-content(50px);
-    grid-template-areas: "questionSection options" "buttons buttons";
+    grid-template-rows: 10% 1fr fit-content(50px);
+    grid-template-areas: "points points " " questionSection options" "  buttons buttons";
     /* background-color: blue; */
     width: 98%;
     height: 98%;
     align-self: center;
     justify-self: center;
-    row-gap: var(--space-xs);
+  }
+`;
+
+const QuestionPoint = styled.div`
+  grid-area: points;
+  background-color: var(--secondary-0);
+  width: 100%;
+  border: 3px solid #fdcf1d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .time {
+    display: flex;
+    padding-inline: var(--space-3xs-2xs);
+    gap: var(--space-3xs-2xs);
+  }
+  .points {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-m-l);
+    padding-inline: var(--space-3xs-2xs);
   }
 `;
 
@@ -29,7 +52,8 @@ const QuestionSection = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
+  gap: var(--space-xs-s);
 
   .question {
     font-weight: 500;
@@ -40,6 +64,13 @@ const QuestionSection = styled.div`
     height: var(--space-2xl-3xl);
     background-color: var(--gray--100);
   }
+
+  .zoomInOut {
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+  }
+
   .options {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -75,11 +106,12 @@ const QuestionsOptions = styled.div`
 const Buttons = styled.div`
   grid-area: buttons;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding-bottom: var(--space-xs);
+  padding-top: var(--space-xs);
 `;
 
-const Mathematics = () => {
+const Mathematics2 = () => {
   const [option, setOption] = useState({});
 
   const optionsValue = [
@@ -99,9 +131,20 @@ const Mathematics = () => {
     };
   });
 
-  console.log(optionsValue);
+  //   console.log(optionsValue);
   return (
     <_Mathematics title="Mathematics">
+      <QuestionPoint>
+        <div className="time">
+          <p>Time left</p>
+          <IoTimerOutline />
+          <p className="elapsedTime">00:45</p>
+        </div>
+        <div className="points">
+          <p className="correctPoint">Points Correct: +180</p>
+          <p className="wrongPoint">Wrong : -45</p>
+        </div>
+      </QuestionPoint>
       <QuestionSection>
         <p className="question">
           Q. Annual income of A is 10% more than of B whereas income of B is 20%
@@ -109,18 +152,13 @@ const Mathematics = () => {
           sum of monthly incomes of A, B and C?
         </p>
         <div className="questionsImage"></div>
-        <div className="options">
-          {[...Array(4)].map((_, i) => (
-            <div className="option" key={i}>
-              <p>A</p>
-              <div className="categoriesImage"></div>
-            </div>
-          ))}
+        <div className="zoomInOut">
+          <FaSearchMinus />
+          <FaSearchPlus />
         </div>
       </QuestionSection>
 
       <QuestionsOptions>
-        <h3>Options</h3>
         <RadioButtonGroup
           groupName="options"
           options={optionsValue}
@@ -131,12 +169,12 @@ const Mathematics = () => {
       </QuestionsOptions>
 
       <Buttons>
-        <BorderButton>Previous</BorderButton>
-        <BorderButton>Clear Response</BorderButton>
+        <BorderButton>Submit</BorderButton>
+        {/* <BorderButton>Clear Response</BorderButton>
         <BorderButton>Flag Question</BorderButton>
-        <BorderButton>Save & Next</BorderButton>
+        <BorderButton>Save & Next</BorderButton> */}
       </Buttons>
     </_Mathematics>
   );
 };
-export default Mathematics;
+export default Mathematics2;

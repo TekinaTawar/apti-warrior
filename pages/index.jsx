@@ -87,20 +87,32 @@ const Home = () => {
               <span>: done</span>
             </li>
             <li>
+              <Link href="/regularTest">Regular Test</Link>
+              <span>: one section of UI , functionality pending..</span>
+            </li>
+            <li>
               <Link href="/test">test</Link>
               <span>: For the Developer only to test current things.</span>
             </li>
             <li>
               <Link href="/practice&learn">Practice&Learn</Link>
-              <span>: For the Developer only to test current things.</span>
+              <span>: UI done but functionality pending.</span>
             </li>
             <li>
               <Link href="/multiplayerDashboard">Multiplayer Dashboard</Link>
-              <span>: For the Developer only to test current things.</span>
+              <span>: UI done but functionality pending.</span>
             </li>
             <li>
-              <Link href="/streakTest">Streak Test</Link>
-              <span>: For the Developer only to test current things.</span>
+              <Link href="/streakTest2">Streak Test 2</Link>
+              <span>: one section of UI , functionality pending..</span>
+            </li>
+            <li>
+              <Link href="/sprintTest">Sprint Test</Link>
+              <span>: one section of UI , functionality pending..</span>
+            </li>
+            <li>
+              <Link href="/settings">Settings</Link>
+              <span>: one section of UI ..</span>
             </li>
           </ul>
         </div>

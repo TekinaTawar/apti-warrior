@@ -41,7 +41,7 @@ const RadioButtonGroup = ({ groupName, options, option, setOption }) => {
             id={value.value}
             value={value.value}
             onChange={(e) => {
-              console.log("India", e);
+              // console.log("India", e);
               setOption(e.target.value);
             }}
             checked={value.value == option}

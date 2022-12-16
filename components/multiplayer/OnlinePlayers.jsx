@@ -6,6 +6,12 @@ import { BsFillCircleFill } from "react-icons/bs";
 
 const _OnlinePlayers = styled(VerticalContainer)`
   grid-area: onlinePlayers;
+  .containerContent {
+    width: 95%;
+    height: 95%;
+    align-self: center;
+    justify-self: center;
+  }
 
   .leaderBoardContainer {
     display: grid;
@@ -41,9 +47,7 @@ const OnlinePlayers = () => {
     <_OnlinePlayers title="Online Players">
       {[...Array(6)].map((e, i) => (
         <div className="leaderBoardContainer" key={i}>
-          <div className="medal">
-            200
-          </div>
+          <div className="medal">200</div>
           <div className="profileIcon">
             <CgProfile />
           </div>

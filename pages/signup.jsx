@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Modal from "@/components/shared/Modal";
 
-import BorderButton from '@/components/shared/BorderButton';
+import BorderButton from "@/components/shared/BorderButton";
 const MainContainer = styled.main`
   position: absolute;
   width: 100%;
@@ -20,7 +20,6 @@ const SignupModal = styled(Modal)`
   grid-auto-rows: repeat(6, 1fr);
 `;
 
-
 const WelcomeText = styled.h2`
   font-family: stormfaze;
   font-size: var(--step-0);
@@ -29,27 +28,27 @@ const WelcomeText = styled.h2`
   display: inline-block;
 `;
 
-const InputGroup = styled.div`
-display: flex;
-flex-direction: column;
-gap: 0.5rem;
-& > label {
-  font-size: .8rem;
-}
-& > input {
-  background-color: black;
-  border: 1px solid var(--golden-yellow3);
-  height: 2.4rem;
-  color: white;
-  font-family: metropolis;
-  font-size: 1rem;
-  font-weight: 500;
-  padding-inline: .5rem;
-  border-radius: 5px;
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  & > label {
+    font-size: 0.8rem;
+  }
+  & > input {
+    background-color: black;
+    border: 1px solid var(--golden-yellow3);
+    height: 2.4rem;
+    color: white;
+    font-family: metropolis;
+    font-size: 1rem;
+    font-weight: 500;
+    padding-inline: 0.5rem;
+    border-radius: 5px;
+  }
+`;
 
-}`
-
-const PhNoSection = styled.div`
+export const PhNoSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-self: stretch;
@@ -64,7 +63,7 @@ const PhNoSection = styled.div`
     height: 2.4rem;
     display: flex;
     align-items: center;
-    padding-left: .5rem;
+    padding-left: 0.5rem;
     font-size: 1rem;
 
     :focus-within {
@@ -75,7 +74,7 @@ const PhNoSection = styled.div`
       color: white;
       /* border-radius: 5px; */
       width: 100%;
-      margin-left: .8rem;
+      margin-left: 0.8rem;
       background-color: transparent;
       /* width: auto; */
       outline: none;
@@ -100,7 +99,12 @@ const Signup = () => {
         <WelcomeText>WELCOME TO APTIWARROR</WelcomeText>
         <InputGroup>
           <label htmlFor="username">ENTER YOUR USER NAME</label>
-          <input type="text" name="username" id="username" value="TekinaTawar" />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            value="TekinaTawar"
+          />
         </InputGroup>
         <InputGroup>
           <label htmlFor="name">ENTER YOUR FULL NAME</label>
@@ -111,12 +115,12 @@ const Signup = () => {
           <input type="email" name="email" id="email" />
         </InputGroup>
         <PhNoSection>
-        <label htmlFor="phNumber">ENTER YOUR MOBILE NUMBER</label>
-        <group className="phNumberInput">
-          <span className="countryCode">+91</span>
-          <input type="tel" name="phNumber" id="phNumber" />
-        </group>
-      </PhNoSection>
+          <label htmlFor="phNumber">ENTER YOUR MOBILE NUMBER</label>
+          <group className="phNumberInput">
+            <span className="countryCode">+91</span>
+            <input type="tel" name="phNumber" id="phNumber" />
+          </group>
+        </PhNoSection>
         <BorderButton>Continue</BorderButton>
       </SignupModal>
     </MainContainer>

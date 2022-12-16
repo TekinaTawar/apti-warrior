@@ -5,8 +5,6 @@ import Header from "@/components/shared/Header";
 import buttonBorder2 from "@/public/images/buttonBorder2.svg";
 import VerticalCardContainer from "@/components/shared/VerticalCardContainer"; // this is vertical not horizontal
 
-
-
 const MainContainer = styled.main`
   position: absolute;
   width: 100%;
@@ -45,7 +43,6 @@ const ModuleCards = styled.div`
   height: 83%;
   position: relative;
   top: 11%;
-
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
@@ -64,7 +61,6 @@ const ModuleCards = styled.div`
     padding-block: var(--space-xs-s);
     gap: var(--space-2xs-xs);
     grid-template-areas: "moduleImage moduleTitle" "progressBar progressBar";
-
     .moduleImage {
       grid-area: moduleImage;
       width: var(--space-l-xl);
@@ -72,14 +68,12 @@ const ModuleCards = styled.div`
       background-color: var(--gray--100);
       /* position: absolute; */
     }
-
     .moduleTitle {
       grid-area: moduleTitle;
       font-size: var(--step-1);
       font-family: metropolis;
       font-weight: 700;
     }
-
     .moduleProgress {
       grid-area: progressBar;
       display: grid;
@@ -90,14 +84,12 @@ const ModuleCards = styled.div`
       /* align-items: center; */
       justify-items: center;
       column-gap: var(--space-2xs-xs);
-
       .progressBarContainer {
         border: 2px solid var(--primary-0);
         height: var(--space-s);
         border-radius: 3px;
         box-shadow: 0px 0px 20px 0px var(--primary--100);
         justify-self: stretch;
-
         .progressLine {
           /* background-color: var(--primary-0); */
           height: 100%;

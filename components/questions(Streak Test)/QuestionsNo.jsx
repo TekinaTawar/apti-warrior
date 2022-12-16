@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const _QuestionsNo = styled(VerticalContainer)`
   grid-area: QuestionsNo;
+
   .containerContent {
     padding: var(--space-xs);
     display: grid;
@@ -22,6 +23,9 @@ const _QuestionsNo = styled(VerticalContainer)`
     .questionNumber {
       border: 1px solid white;
       background-color: white;
+
+      background: linear-gradient(180deg, #b7e255 -17.56%, #4da717 49.54%);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       color: black;
       font-size: var(--step-1);
       font-weight: 700;
@@ -61,3 +65,32 @@ const QuestionsNo = () => {
   );
 };
 export default QuestionsNo;
+
+
+
+
+// #octagon {
+//   width: 100px;
+//   height: 100px;
+//   background: red;
+//   position: relative;
+// }
+// #octagon:before {
+//   content: "";
+//   width: 100px;
+//   height: 0;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   border-bottom: 29px solid red;
+//   border-left: 29px solid #eee;
+//   border-right: 29px solid #eee;
+// }
+// #octagon:after {
+//   content: "";
+//   width: 100px;
+//   height: 0;
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+// }

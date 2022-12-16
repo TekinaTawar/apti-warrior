@@ -1,9 +1,7 @@
-import QuestionsNo from "@/components/questions/QuestionsNo";
 import Header from "@/components/shared/Header";
 import styled from "styled-components";
-import Mathematics from "@/components/questions/Mathematics";
-
-
+import Mathematics2 from "@/components/questions(Streak Test)/Mathematics2";
+import Battle from "@/components/questions(Streak Test)/Battle";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -14,18 +12,19 @@ const MainContainer = styled.main`
   grid-template-rows: fit-content(50px) 1fr;
   grid-template-areas:
     "Header  Header"
-    "Mathematics  QuestionsNo";
+    "Mathematics  opponents";
   row-gap: var(--space-xs-s);
   align-content: stretch;
 `;
 
-const streakTest = () => {
+const sprintTest = () => {
   return (
     <MainContainer>
       <Header />
-      <Mathematics />
-      <QuestionsNo/>
+      <Mathematics2 />
+      <Battle />
+      {/* <LeaderBoard/> */}
     </MainContainer>
   );
 };
-export default streakTest;
+export default sprintTest;

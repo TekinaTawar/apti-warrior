@@ -1,5 +1,7 @@
-import RadioButtonGroup from "@/components/shared/RadioButtonGroup";
-import { useState } from "react";
+import Account from "@/components/accountSettings/Account";
+// import ModuleLocked from "@/components/shared/ModuleLocked";
+// import RadioButtonGroup from "@/components/shared/RadioButtonGroup";
+// import { useState } from "react";
 import styled from "styled-components";
 
 const MainContainer = styled.main`
@@ -13,15 +15,17 @@ const MainContainer = styled.main`
 `;
 
 const Test = () => {
-  const [color, setColor] = useState({});
+  // const [color, setColor] = useState({});
   return (
     <MainContainer>
-      <RadioButtonGroup
+      {/* <RadioButtonGroup
         groupName="Colors"
         values={["orange", "pink", "Black", "White"]}
         option={color}
         setOption={setColor}
-      />
+      /> */}
+      {/* <ModuleLocked /> */}
+      <Account/>
     </MainContainer>
   );
 };
