@@ -1,7 +1,6 @@
-import Image from "next/legacy/image";
-import buttonBorder from "@/public/images/buttonBorder2.svg";
+import Image from "next/image";
+import buttonBorder1 from "@/public/images/buttonBorder2.svg";
 import styled from "styled-components";
-
 
 const _IconButton = styled.button`
   // this is a transparent button which contains absolute "borderImage" and "borderButtonContianer" is black and have width and height such that it seems it is indise the borderImage.
@@ -43,13 +42,13 @@ const _IconButton = styled.button`
   }
 `;
 
-const IconButton = ({children, icon}) => {
+const IconButton = ({ children, icon }) => {
   return (
     <_IconButton>
-      <Image src={buttonBorder} alt="button border" layout="fill" />
+      <Image src={buttonBorder1} alt="button border" fill sizes="100vw" />
       <div className="borderbuttonContainer">
         <i>
-          <Image src={icon} alt="book" layout="fill" />
+          <Image src={icon} alt="book" fill sizes="100vw" />
         </i>
         <div className="buttonContent">{children}</div>
       </div>

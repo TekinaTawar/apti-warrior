@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import VerticalContainer from "@/components/shared/VerticalContainer";
 
+import ContainerWithHead from "../shared/ContainerWithHead";
 import BattleTypeCard from "@/components/practice&learn/BattleTypeCard";
 import streak from "@/public/images/Practice&Learn/streak.svg";
 import topic from "@/public/images/Practice&Learn/topic.svg";
@@ -8,23 +8,18 @@ import sprint from "@/public/images/Practice&Learn/sprint.svg";
 
 import { useState } from "react";
 
-const _ChooseBattle = styled(VerticalContainer)`
-  grid-area: chooseBattle;
-
-  .containerContent {
-    display: grid;
-    grid-template-rows: fit-content(50px) repeat(
-        3,
-        minmax(var(--space-2xl-3xl), auto)
-      );
-    justify-items: center;
-    align-content: space-around;
-
-    /* row-gap: var(--space-xs-s); */
-  }
+const _ChooseBattle = styled(ContainerWithHead)`
+  display: grid;
+  grid-template-rows: fit-content(50px) repeat(
+      3,
+      minmax(var(--space-2xl-3xl), auto)
+    );
+  justify-items: center;
+  align-content: space-around;
 
   h3 {
     font-size: var(--step-1);
+    color: white;
   }
 `;
 
@@ -38,7 +33,7 @@ const ChooseBattle = () => {
   };
 
   return (
-    <_ChooseBattle title="Choose Battle">
+    <_ChooseBattle title="Choose Battle" gridArea="chooseBattle">
       <h3>Digital Marketing</h3>
       <BattleTypeCard
         battleTypeIcon={streak}

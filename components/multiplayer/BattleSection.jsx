@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import VerticalContainer from "@/components/shared/VerticalContainer";
+import ContainerWithHead from "../shared/ContainerWithHead";
 import BorderButton from "../shared/BorderButton";
 import { GiBookmarklet, GiUnlitBomb } from "react-icons/gi";
 import { BsHeart } from "react-icons/bs";
@@ -26,7 +26,7 @@ const _BattleSection = styled.div`
   }
 `;
 
-const _Battles = styled(VerticalContainer)`
+const _Battles = styled(ContainerWithHead)`
   grid-template-rows: 1fr fit-content(50px);
   grid-template-columns: 1fr 1fr;
   grid-area: "battle battle" "button1 button2";

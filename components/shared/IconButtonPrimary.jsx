@@ -1,7 +1,6 @@
-import Image from "next/legacy/image";
-import buttonBorder from "@/public/images/buttonBorder2.svg";
+import Image from "next/image";
+import buttonBorder1 from "@/public/images/buttonBorder2.svg";
 import styled from "styled-components";
-
 
 const _IconButtonPrimary = styled.button`
   // this is a transparent button which contains absolute "borderImage" and "borderButtonContianer" is black and have width and height such that it seems it is indise the borderImage.
@@ -20,7 +19,11 @@ const _IconButtonPrimary = styled.button`
     height: 90%;
     margin-inline: auto;
     /* background-color: var(--primary-200); */
-    background-image: linear-gradient(180deg, var(--primary-0), var(--primary-200));
+    background-image: linear-gradient(
+      180deg,
+      var(--primary-0),
+      var(--primary-200)
+    );
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
@@ -35,7 +38,7 @@ const _IconButtonPrimary = styled.button`
       /* width: 200px; */
       width: 60%;
       height: var(--space-xl-2xl);
-      height: 100%
+      height: 100%;
     }
 
     .buttonContent {
@@ -48,13 +51,13 @@ const _IconButtonPrimary = styled.button`
   }
 `;
 
-const IconButtonPrimary = ({children, icon}) => {
+const IconButtonPrimary = ({ children, icon }) => {
   return (
     <_IconButtonPrimary>
-      <Image src={buttonBorder} alt="button border" layout="fill" />
+      <Image src={buttonBorder1} alt="button border" fill sizes="100vw" />
       <div className="borderbuttonContainer">
         <i>
-          <Image src={icon} alt="book" layout="fill" />
+          <Image src={icon} alt="book" fill sizes="100vw" />
         </i>
         <div className="buttonContent">{children}</div>
       </div>

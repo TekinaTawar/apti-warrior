@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import VerticalContainer from "@/components/shared/VerticalContainer";
 import { BiMedal } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { AiFillStar } from "react-icons/ai";
+import ContainerWithHead from "../shared/ContainerWithHead";
 
-const _LeaderBoardSection = styled(VerticalContainer)`
-  grid-area: leaderBoard;
+const _LeaderBoardSection = styled(ContainerWithHead)`
+  
   font-family: "Metropolis";
   .containerContent {
     width: 95%;
@@ -43,7 +43,7 @@ const _LeaderBoardSection = styled(VerticalContainer)`
 
 const LeaderBoard = () => {
   return (
-    <_LeaderBoardSection title="Leaderboard">
+    <_LeaderBoardSection title="Leaderboard" grid-area= "leaderBoard">
       {[...Array(5)].map((e, i) => (
         <div className="leaderBoardContainer" key={i}>
           <div className="medal">

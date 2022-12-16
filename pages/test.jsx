@@ -1,7 +1,4 @@
-import Account from "@/components/accountSettings/Account";
-// import ModuleLocked from "@/components/shared/ModuleLocked";
-// import RadioButtonGroup from "@/components/shared/RadioButtonGroup";
-// import { useState } from "react";
+import ContainerWithHead from "@/components/shared/ContainerWithHead";
 import styled from "styled-components";
 
 const MainContainer = styled.main`
@@ -10,22 +7,22 @@ const MainContainer = styled.main`
   height: 100%;
   //center the content vertically and horizontally
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: fit-content(50px) fit-content(50px) 1fr;
+  grid-template-areas:
+    "Header  Header"
+    "mapTitle  chooseBattle"
+    "mapContainer  chooseBattle";
+  row-gap: var(--space-xs-s);
 `;
 
 const Test = () => {
-  // const [color, setColor] = useState({});
   return (
     <MainContainer>
-      {/* <RadioButtonGroup
-        groupName="Colors"
-        values={["orange", "pink", "Black", "White"]}
-        option={color}
-        setOption={setColor}
-      /> */}
-      {/* <ModuleLocked /> */}
-      <Account/>
+      <ContainerWithHead title="Modules"/>
     </MainContainer>
   );
 };

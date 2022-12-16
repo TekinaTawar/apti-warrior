@@ -1,9 +1,9 @@
-import modalsvg from "@/public/images/modal.svg";
-import Image from "next/legacy/image";
+import modalsvg from "@/public/images/authContainer.svg";
+import Image from "next/image";
 
 import styled from "styled-components";
 
-const _Modal = styled.div`
+const _Modal = styled.form`
   position: relative; //to position the image
   width: clamp(22.5rem, calc(6.51rem + 71.05vw), 30.94rem);
   height: clamp(500px, 8vh, 650px);
@@ -30,7 +30,15 @@ const _Modal = styled.div`
 const Modal = ({ className, children, modalHead }) => {
   return (
     <_Modal className={className}>
-      <Image src={modalsvg} alt="login modal" layout="fill" objectFit="fill" />
+      <Image
+        src={modalsvg}
+        alt="login modal"
+        fill
+        sizes="100vw"
+        priority
+        style={{
+          objectFit: "fill"
+        }} />
       <h1 className="modalHead">{modalHead}</h1>
       {children}
     </_Modal>

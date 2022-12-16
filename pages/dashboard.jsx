@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/shared/Header";
 import armyMan from "@/public/images/dashboard/armyMan.png";
@@ -91,7 +91,14 @@ const Dashboard = () => {
       </div>
 
       <div className="armyManSection">
-        <Image src={armyMan} alt="armyMan" layout="fill" objectFit="contain" />
+        <Image
+          src={armyMan}
+          alt="armyMan"
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "contain"
+          }} />
       </div>
       <div className="iconButtonSection">
         <IconButton icon={book}>Training</IconButton>

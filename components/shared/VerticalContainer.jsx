@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import BorderContainer from "./BorderContainer";
+import ContainerWithImage from "./ContainerWithImage";
 
 import verticalContainer from "@/public/images/verticalContainer.svg";
 
-const _VerticalContainer = styled(BorderContainer)`
+const _VerticalContainer = styled(ContainerWithImage)`
   .container {
     background-color: transparent;
     z-index: 2;
@@ -36,7 +36,7 @@ const VerticalContainer = ({ className, children, title }) => {
   return (
     <_VerticalContainer
       className={className}
-      border={verticalContainer}
+      image={verticalContainer}
       widthpercent="97%"
     >
       <div className="containerTitle">{title}</div>

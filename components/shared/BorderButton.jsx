@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import buttonBorder from "@/public/images/buttonBorder.svg";
-import Image from "next/legacy/image";
+import buttonBorder1 from "@/public/images/buttonBorder1.svg";
+import Image from "next/image";
 
 const _BorderButton = styled.button`
   background-color: var(--military-green);
@@ -17,7 +17,15 @@ const _BorderButton = styled.button`
 const BorderButton = ({ children }) => {
   return (
     <_BorderButton>
-      <Image src={buttonBorder} alt="bg" layout="fill" objectFit="fill" />
+      <Image
+        src={buttonBorder1}
+        alt="bg"
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: "fill",
+        }}
+      />
       {children}
     </_BorderButton>
   );

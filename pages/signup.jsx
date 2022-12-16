@@ -19,7 +19,7 @@ const SignupModal = styled(Modal)`
 
   grid-auto-rows: repeat(6, 1fr);
 `;
-
+ 
 const WelcomeText = styled.h2`
   font-family: stormfaze;
   font-size: var(--step-0);
@@ -126,4 +126,5 @@ const Signup = () => {
     </MainContainer>
   );
 };
+
 export default Signup;
