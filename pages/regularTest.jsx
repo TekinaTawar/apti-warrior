@@ -1,4 +1,4 @@
-import QuestionsNo from "@/components/questions(Streak Test)/QuestionsNo";
+import QuestionsNoContainer from "@/components/questions(Streak Test)/QuestionsNoContainer";
 import Header from "@/components/shared/Header";
 import styled from "styled-components";
 import Mathematics from "@/components/questions(Streak Test)/Mathematics";
@@ -10,17 +10,18 @@ const MainContainer = styled.main`
   height: 100%;
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: fit-content(50px) 1fr;
+  grid-template-rows: fit-content(50px) 1fr fit-content(50px);
   grid-template-areas:
     "Header  Header"
-    "Mathematics  QuestionsNo"
-    "Mathematics  buttons";
+    "Mathematics  QuestionsNoContainer"
+    "Mathematics  submitTestButton";
   row-gap: var(--space-xs-s);
+  column-gap: var(--space-xs-s);
   align-content: stretch;
 `;
 
 const Buttons = styled.div`
-  grid-area: buttons;
+  grid-area: submitTestButton;
   display: flex;
   justify-content: center;
   padding-bottom: var(--space-xs);
@@ -31,7 +32,7 @@ const streakTest = () => {
     <MainContainer>
       <Header />
       <Mathematics />
-      <QuestionsNo />
+      <QuestionsNoContainer />
       <Buttons>
         <BorderButton>Submit test</BorderButton>
       </Buttons>

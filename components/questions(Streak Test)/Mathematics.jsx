@@ -10,10 +10,6 @@ const _Mathematics = styled(ContainerWithHead)`
   grid-template-rows: 1fr fit-content(50px);
   grid-template-areas: "questionSection options" "buttons buttons";
   /* background-color: blue; */
-  width: 100%;
-  height: 100%;
-  align-self: center;
-  justify-self: center;
   row-gap: var(--space-xs);
   padding: 1%;
 `;
@@ -98,7 +94,7 @@ const Mathematics = () => {
 
   // console.log(optionsValue);
   return (
-    <_Mathematics title="Mathematics" grid-area="Mathematics">
+    <_Mathematics title="Mathematics" gridArea="Mathematics" withLegs={true}>
       <QuestionSection>
         <p className="question">
           Q. Annual income of A is 10% more than of B whereas income of B is 20%

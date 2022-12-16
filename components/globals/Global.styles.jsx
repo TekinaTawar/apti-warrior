@@ -175,8 +175,8 @@ input {
   font-family: 'Courier New', Courier, monospace;
 }
 
-/*
-scroll bar styles
+
+/* scroll bar styles
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -191,8 +191,8 @@ Handle
 Handle on hover
 ::-webkit-scrollbar-thumb:hover {
   background: #a7a7a7;
-}
-*/
+} */
+
 `;
 
 export default GlobalStyle;

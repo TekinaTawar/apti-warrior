@@ -6,6 +6,8 @@ const _ContainerWithHead = styled.div`
   display: grid;
   grid-template-rows: var(--space-l-xl) 1fr;
   grid-template-columns: 1fr;
+  min-height: 100%;
+  
   ${(props) => props.gridArea && `grid-area: ${props.gridArea};`}
 
   .head {
@@ -30,6 +32,7 @@ const Container = styled.div`
   border-radius: 8px;
   position: relative;
   color: white;
+  
 
   ${(props) =>
     props.withLegs &&
