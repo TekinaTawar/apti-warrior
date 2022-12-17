@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ContainerWithImage from "./ContainerWithImage";
 
-import verticalContainer from "@/public/images/verticalContainer.svg";
+// import verticalContainer from "@/public/images/verticalContainer.svg";
 
 const _VerticalContainer = styled(ContainerWithImage)`
   .container {
@@ -36,7 +36,7 @@ const VerticalContainer = ({ className, children, title }) => {
   return (
     <_VerticalContainer
       className={className}
-      image={verticalContainer}
+      image={ContainerWithImage}
       widthpercent="97%"
     >
       <div className="containerTitle">{title}</div>

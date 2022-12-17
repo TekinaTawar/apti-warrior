@@ -7,6 +7,7 @@ import ContainerWithImage from "@/components/shared/ContainerWithImage";
 import borderVid from "@/public/images/training2/borderVid.svg";
 import border3 from "@/public/images/training2/border3.svg";
 import { FaPlay } from "react-icons/fa";
+import QuizContainer from "@/components/QuizContainer";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -18,15 +19,17 @@ const MainContainer = styled.main`
   grid-template-rows: fit-content(50px) 1fr 1fr;
   grid-template-areas:
     "Header Header Header"
-    "subjectsContainer videoContainer moduleTopicContainer"
-    "subjectsContainer videoTextContainer moduleTopicContainer";
+    /* "subjectsContainer videoContainer moduleTopicContainer"
+    "subjectsContainer videoTextContainer moduleTopicContainer"; */
+    "subjectsContainer quizContainer moduleTopicContainer"
+    "subjectsContainer quizContainer moduleTopicContainer";
   column-gap: var(--space-2xs-xs);
   row-gap: var(--space-2xs-xs);
 `;
 
-const VideoContainer = styled(ContainerWithImage)`
-  grid-area: videoContainer;
-`;
+// const VideoContainer = styled(ContainerWithImage)`
+//   grid-area: videoContainer;
+// `;
 
 const VideoTextContainer = styled.div`
   grid-area: videoTextContainer;
@@ -94,11 +97,11 @@ const Training2 = () => {
       {/* modulecontainer */}
       <HorizontalCardContainer />
       {/* videoContainer */}
-      <VideoContainer image={borderVid} widthpercent={"98%"}>
+      {/* <VideoContainer image={borderVid} widthpercent={"98%"}>
         <FaPlay size={50} />
-      </VideoContainer>
+      </VideoContainer> */}
       {/* videoTextContainer */}
-      <VideoTextContainer>
+      {/* <VideoTextContainer>
         <h1>Digital Marketing</h1>
         <p>
           {" "}
@@ -139,7 +142,8 @@ const Training2 = () => {
           inventore ipsum, repellendus nesciunt sequi iure accusantium molestiae
           ullam tempore!
         </p>
-      </VideoTextContainer>
+      </VideoTextContainer> */}
+      <QuizContainer />
       {/* moduleTopicContainer */}
       <ModuleTopicContainer image={border3} widthpercent={"98%"}>
         <div className="content">

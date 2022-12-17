@@ -111,7 +111,7 @@ const LoginModal = () => {
 
   return (
     <_LoginModal modalHead="Login" onSubmit={handleSubmit(submitForm)}>
-      <WelcomeText>WELCOME TO APTIWARROR</WelcomeText>
+      <WelcomeText>WELCOME TO APTIWARRIOR</WelcomeText>
 
       <PhNoSection>
         <label htmlFor="phNumber">ENTER YOUR MOBILE NUMBER</label>
