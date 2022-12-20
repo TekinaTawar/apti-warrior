@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import BorderButton from "../shared/BorderButton";
-import VerticalContainer from "../shared/VerticalContainer";
+import ContainerWithHead from "../shared/ContainerWithHead";
 import RadioButtonGroup from "../shared/RadioButtonGroup";
 import { useState } from "react";
 import { IoTimerOutline } from "react-icons/io5";
 import { FaSearchMinus, FaSearchPlus } from "react-icons/fa";
 
-const _Mathematics = styled(VerticalContainer)`
+const _Mathematics = styled(ContainerWithHead)`
   grid-area: Mathematics;
 
   .containerContent {

@@ -76,7 +76,7 @@ const ContainerWithHead = ({
           src={containerHead}
           alt=""
           fill
-          style={{ objectFit: "contain", zIndex: -1 }}
+          style={{ objectFit: "contain" }}
         />
         <h2>{title}</h2>
       </div>

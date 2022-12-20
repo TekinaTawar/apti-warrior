@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import BorderButton from "../shared/BorderButton";
-import VerticalContainer from "../shared/VerticalContainer";
+import ContainerWithHead from "../shared/ContainerWithHead";
 
-const _CustomBattle = styled(VerticalContainer)`
-  grid-area: CustomBattle;
-
+const _CustomBattle = styled(ContainerWithHead)`
   .battleButtons {
     display: flex;
     flex-direction: row;
@@ -65,9 +63,9 @@ const _customBattleContent = styled.div`
   }
 `;
 
-const CustomBattle = () => {
+const CustomBattle = ({ closeModal }) => {
   return (
-    <_CustomBattle title=" Custom Battle">
+    <_CustomBattle title=" Custom Battle" grid-area="CustomBattle">
       <_customBattleContent>
         <div className="customBattle">
           <div className="battleHeadings">
@@ -96,7 +94,13 @@ const CustomBattle = () => {
 
         <div className="battleButtons">
           <BorderButton className="button1">Start Battle</BorderButton>
-          <BorderButton className="button2">Cancel</BorderButton>
+          <BorderButton
+            className="button2"
+            onClick={closeModal}
+          >
+            Cancel
+          </BorderButton>
+          {/* <button onClick={closeModal}>cancel</button> */}
         </div>
       </_customBattleContent>
     </_CustomBattle>

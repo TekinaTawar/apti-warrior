@@ -1,10 +1,10 @@
 import Image from "next/legacy/image";
 import styled from "styled-components";
-import VerticalContainer from "../shared/VerticalContainer";
+import ContainerWithHead from "../shared/ContainerWithHead";
 import face from "@/public/images/Practice&Learn/face.svg";
 import { AiFillHeart } from "react-icons/ai";
 
-const _Battle = styled(VerticalContainer)`
+const _Battle = styled(ContainerWithHead)`
   grid-area: opponents;
 `;
 const ModuleCards = styled.div`

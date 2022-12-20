@@ -42,9 +42,9 @@ const _IconButton = styled.button`
   }
 `;
 
-const IconButton = ({ children, icon }) => {
+const IconButton = ({ children, icon, onClick }) => {
   return (
-    <_IconButton>
+    <_IconButton onClick={onClick}>
       <Image src={buttonBorder1} alt="button border" fill sizes="100vw" />
       <div className="borderbuttonContainer">
         <i>

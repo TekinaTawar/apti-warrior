@@ -1,16 +1,11 @@
-import styled from "styled-components"
-import VerticalContainer from "../shared/VerticalContainer"
+import styled from "styled-components";
+import ContainerWithHead from "../shared/ContainerWithHead";
 
-
-const _Menu = styled(VerticalContainer)`
-    grid-area: menu;
-
-`
-
+const _Menu = styled(ContainerWithHead)`
+  grid-area: menu;
+`;
 
 const Menu = () => {
-  return (
-    <_Menu title="Menu">Menu</_Menu>
-  )
-}
+  return <_Menu title="Menu">Menu</_Menu>;
+};
 export default Menu;

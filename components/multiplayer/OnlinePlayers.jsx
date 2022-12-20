@@ -37,7 +37,7 @@ const _OnlinePlayers = styled(ContainerWithHead)`
 const OnlinePlayers = () => {
   return (
     <_OnlinePlayers title="Online Players" grid-area="onlinePlayers">
-      {[...Array(6)].map((e, i) => (
+      {[...Array(5)].map((e, i) => (
         <div className="leaderBoardContainer" key={i}>
           <div className="medal">200</div>
           <div className="profileIcon">
