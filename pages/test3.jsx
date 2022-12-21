@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import Button1 from "@/shared/Button/Button1"
-import buttonBorder1 from "@/public/images/buttonBorder1.svg";
+import Button1 from "@/shared/Button/Button1";
+import ButtonHugging from "@/shared/Button/ButtonHugging";
+
 
 const MainContainer = styled.main`
   position: absolute;
@@ -12,10 +13,15 @@ const MainContainer = styled.main`
 `;
 
 const Test3 = () => {
-  return <MainContainer>
-    <Button1>
-      India
-    </Button1>
-  </MainContainer>;
+  return (
+    <MainContainer>
+      <Button1>Continue</Button1>
+      <Button1 buttonState="disabled">diabled</Button1>
+      <Button1 buttonState="loading">Loading</Button1>
+      <ButtonHugging>Loading</ButtonHugging>
+      <ButtonHugging buttonState="disabled">disabled</ButtonHugging>
+      <ButtonHugging buttonState="loading">Loading</ButtonHugging>
+    </MainContainer>
+  );
 };
 export default Test3;

@@ -1,47 +1,46 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-//docs: children will be automatically centered.
-//docs: image will be used as image that can either be border or image
-//docs: widthpercent and heightpercent tells how much outside the border will be of continer.
-//docs: give children a width of 100% and height of 100% to make it fill the container.
 const _ContainerWithImage = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
+  display: grid;
+  /* justify-content: center; */
+  justify-items: center;
+  align-items: center;
+`;
+
+const Container = styled.div`
+
+  height: 97%;
+  width: 98%;
+  //custom
+  background-color: black;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: pink; */
-
-
-  .container {
-    width: ${(props) => props.widthpercent || "98%"};
-    height: ${(props) => props.heightpercent || "97%"};
-    //custom
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 `;
 
-const ContainerWithImage = ({
-  className,
-  children,
-  image,
-  widthpercent,
-  heightpercent,
-}) => {
+// !give styling like gridArea and margin that influence parent use style={{ //styles}}
+
+const ContainerWithImage = ({ className, children, image, ...props }) => {
   return (
-    <_ContainerWithImage
-      className={className}
-      widthpercent={widthpercent}
-      heightpercent={heightpercent}
-    >
-      <Image src={image} alt="" fill />
-      <div className="container">{children}</div>
+    <_ContainerWithImage {...props}>
+      <Image
+        src={image}
+        alt=""
+        fill
+        style={{
+          width: "100%",
+          height: "100%",
+          zIndex: "2",
+        }}
+      />
+
+      {/* ! if you want internal box with color to shrink give width & height directly */}
+      {/* this is internal box */}
+
+      <Container className={className}>{children}</Container>
     </_ContainerWithImage>
   );
 };

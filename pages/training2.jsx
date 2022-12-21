@@ -97,7 +97,7 @@ const Training2 = () => {
       {/* modulecontainer */}
       <HorizontalCardContainer />
       {/* videoContainer */}
-      {/* <VideoContainer image={borderVid} widthpercent={"98%"}>
+      {/* <VideoContainer image={borderVid} widthPercent={"98%"}>
         <FaPlay size={50} />
       </VideoContainer> */}
       {/* videoTextContainer */}
@@ -145,7 +145,7 @@ const Training2 = () => {
       </VideoTextContainer> */}
       <QuizContainer />
       {/* moduleTopicContainer */}
-      <ModuleTopicContainer image={border3} widthpercent={"98%"}>
+      <ModuleTopicContainer image={border3} widthPercent={"98%"}>
         <div className="content">
           <ul>
             <h2>Topic 1: The Tigers&apos;s of Cave</h2>

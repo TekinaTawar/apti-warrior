@@ -1,27 +1,62 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 import ContainerWithImage from "../ContainerWithImage";
 
 const _Button = styled.button`
+  position: relative;
   background-color: transparent;
   border: none;
   color: inherit;
   font-size: inherit;
-  ${({buttonState})=> {
-    switch(buttonState){
-      case "disabled": return css`
-        
-      `
-      case "loading": return css`
-      
-      `
+  text-transform: inherit;
+  padding-inline: var(--space-s-m);
+  padding-block: var(--space-2xs-xs);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+
+  ${({ buttonState }) => {
+    switch (buttonState) {
+      case "disabled":
+        return css`
+          opacity: 0.532;
+          z-index: 10;
+          background-color: black;
+          color: darkslategray;
+          border-radius: 5px;
+          cursor: not-allowed;
+        `;
+      case "loading":
+        return css`
+          cursor: progress;
+          color: transparent;
+
+          &::before {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 5px solid transparent;
+            border-top-color: white;
+            border-right-color: white;
+            animation: loading 0.3s linear infinite;
+          }
+          @keyframes loading {
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        `;
     }
   }}
-`
+`;
 
 // button with 3 states disabled, loading
 const Button = ({ className, children, buttonState, ...props }) => {
   return (
-    <_Button {...props} buttonState={buttonState}>
+    <_Button {...props} buttonState={buttonState} className={className}>
       {children}
     </_Button>
   );

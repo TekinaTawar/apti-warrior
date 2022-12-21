@@ -13,9 +13,6 @@ import xp from "@/public/images/Practice&Learn/xp.svg";
 
 const _QuizContainer = styled(ContainerWithImage)`
   grid-area: quizContainer;
-  font-family: "Metropolis";
-  width: 100%;
-  height: 100%;
 `;
 
 const QuizType = styled.div`
@@ -67,7 +64,7 @@ const QuizType = styled.div`
 
 const QuizContainer = () => {
   return (
-    <_QuizContainer image={borderVid} widthpercent={"98%"}>
+    <_QuizContainer image={borderVid} widthPercent={"98%"}>
       <QuizType>
         <h2>Some Random Topic Name</h2>
         <p>
