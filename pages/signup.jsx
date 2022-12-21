@@ -16,7 +16,6 @@ const SignupModal = styled(Modal)`
   display: grid;
   justify-content: center;
   align-content: space-around;
-
   grid-auto-rows: repeat(6, 1fr);
 `;
  

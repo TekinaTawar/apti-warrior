@@ -13,6 +13,7 @@ const _IconButton = styled.button`
   height: var(--space-3xl-4xl);
   /* width: var(--space-6xl-7xl); */
   width: var(--space-6xl-7xl);
+  cursor: pointer;
 
   & .borderbuttonContainer {
     width: 99%;

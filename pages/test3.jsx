@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Button from "@/shared/Button/Button"
+import Button1 from "@/shared/Button/Button1"
 import buttonBorder1 from "@/public/images/buttonBorder1.svg";
 
 const MainContainer = styled.main`
@@ -13,9 +13,9 @@ const MainContainer = styled.main`
 
 const Test3 = () => {
   return <MainContainer>
-    <Button image={buttonBorder1}>
-      Pakistan
-    </Button>
+    <Button1>
+      India
+    </Button1>
   </MainContainer>;
 };
 export default Test3;

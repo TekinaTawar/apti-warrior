@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
 import styled from "styled-components";
-import map from "@/public/images/Practice&Learn/map.svg";
+import map from "@/public/images/Practice&Learn/map.png";
 import LevelCard from "@/components/practice&learn/LevelCard";
 // import star from "@/public/images/star.svg"
 

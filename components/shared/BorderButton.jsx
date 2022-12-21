@@ -12,6 +12,7 @@ const _BorderButton = styled.button`
   border-radius: 5px;
   position: relative; //to position border;
   border: none;
+  cursor: pointer;
 `;
 
 const BorderButton = ({ children, onClick }) => {

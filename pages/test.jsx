@@ -3,7 +3,13 @@ import Modal2 from "@/components/shared/Modal2";
 import Image from "next/legacy/image";
 import { useState } from "react";
 import styled from "styled-components";
+
+
 import singlePlayer from "@/public/images/dashboard/singlePlayer.svg";
+import multiPlayer from "@/public/images/dashboard/multiPlayer.svg";
+import league from "@/public/images/dashboard/league.svg";
+
+
 import { AiFillStar } from "react-icons/ai";
 import lock from "@/public/images/Practice&Learn/lock.svg";
 
@@ -147,7 +153,7 @@ const Test = () => {
             </div>
           </div>
           <div className="container">
-            <Image src={singlePlayer} alt="face" fill />
+            <Image src={multiPlayer} alt="multiPlayer" fill />
             <div className="points">
               <ul className="activeUsers">
                 <li>425</li>
@@ -171,7 +177,7 @@ const Test = () => {
             </div>
           </div>
           <div className="container">
-            <Image src={singlePlayer} alt="league" fill />
+            <Image src={league} alt="league" fill />
 
             <div className="points">
               <ul className="ComingSoonCard ">

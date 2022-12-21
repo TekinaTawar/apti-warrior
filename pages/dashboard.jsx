@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/components/shared/Header";
-import armyMan from "@/public/images/dashboard/armyMan.png";
+import armyMans from "@/public/images/dashboard/armyMans.png";
 import { useRouter } from "next/router";
 
 import IconButton from "@/components/shared/IconButton";
@@ -28,7 +28,7 @@ const MainContainer = styled.main`
 
   display: grid;
   grid-template-rows: fit-content(50px) 1fr; //maybe change that 1fr to minmax or 100% or something.
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-areas: "Header Header Header" "diamondButtonSection armyManSection iconButtonSection";
 
   align-items: center;
@@ -59,7 +59,8 @@ const MainContainer = styled.main`
 
   .armyManSection {
     grid-area: armyManSection;
-    height: 70%;
+    height: 100%;
+    width: 100%;
     position: relative;
     /* justify-self: start; */
   }
@@ -105,10 +106,10 @@ const Dashboard = () => {
 
       <div className="armyManSection">
         <Image
-          src={armyMan}
-          alt="armyMan"
+          src={armyMans}
+          alt="armyMans"
           fill
-          sizes="100vw"
+          // sizes="100vw"
           style={{
             objectFit: "contain",
           }}
@@ -118,7 +119,9 @@ const Dashboard = () => {
         <Link href="/training">
           <IconButton icon={book}>Training</IconButton>
         </Link>
-        <IconButton icon={analytics} onClick={()=>router.push("/training2")}>Analytics</IconButton>
+        <IconButton icon={analytics} onClick={() => router.push("/training2")}>
+          Analytics
+        </IconButton>
         <IconButton icon={trophy}>LeaderBoard</IconButton>
         <IconButtonPrimary icon={gun}>Battle</IconButtonPrimary>
       </div>
