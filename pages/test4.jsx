@@ -1,27 +1,32 @@
-import styled from "styled-components";
-import ContainerWithHead from "@/components/shared/ContainerWithHead";
 import ContainerWithImage from "@/components/shared/ContainerWithImage";
-import verticalBoxInsideBorder from "@/public/images/verticalBoxInsideBorder.svg";
+import styled from "styled-components";
+import border3 from "@/public/images/Training2/border3.svg";
 
-const _SubjectsContainer = styled(ContainerWithHead)`
-  padding: 2%;
-  margin-left: 2%;
+const MainContainer = styled.main`
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "frame";
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: fit-content(50px) 1fr fit-content(50px);
+  grid-template-areas:
+    "Header  Header"
+    "Mathematics  QuestionsNoContainer"
+    "Mathematics  submitTestButton";
+  row-gap: var(--space-xs-s);
+  column-gap: var(--space-xs-s);
   align-content: stretch;
-  min-height: 100%;
 `;
 
 const _ContainerWithImage = styled(ContainerWithImage)`
   width: 88%;
   height: 90%;
-  /* padding-inline: var(--space-xs-s);
-  padding-block: var(--space-s-m); */
+  padding-inline: var(--space-xs-s);
+  padding-block: var(--space-s-m);
   overflow-y: scroll;
   display: block;
 `;
+
 
 const SubjectCard = styled.div`
   border: 1px solid var(--primary-0);
@@ -86,11 +91,15 @@ const SubjectCard = styled.div`
   }
 `;
 
-const SubjectsContainer = () => {
+
+const test4 = () => {
   return (
-    <_SubjectsContainer title="Subjects" gridArea="subjectsContainer">
-      <_ContainerWithImage image={verticalBoxInsideBorder}  style={{ gridArea: "frame" }}>
-        {[...Array(6)].map((e, i) => (
+    <MainContainer>
+      <_ContainerWithImage
+        image={border3}
+        style={{ gridArea: "QuestionsNoContainer" }}
+      >
+       {[...Array(6)].map((e, i) => (
           <SubjectCard key={i}>
             <div className="subjectImage"></div>
             <div className="subjectTitle">Digital Marketing</div>
@@ -103,7 +112,7 @@ const SubjectsContainer = () => {
           </SubjectCard>
         ))}
       </_ContainerWithImage>
-    </_SubjectsContainer>
+    </MainContainer>
   );
 };
-export default SubjectsContainer;
+export default test4;

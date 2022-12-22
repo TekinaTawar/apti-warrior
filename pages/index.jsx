@@ -26,7 +26,6 @@ const MainContainer = styled.main`
 
 const Banner = styled(ContainerWithImage)`
   /* height: 60%; */
-
   .content {
     width: 100%;
     height: 100%;
@@ -56,7 +55,7 @@ const Banner = styled(ContainerWithImage)`
 const Home = () => {
   return (
     <MainContainer>
-      <Banner image={borderVid} style={{ height: "60%", width: "60%" }}>
+      <Banner image={borderVid} style={{ height: "60%", width: "60%" }} takeExternalSize={false}>
         <div className="content">
           <h2>Apti Warrior</h2>
           <h4>Check the Progress by Clicking the links below.</h4>

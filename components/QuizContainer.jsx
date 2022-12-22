@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ContainerWithImage from "./shared/ContainerWithImage";
 import borderVid from "@/public/images/training2/borderVid.svg";
-import BorderButton from "./shared/BorderButton";
+import ButtonHugging from "@/components/shared/Button/ButtonHugging";
 import Image from "next/legacy/image";
 import questionCircle from "@/public/images/Practice&Learn/questionCircle.svg";
 import time from "@/public/images/Practice&Learn/time.svg";
@@ -12,14 +12,17 @@ import dumble from "@/public/images/Practice&Learn/dumble.svg";
 import xp from "@/public/images/Practice&Learn/xp.svg";
 
 const _QuizContainer = styled(ContainerWithImage)`
-  grid-area: quizContainer;
+  
 `;
 
 const QuizType = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: space-between;
+  height: 100%;
   padding: var(--space-m-l);
-  gap: var(--space-m-l);
+  /* gap: var(--space-m-l); */
 
   h2 {
     font-style: normal;
@@ -64,7 +67,7 @@ const QuizType = styled.div`
 
 const QuizContainer = () => {
   return (
-    <_QuizContainer image={borderVid} widthPercent={"98%"}>
+    <_QuizContainer image={borderVid} style={{gridArea: "span 2"}} >
       <QuizType>
         <h2>Some Random Topic Name</h2>
         <p>
@@ -116,7 +119,7 @@ const QuizContainer = () => {
           </div>
         </div>
         <p className="correct">Your best attempt: 5 correct answers</p>
-        <BorderButton>START TEST</BorderButton>
+        <ButtonHugging>START TEST</ButtonHugging>
       </QuizType>
     </_QuizContainer>
   );

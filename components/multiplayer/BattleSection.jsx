@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ContainerWithHead from "../shared/ContainerWithHead";
-import BorderButton from "../shared/BorderButton";
+import Button1 from "@/components/shared/Button/Button1";
 import { GiBookmarklet, GiUnlitBomb } from "react-icons/gi";
 import { BsHeart } from "react-icons/bs";
 import { IoIosPeople } from "react-icons/io";
@@ -67,7 +67,7 @@ const _Battles = styled(ContainerWithHead)`
         color: #fff;
         border-radius: 3.75261px;
         font-weight: 700;
-        cursor: pointer;
+        
       }
     }
   }
@@ -130,9 +130,9 @@ const BattleSection = () => {
         </div>
       </_Battles>
       <div className="battleButtons">
-        <BorderButton className="button1">Join Battle</BorderButton>
+        <Button1 className="button1">Join Battle</Button1>
 
-        <BorderButton className="button2">Create Battle</BorderButton>
+        <Button1 className="button2">Create Battle</Button1>
       </div>
     </_BattleSection>
   );

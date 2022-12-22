@@ -3,7 +3,8 @@ import styled from "styled-components";
 import OtpInput from "react-otp-input";
 
 import Modal from "@/components/shared/Modal";
-import BorderButton from "@/components/shared/BorderButton";
+import Button1 from "@/components/shared/Button/Button1";
+import Button from "@/components/shared/Button/Button";
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -44,6 +45,14 @@ const OtpModal = styled(Modal)`
   }
 `;
 
+const EditButton = styled(Button)`
+  border: 3px solid var(--primary--100);
+  padding-inline: var(--space-2xs-xs);
+  padding-block: var(--space-4xs-3xs);
+  text-transform: Capitalize;
+  font-family: metropolis;
+`;
+
 const Otp = () => {
   const [otp, setOtp] = useState();
 
@@ -53,7 +62,7 @@ const Otp = () => {
         <h3 className="verifyMobileLabel">VERIFY YOUR MOBILE NUMBER</h3>
         <div className="mobileNumberEdit">
           <h3 className="mobileNo">+91-1234567890</h3>
-          <BorderButton> Edit </BorderButton>
+          <EditButton> Edit </EditButton>
         </div>
         <OtpInput
           value={otp}
@@ -63,7 +72,7 @@ const Otp = () => {
           isInputNum={true}
         />
         <h4>Enter your OTP</h4>
-        <BorderButton>Verify</BorderButton>
+        <Button1>Verify</Button1>
       </OtpModal>
     </MainContainer>
   );

@@ -5,7 +5,6 @@ import BattleTypeCard from "@/components/practice&learn/BattleTypeCard";
 import streak from "@/public/images/Practice&Learn/streak.svg";
 import topic from "@/public/images/Practice&Learn/topic.svg";
 import sprint from "@/public/images/Practice&Learn/sprint.svg";
-import {useForm} from "react-hook-form"
 
 import { useState } from "react";
 

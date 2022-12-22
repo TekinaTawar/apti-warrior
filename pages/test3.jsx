@@ -16,8 +16,9 @@ const Test3 = () => {
   return (
     <MainContainer>
       <Button1>Continue</Button1>
-      <Button1 buttonState="disabled">diabled</Button1>
-      <Button1 buttonState="loading">Loading</Button1>
+      <Button1 isDisabled={true}>diabled</Button1>
+      <Button1 isLoading={true}>Loading</Button1>
+      <Button1 isLoading={true} isDisabled={true}>Loading</Button1>
       <ButtonHugging>Loading</ButtonHugging>
       <ButtonHugging buttonState="disabled">disabled</ButtonHugging>
       <ButtonHugging buttonState="loading">Loading</ButtonHugging>

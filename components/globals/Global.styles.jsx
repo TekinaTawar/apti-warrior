@@ -62,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
   --gray-100: hsl(0, 0%, 33%);
   --gray-200: hsl(0, 0%, 17%);
 
-  --primary--300: hsl(40, 100%, 83%):
+  --primary--300: hsl(40, 100%, 83%);
   --primary--200: hsl(49, 100%, 61%);
   --primary--100: hsl(43, 100%, 67%);
   --primary-0: hsl(48, 97%, 50%);
@@ -173,6 +173,12 @@ a {
 
 input {
   font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+  /* > * ::-webkit-scrollbar {
+    display: none;
+  } */
 }
 
 

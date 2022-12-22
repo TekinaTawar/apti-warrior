@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import ContainerWithImage from "../ContainerWithImage";
 
 const _Button = styled.button`
   position: relative;
@@ -14,6 +13,13 @@ const _Button = styled.button`
   justify-content: center;
   align-items: center;
   z-index: 2;
+  cursor: pointer;
+  font-family: stormfaze;
+  white-space: nowrap;
+
+  :hover {
+    transform: scale(110%);
+  }
 
   ${({ buttonState }) => {
     switch (buttonState) {
@@ -25,6 +31,10 @@ const _Button = styled.button`
           color: darkslategray;
           border-radius: 5px;
           cursor: not-allowed;
+
+          :hover {
+            transform: scale(100%);
+          }
         `;
       case "loading":
         return css`
@@ -53,10 +63,22 @@ const _Button = styled.button`
   }}
 `;
 
-// button with 3 states disabled, loading
-const Button = ({ className, children, buttonState, ...props }) => {
+//* button with 3 states disabled, loading
+
+const Button = ({ className, children, isLoading, isDisabled, ...props }) => {
+  const getButtonState = () => {
+    if (isLoading == true && isDisabled == true) {
+      return "loading";
+    } else if (isLoading == true) {
+      return "loading";
+    } else if (isDisabled == true) {
+      return "disabled";
+    } else {
+      return null;
+    }
+  };
   return (
-    <_Button {...props} buttonState={buttonState} className={className}>
+    <_Button {...props} buttonState={getButtonState()} className={className}>
       {children}
     </_Button>
   );

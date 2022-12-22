@@ -4,44 +4,45 @@ import Image from "next/image";
 const _ContainerWithImage = styled.div`
   position: relative;
   display: grid;
-  /* justify-content: center; */
+  /* grid-template-columns: 1fr;
+  grid-template-rows: 1fr; */
+  ${({ takeExternalSize }) => takeExternalSize && `min-height: 100%;`}
+
   justify-items: center;
   align-items: center;
 `;
 
-const Container = styled.div`
-
-  height: 97%;
+//container should get small then border
+const _Container = styled.div`
   width: 98%;
-  //custom
+  height: 97%;
   background-color: black;
   color: white;
+
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-// !give styling like gridArea and margin that influence parent use style={{ //styles}}
-
-const ContainerWithImage = ({ className, children, image, ...props }) => {
+const ContainerWithImage2 = ({
+  children,
+  image,
+  className,
+  takeExternalSize = true,
+  ...props
+}) => {
   return (
-    <_ContainerWithImage {...props}>
+    <_ContainerWithImage {...props} takeExternalSize={takeExternalSize}>
       <Image
         src={image}
         alt=""
         fill
         style={{
-          width: "100%",
-          height: "100%",
-          zIndex: "2",
+          pointerEvents: "none",
         }}
       />
-
-      {/* ! if you want internal box with color to shrink give width & height directly */}
-      {/* this is internal box */}
-
-      <Container className={className}>{children}</Container>
+      <_Container className={className}>{children}</_Container>
     </_ContainerWithImage>
   );
 };
-export default ContainerWithImage;
+export default ContainerWithImage2;

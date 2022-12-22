@@ -4,9 +4,7 @@ import ContainerWithHead from "../shared/ContainerWithHead";
 import face from "@/public/images/Practice&Learn/face.svg";
 import { AiFillHeart } from "react-icons/ai";
 
-const _Battle = styled(ContainerWithHead)`
-  grid-area: opponents;
-`;
+const _Battle = styled(ContainerWithHead)``;
 const ModuleCards = styled.div`
   z-index: 1;
   width: 90%;
@@ -76,7 +74,7 @@ const ModuleCards = styled.div`
 
 const Battle = () => {
   return (
-    <_Battle title="Battle">
+    <_Battle title="Battle" gridArea="opponents">
       <ModuleCards>
         {[...Array(4)].map((_, i) => (
           <div key={i} className="moduleCard">
