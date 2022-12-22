@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import BorderButton from "../shared/BorderButton";
-import VerticalContainer from "../shared/VerticalContainer";
+import ContainerWithHead from "../shared/ContainerWithHead";
 import { MdSaveAlt } from "react-icons/md";
 import { FiShare2 } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 
-const _CustomBattle = styled(VerticalContainer)`
+const _CustomBattle = styled(ContainerWithHead)`
   grid-area: CustomBattle;
 
   .battleButtons {

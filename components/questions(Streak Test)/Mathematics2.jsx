@@ -1,25 +1,18 @@
 import styled from "styled-components";
 import BorderButton from "../shared/BorderButton";
-import VerticalContainer from "../shared/VerticalContainer";
+import ContainerWithHead from "../shared/ContainerWithHead";
 import RadioButtonGroup from "../shared/RadioButtonGroup";
 import { useState } from "react";
 import { IoTimerOutline } from "react-icons/io5";
 import { FaSearchMinus, FaSearchPlus } from "react-icons/fa";
 
-const _Mathematics = styled(VerticalContainer)`
-  grid-area: Mathematics;
+const _Mathematics = styled(ContainerWithHead)`
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 10% 1fr fit-content(50px);
+  grid-template-areas: "points points " " questionSection options" "  buttons buttons";
+  /* background-color: blue; */
 
-  .containerContent {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 10% 1fr fit-content(50px);
-    grid-template-areas: "points points " " questionSection options" "  buttons buttons";
-    /* background-color: blue; */
-    width: 98%;
-    height: 98%;
-    align-self: center;
-    justify-self: center;
-  }
 `;
 
 const QuestionPoint = styled.div`
@@ -133,7 +126,7 @@ const Mathematics2 = () => {
 
   //   console.log(optionsValue);
   return (
-    <_Mathematics title="Mathematics">
+    <_Mathematics title="Mathematics" gridArea="Mathematics">
       <QuestionPoint>
         <div className="time">
           <p>Time left</p>

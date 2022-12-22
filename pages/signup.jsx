@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Modal from "@/components/shared/Modal";
 
-import BorderButton from "@/components/shared/BorderButton";
+import Button1 from "@/components/shared/Button/Button1";
+
 const MainContainer = styled.main`
   position: absolute;
   width: 100%;
@@ -16,7 +17,6 @@ const SignupModal = styled(Modal)`
   display: grid;
   justify-content: center;
   align-content: space-around;
-
   grid-auto-rows: repeat(6, 1fr);
 `;
  
@@ -121,7 +121,11 @@ const Signup = () => {
             <input type="tel" name="phNumber" id="phNumber" />
           </group>
         </PhNoSection>
-        <BorderButton>Continue</BorderButton>
+        <Button1 style={{
+          alignSelf : "center",
+          justifySelf: "center"
+
+        }}>Continue</Button1>
       </SignupModal>
     </MainContainer>
   );

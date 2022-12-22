@@ -25,7 +25,8 @@ const _ChooseBattle = styled(ContainerWithHead)`
 
 // currently i am using 1fr but another think can be to use fit-content
 const ChooseBattle = () => {
-  const [cardOpen, setCardOpen] = useState([false, false, false]);
+  
+  const [cardOpen, setCardOpen] = useState([true, false, false]);
 
   const toggle = (e) => {
     console.log(e);

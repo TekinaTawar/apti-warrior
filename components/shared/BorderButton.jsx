@@ -12,11 +12,12 @@ const _BorderButton = styled.button`
   border-radius: 5px;
   position: relative; //to position border;
   border: none;
+  cursor: pointer;
 `;
 
-const BorderButton = ({ children }) => {
+const BorderButton = ({ children, onClick }) => {
   return (
-    <_BorderButton>
+  <_BorderButton onClick={onClick}>
       <Image
         src={buttonBorder1}
         alt="bg"

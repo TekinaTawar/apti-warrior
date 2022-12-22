@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import VerticalContainer from "../shared/VerticalContainer";
+import ContainerWithHead from "../shared/ContainerWithHead";
 
-const _MenuDetails = styled(VerticalContainer)`
+const _MenuDetails = styled(ContainerWithHead)`
   grid-area: menuDetails;
 `;
 

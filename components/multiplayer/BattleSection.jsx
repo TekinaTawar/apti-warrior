@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ContainerWithHead from "../shared/ContainerWithHead";
-import BorderButton from "../shared/BorderButton";
+import Button1 from "@/components/shared/Button/Button1";
 import { GiBookmarklet, GiUnlitBomb } from "react-icons/gi";
 import { BsHeart } from "react-icons/bs";
 import { IoIosPeople } from "react-icons/io";
@@ -9,8 +9,6 @@ import { AiOutlineFieldTime } from "react-icons/ai";
 const _BattleSection = styled.div`
   grid-area: BattleSection;
   display: grid;
-  
-  
 
   .battleButtons {
     display: flex;
@@ -42,7 +40,20 @@ const _Battles = styled(ContainerWithHead)`
         background-color: #5b6643;
         /* border: 2px solid #ffdb3a; */
         text-align: center;
+        align-items: center;
+        justify-items: center;
+        gap: var(--space-3xs-2xs);
+
+
+        
       }
+
+      i {
+        color: var(--primary-0);
+        padding-inline: var(--space-3xs-2xs);
+        /* background-color: black; */
+      }
+
       td {
         text-align: center;
         padding-inline: var(--space-3xs-2xs);
@@ -56,11 +67,10 @@ const _Battles = styled(ContainerWithHead)`
         color: #fff;
         border-radius: 3.75261px;
         font-weight: 700;
-        cursor: pointer;
+        
       }
     }
   }
-
 `;
 
 const BattleSection = () => {
@@ -71,102 +81,58 @@ const BattleSection = () => {
           <table>
             <thead>
               <th>
-                <GiBookmarklet /> Module
+                <i>
+                  <GiBookmarklet />
+                </i>
+                <span>Module</span>
               </th>
               <th>
-                <BsHeart /> Life
+                <i>
+                  <BsHeart />
+                </i>
+                <span>Life</span>
               </th>
               <th>
-                <GiUnlitBomb /> Damage Multiplier
+                <i>
+                  <GiUnlitBomb />
+                </i>
+                <span>Damage Multiplier</span>
               </th>
               <th>
-                <IoIosPeople />
-                Opponents
+                <i>
+                  <IoIosPeople />
+                </i>
+                <span>Opponents</span>
               </th>
               <th>
-                <AiOutlineFieldTime /> Time
+                <i>
+                  <AiOutlineFieldTime />
+                </i>
+                <span>Time</span>
               </th>
               <th></th>
             </thead>
             <tbody>
-              <tr>
-                <td>Geometry</td>
-                <td>100</td>
-                <td>2X</td>
-                <td>1/6</td>
-                <td>36</td>
-                <td>
-                  <button>Join</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Geometry</td>
-                <td>100</td>
-                <td>2X</td>
-                <td>1/6</td>
-                <td>36</td>
-                <td>
-                  <button>Join</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Geometry</td>
-                <td>100</td>
-                <td>2X</td>
-                <td>1/6</td>
-                <td>36</td>
-                <td>
-                  <button>Join</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Geometry</td>
-                <td>100</td>
-                <td>2X</td>
-                <td>1/6</td>
-                <td>36</td>
-                <td>
-                  <button>Join</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Geometry</td>
-                <td>100</td>
-                <td>2X</td>
-                <td>1/6</td>
-                <td>36</td>
-                <td>
-                  <button>Join</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Geometry</td>
-                <td>100</td>
-                <td>2X</td>
-                <td>1/6</td>
-                <td>36</td>
-                <td>
-                  <button>Join</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Geometry</td>
-                <td>100</td>
-                <td>2X</td>
-                <td>1/6</td>
-                <td>36</td>
-                <td>
-                  <button>Join</button>
-                </td>
-              </tr>
+              {[...Array(8)].map((e, i) => (
+                <tr key={i}>
+                  <td>Geometry</td>
+                  <td>100</td>
+                  <td>2X</td>
+                  <td>1/6</td>
+                  <td>36</td>
+                  <td>
+                    <button>Join</button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </_Battles>
       <div className="battleButtons">
-        <BorderButton className="button1">Join Battle</BorderButton>
+        <Button1 className="button1">Join Battle</Button1>
 
-        <BorderButton className="button2">Create Battle</BorderButton>
+        <Button1 className="button2">Create Battle</Button1>
       </div>
     </_BattleSection>
   );

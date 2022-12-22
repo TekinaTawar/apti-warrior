@@ -2,7 +2,7 @@ import QuestionsNoContainer from "@/components/questions(Streak Test)/QuestionsN
 import Header from "@/components/shared/Header";
 import styled from "styled-components";
 import Mathematics from "@/components/questions(Streak Test)/Mathematics";
-import BorderButton from "@/components/shared/BorderButton";
+import Button1 from "@/components/shared/Button/Button1";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -34,7 +34,7 @@ const streakTest = () => {
       <Mathematics />
       <QuestionsNoContainer />
       <Buttons>
-        <BorderButton>Submit test</BorderButton>
+        <Button1>Submit test</Button1>
       </Buttons>
     </MainContainer>
   );

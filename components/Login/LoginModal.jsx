@@ -1,7 +1,7 @@
 import Modal from "components/shared/Modal";
 import styled from "styled-components";
 
-import BorderButton from "components/shared/BorderButton";
+import Button1 from "@/components/shared/Button/Button1";
 import { useForm } from "react-hook-form";
 
 const _LoginModal = styled(Modal)`
@@ -105,13 +105,15 @@ const PhNoSection = styled.div`
 
 const LoginModal = () => {
   const { register, handleSubmit, watch, errors } = useForm();
-  const submitForm = (data) => { console.log("submitted", data) };
-  
-  console.log("phonenumber", watch("phNumber"))
+  const submitForm = (data) => {
+    console.log("submitted", data);
+  };
+
+  console.log("phonenumber", watch("phNumber"));
 
   return (
     <_LoginModal modalHead="Login" onSubmit={handleSubmit(submitForm)}>
-      <WelcomeText>WELCOME TO APTIWARROR</WelcomeText>
+      <WelcomeText>WELCOME TO APTIWARRIOR</WelcomeText>
 
       <PhNoSection>
         <label htmlFor="phNumber">ENTER YOUR MOBILE NUMBER</label>
@@ -121,7 +123,7 @@ const LoginModal = () => {
         </group>
       </PhNoSection>
 
-      <BorderButton>Continue</BorderButton>
+      <Button1>Continue</Button1>
       <strong>OR</strong>
 
       <group className="socialLogin">

@@ -5,7 +5,8 @@
       "@/components/*": ["components/*"],
       "@/pages/*": ["pages/*"],
       "@/public/*": ["public/*"],
-      "@/redux/*": ["redux/*"]
+      "@/redux/*": ["redux/*"],
+      "@/shared/*": ["components/shared/*"],
     }
   }
 }

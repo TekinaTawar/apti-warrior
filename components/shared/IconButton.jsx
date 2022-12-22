@@ -13,6 +13,7 @@ const _IconButton = styled.button`
   height: var(--space-3xl-4xl);
   /* width: var(--space-6xl-7xl); */
   width: var(--space-6xl-7xl);
+  cursor: pointer;
 
   & .borderbuttonContainer {
     width: 99%;
@@ -42,9 +43,9 @@ const _IconButton = styled.button`
   }
 `;
 
-const IconButton = ({ children, icon }) => {
+const IconButton = ({ children, icon, onClick }) => {
   return (
-    <_IconButton>
+    <_IconButton onClick={onClick}>
       <Image src={buttonBorder1} alt="button border" fill sizes="100vw" />
       <div className="borderbuttonContainer">
         <i>

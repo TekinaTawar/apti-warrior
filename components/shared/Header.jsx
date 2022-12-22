@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CiDumbbell } from "react-icons/ci";
 import { FaMoneyBill } from "react-icons/fa";
 import { IoDiamondOutline } from "react-icons/io5";
 import { BsGear } from "react-icons/bs";
@@ -8,7 +9,7 @@ const _Header = styled.header`
   background-image: linear-gradient(to right, var(--gray-0), var(--gray-200));
   padding-right: var(--space-2xs-xs);
   display: grid;
-  grid-template-columns: repeat(4, fit-content(50px));
+  grid-template-columns: repeat(5, fit-content(50px));
   justify-content: space-between;
   align-items: center;
 
@@ -68,10 +69,12 @@ const _Header = styled.header`
     }
   }
 
+  .trainingPoint,
   .moneyDetail,
   .diamondDetail {
     /* background-color: teal; */
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: var(--space-3xs-2xs);
   }
@@ -99,6 +102,12 @@ const Header = () => {
         <div className="profilePhotoContainer">{/* image */}</div>
         <h3 className="username">Hemant Kant Malviya</h3>
         <h5 className="level">Level 28</h5>
+      </div>
+      <div className="trainingPoint">
+        <i>
+          <CiDumbbell />
+        </i>
+        <span>1668</span>
       </div>
       <div className="moneyDetail">
         <i>
