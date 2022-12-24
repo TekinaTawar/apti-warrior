@@ -2,9 +2,10 @@ import { useState } from "react";
 import styled from "styled-components";
 import OtpInput from "react-otp-input";
 
-import Modal from "@/components/shared/Modal";
-import Button1 from "@/components/shared/Button/Button1";
-import Button from "@/components/shared/Button/Button";
+// import Modal from "@/components/shared/Modal";
+import Button1 from "@/components/shared/Buttons/Button1";
+import Button from "@/components/shared/Buttons/Button";
+import ContainerAuth from "@/components/shared/Containers/ContainerAuth";
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -17,7 +18,7 @@ const MainContainer = styled.main`
   align-items: center;
 `;
 
-const OtpModal = styled(Modal)`
+const OtpModal = styled(ContainerAuth)`
   display: grid;
   justify-content: center;
   align-content: space-around;
@@ -58,7 +59,7 @@ const Otp = () => {
 
   return (
     <MainContainer>
-      <OtpModal modalHead={"OTP"}>
+      <OtpModal title={"OTP"}>
         <h3 className="verifyMobileLabel">VERIFY YOUR MOBILE NUMBER</h3>
         <div className="mobileNumberEdit">
           <h3 className="mobileNo">+91-1234567890</h3>

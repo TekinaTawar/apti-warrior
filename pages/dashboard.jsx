@@ -43,7 +43,7 @@ const MainContainer = styled.main`
     justify-content: space-around;
     align-items: center;
 
-    group {
+    section {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -82,26 +82,26 @@ const Dashboard = () => {
     <MainContainer>
       <Header />
       <div className="diamondButtonSection">
-        <group>
+        <section>
           <DiamondButton icon={dailyTask} />
           <label htmlFor="dailyTask">Daily Task</label>
-        </group>
-        <group>
+        </section>
+        <section>
           <DiamondButton icon={socials} />
           <label htmlFor="socials">Socials</label>
-        </group>
-        <group>
+        </section>
+        <section>
           <DiamondButton icon={shoppingCart} />
           <label htmlFor="shoppingCart">Shop</label>
-        </group>
-        <group>
+        </section>
+        <section>
           <DiamondButton icon={medalReward} />
           <label htmlFor="medalReward">Claim Rewards</label>
-        </group>
-        <group>
+        </section>
+        <section>
           <DiamondButton icon={walkiesTalkie} />
           <label htmlFor="walkiesTalkie">Chat and notification</label>
-        </group>
+        </section>
       </div>
 
       <div className="armyManSection">

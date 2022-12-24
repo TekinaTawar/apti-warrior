@@ -1,12 +1,15 @@
 import styled from "styled-components";
-import BorderButton from "../shared/BorderButton";
-import ContainerWithHead from "../shared/ContainerWithHead";
+import ContainerWithHead from "../shared/Containers/ContainerWithHead";
+
+//* Icons
+
 import { MdSaveAlt } from "react-icons/md";
 import { FiShare2 } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
+import ButtonHugging from "../shared/Buttons/ButtonHugging";
 
 const _CustomBattle = styled(ContainerWithHead)`
-  grid-area: CustomBattle;
+
 
   .battleButtons {
     display: flex;
@@ -90,7 +93,7 @@ const ProfileCard = styled.div`
 
 const AwaitingOpponents = () => {
   return (
-    <_CustomBattle title=" Custom Battle">
+    <_CustomBattle title=" Custom Battle" gridArea="CustomBattle">
       <_customBattleContent>
         <div className="customBattle">
           <div className="headings">
@@ -123,8 +126,8 @@ const AwaitingOpponents = () => {
         </ProfileCard>
 
         <div className="battleButtons">
-          <BorderButton className="button1">Start Battle</BorderButton>
-          <BorderButton className="button2">Cancel</BorderButton>
+          <ButtonHugging className="button1">Start Battle</ButtonHugging>
+          <ButtonHugging className="button2">Cancel</ButtonHugging>
         </div>
       </_customBattleContent>
     </_CustomBattle>

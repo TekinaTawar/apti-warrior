@@ -1,19 +1,21 @@
+import Image from "next/image";
 import styled from "styled-components";
-import ContainerWithImage from "./shared/ContainerWithImage";
+
+import ContainerWithImage from "./shared/Containers/ContainerWithImage";
+import ButtonHugging from "@/components/shared/Buttons/ButtonHugging";
+
+//*   svg Icons
+
 import borderVid from "@/public/images/training2/borderVid.svg";
-import ButtonHugging from "@/components/shared/Button/ButtonHugging";
-import Image from "next/legacy/image";
 import questionCircle from "@/public/images/Practice&Learn/questionCircle.svg";
 import time from "@/public/images/Practice&Learn/time.svg";
 import checkmark from "@/public/images/Practice&Learn/checkmark.svg";
 import money from "@/public/images/Practice&Learn/money.svg";
 import diamond from "@/public/images/Practice&Learn/diamond.svg";
-import dumble from "@/public/images/Practice&Learn/dumble.svg";
+import dumbbells from "@/public/images/Practice&Learn/dumbbells.svg";
 import xp from "@/public/images/Practice&Learn/xp.svg";
 
-const _QuizContainer = styled(ContainerWithImage)`
-  
-`;
+const _QuizContainer = styled(ContainerWithImage)``;
 
 const QuizType = styled.div`
   display: flex;
@@ -67,7 +69,7 @@ const QuizType = styled.div`
 
 const QuizContainer = () => {
   return (
-    <_QuizContainer image={borderVid} style={{gridArea: "span 2"}} >
+    <_QuizContainer image={borderVid} style={{ gridArea: "span 2" }}>
       <QuizType>
         <h2>Some Random Topic Name</h2>
         <p>
@@ -108,7 +110,7 @@ const QuizContainer = () => {
             </div>
             <div className="point">
               {" "}
-              <Image src={dumble} alt="diamond" width={30} height={30} />
+              <Image src={dumbbells} alt="diamond" width={30} height={30} />
               <p>1668</p>
             </div>
             <div className="point">
@@ -118,7 +120,9 @@ const QuizContainer = () => {
             </div>
           </div>
         </div>
-        <p className="correct">Your best attempt: 5 correct answers</p>
+        <p className="correct">
+          Your best attempt: <span>5</span> correct answers
+        </p>
         <ButtonHugging>START TEST</ButtonHugging>
       </QuizType>
     </_QuizContainer>

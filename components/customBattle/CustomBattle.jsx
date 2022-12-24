@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import BorderButton from "../shared/BorderButton";
-import ContainerWithHead from "../shared/ContainerWithHead";
+import ButtonHugging from "../shared/Buttons/ButtonHugging";
+import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 
 const _CustomBattle = styled(ContainerWithHead)`
   .battleButtons {
@@ -93,13 +93,13 @@ const CustomBattle = ({ closeModal }) => {
         </div>
 
         <div className="battleButtons">
-          <BorderButton className="button1">Start Battle</BorderButton>
-          <BorderButton
+          <ButtonHugging className="button1">Start Battle</ButtonHugging>
+          <ButtonHugging
             className="button2"
             onClick={closeModal}
           >
             Cancel
-          </BorderButton>
+          </ButtonHugging>
           {/* <button onClick={closeModal}>cancel</button> */}
         </div>
       </_customBattleContent>

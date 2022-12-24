@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import Button1 from "@/shared/Button/Button1";
-import ButtonHugging from "@/shared/Button/ButtonHugging";
-
+import Button1 from "@/components/shared/Buttons/Button1";
+import ButtonHugging from "@/components/shared/Buttons/ButtonHugging";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -18,7 +17,9 @@ const Test3 = () => {
       <Button1>Continue</Button1>
       <Button1 isDisabled={true}>diabled</Button1>
       <Button1 isLoading={true}>Loading</Button1>
-      <Button1 isLoading={true} isDisabled={true}>Loading</Button1>
+      <Button1 isLoading={true} isDisabled={true}>
+        Loading
+      </Button1>
       <ButtonHugging>Loading</ButtonHugging>
       <ButtonHugging buttonState="disabled">disabled</ButtonHugging>
       <ButtonHugging buttonState="loading">Loading</ButtonHugging>

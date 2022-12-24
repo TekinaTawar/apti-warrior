@@ -1,12 +1,16 @@
 import styled from "styled-components";
+
+import ContainerWithHead from "../shared/Containers/ContainerWithHead";
+
+//* Icons
+
 import { BiMedal } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { AiFillStar } from "react-icons/ai";
-import ContainerWithHead from "../shared/ContainerWithHead";
 
 const _LeaderBoardSection = styled(ContainerWithHead)`
-  
-  font-family: "Metropolis";
+  min-height: 100%;
+  overflow-y: scroll;
   .containerContent {
     width: 95%;
     height: 95%;
@@ -22,7 +26,7 @@ const _LeaderBoardSection = styled(ContainerWithHead)`
     padding-block: var(--space-4xs-3xs);
     padding-inline: var(--space-xs-s);
     grid-gap: var(--space-2xs-xs);
-    
+
     .profileName {
       display: flex;
       justify-content: space-around;
@@ -43,8 +47,8 @@ const _LeaderBoardSection = styled(ContainerWithHead)`
 
 const LeaderBoard = () => {
   return (
-    <_LeaderBoardSection title="Leaderboard" grid-area= "leaderBoard">
-      {[...Array(5)].map((e, i) => (
+    <_LeaderBoardSection title="Leaderboard" grid-area="leaderBoard">
+      {[...Array(20)].map((e, i) => (
         <div className="leaderBoardContainer" key={i}>
           <div className="medal">
             <BiMedal />

@@ -1,5 +1,6 @@
-import Header from "@/components/shared/Header";
 import styled from "styled-components";
+
+import Header from "@/components/shared/Header";
 import OnlinePlayers from "@/components/multiplayer/OnlinePlayers";
 import LeaderBoard from "@/components/multiplayer/LeaderBoard";
 import BattleSection from "@/components/multiplayer/BattleSection";

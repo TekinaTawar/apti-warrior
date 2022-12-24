@@ -1,5 +1,6 @@
-import Header from "@/components/shared/Header";
 import styled from "styled-components";
+
+import Header from "@/components/shared/Header";
 import Mathematics2 from "@/components/questions(Streak Test)/Mathematics2";
 import Battle from "@/components/questions(Streak Test)/Battle";
 

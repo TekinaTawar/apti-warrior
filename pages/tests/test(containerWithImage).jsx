@@ -1,4 +1,4 @@
-import ContainerWithImage from "@/components/shared/ContainerWithImage";
+import ContainerWithImage from "@/components/shared/Containers/ContainerWithImage";
 import styled from "styled-components";
 import border3 from "@/public/images/Training2/border3.svg";
 

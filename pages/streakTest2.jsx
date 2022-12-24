@@ -1,10 +1,8 @@
+import styled from "styled-components";
 
 import Header from "@/components/shared/Header";
-import styled from "styled-components";
 import LeaderBoard from "@/components/multiplayer/LeaderBoard";
 import Mathematics2 from "@/components/questions(Streak Test)/Mathematics2";
-
-
 
 const MainContainer = styled.main`
   position: absolute;
@@ -25,7 +23,7 @@ const streakTest2 = () => {
     <MainContainer>
       <Header />
       <Mathematics2 />
-      <LeaderBoard/>
+      <LeaderBoard />
     </MainContainer>
   );
 };

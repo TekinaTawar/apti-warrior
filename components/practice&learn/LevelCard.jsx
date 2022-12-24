@@ -1,6 +1,9 @@
-import { FaStar } from "react-icons/fa";
+import Image from "next/image";
 import styled from "styled-components";
-import Image from "next/legacy/image";
+
+//* svg Icons
+ 
+import { FaStar } from "react-icons/fa";
 import lock from "@/public/images/Practice&Learn/lock.svg";
 
 const _LevelCard = styled.div`

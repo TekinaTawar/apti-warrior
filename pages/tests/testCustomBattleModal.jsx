@@ -1,5 +1,5 @@
+import AwaitingOpponents from "@/components/customBattle/AwaitingOpponents";
 import styled from "styled-components";
-import ContainerLogin from "@/components/shared/Containers/ContainerLogin";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -10,11 +10,11 @@ const MainContainer = styled.main`
   align-items: center;
 `;
 
-const Login = () => {
+const testCustomBattleModal = () => {
   return (
     <MainContainer>
-      <ContainerLogin />
+      <AwaitingOpponents />
     </MainContainer>
   );
 };
-export default Login;
+export default testCustomBattleModal;

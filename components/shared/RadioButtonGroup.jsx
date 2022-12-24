@@ -24,20 +24,20 @@ const _Options = styled.div`
     }
   }
 
-  input:checked ~ label{
+  input:checked ~ label {
     background-color: var(--secondary-0);
   }
 `;
 
 // option is fpr useState, options = {option, label} for radio button
-const RadioButtonGroup = ({ groupName, options, option, setOption }) => {
+const RadioButtonGroup = ({ sectionName, options, option, setOption }) => {
   return (
     <>
       {options.map((value, i) => (
         <_Options key={i}>
           <input
             type="radio"
-            name={groupName}
+            name={sectionName}
             id={value.value}
             value={value.value}
             onChange={(e) => {

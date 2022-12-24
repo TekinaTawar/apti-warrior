@@ -1,7 +1,11 @@
 import Image from "next/legacy/image";
 import styled from "styled-components";
-import map from "@/public/images/Practice&Learn/map.png";
+
 import LevelCard from "@/components/practice&learn/LevelCard";
+
+//*  Icons
+
+import map from "@/public/images/Practice&Learn/map.png";
 // import star from "@/public/images/star.svg"
 
 const _MapContainer = styled.div`

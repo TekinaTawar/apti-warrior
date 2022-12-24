@@ -1,8 +1,8 @@
-import Account from "@/components/accountSettings/Account";
+import styled from "styled-components";
+
 import Menu from "@/components/accountSettings/Menu";
 import MenuDetails from "@/components/accountSettings/MenuDetails";
 import Header from "@/components/shared/Header";
-import styled from "styled-components";
 
 const MainContainer = styled.main`
   position: absolute;

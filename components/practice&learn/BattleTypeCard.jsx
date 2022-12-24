@@ -2,7 +2,7 @@ import Image from "next/legacy/image";
 import styled, { css } from "styled-components";
 
 import PointDetails from "./PointDetails";
-import BorderButton from "../shared/BorderButton";
+import Button1 from "../shared/Buttons/Button1";
 
 const _BattleTypeCard = styled.label`
   width: 90%;
@@ -112,7 +112,7 @@ const BattleTypeCard = ({ battleTypeIcon, battleTitle }) => {
         </div>
         <div className="battleTypeDetails">
           <PointDetails />
-          <BorderButton>Play</BorderButton>
+          <Button1>Play</Button1>
         </div>
       </_BattleTypeCard>
     </>

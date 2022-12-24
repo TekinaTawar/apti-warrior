@@ -1,8 +1,12 @@
-import styled from "styled-components";
-import BorderButton from "../shared/BorderButton";
-import ContainerWithHead from "../shared/ContainerWithHead";
-import RadioButtonGroup from "../shared/RadioButtonGroup";
 import { useState } from "react";
+import styled from "styled-components";
+
+import Button1 from "../shared/Buttons/Button1";
+import ContainerWithHead from "../shared/Containers/ContainerWithHead";
+import RadioButtonGroup from "../shared/RadioButtonGroup";
+
+//* React Icons
+
 import { IoTimerOutline } from "react-icons/io5";
 import { FaSearchMinus, FaSearchPlus } from "react-icons/fa";
 
@@ -12,7 +16,6 @@ const _Mathematics = styled(ContainerWithHead)`
   grid-template-rows: 10% 1fr fit-content(50px);
   grid-template-areas: "points points " " questionSection options" "  buttons buttons";
   /* background-color: blue; */
-
 `;
 
 const QuestionPoint = styled.div`
@@ -153,7 +156,7 @@ const Mathematics2 = () => {
 
       <QuestionsOptions>
         <RadioButtonGroup
-          groupName="options"
+          sectionName="options"
           options={optionsValue}
           option={option}
           setOption={setOption}
@@ -162,10 +165,10 @@ const Mathematics2 = () => {
       </QuestionsOptions>
 
       <Buttons>
-        <BorderButton>Submit</BorderButton>
-        {/* <BorderButton>Clear Response</BorderButton>
-        <BorderButton>Flag Question</BorderButton>
-        <BorderButton>Save & Next</BorderButton> */}
+        <Button1>Submit</Button1>
+        {/* <Button1>Clear Response</Button1>
+        <Button1>Flag Question</Button1>
+        <Button1>Save & Next</Button1> */}
       </Buttons>
     </_Mathematics>
   );

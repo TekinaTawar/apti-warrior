@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Button from "./Button";
-import ContainerWithImage from "../ContainerWithImage";
+import ContainerWithImage from "../Containers/ContainerWithImage";
 import buttonBorder1 from "@/public/images/buttonBorder1.svg";
 
 const _Button1 = styled(ContainerWithImage)`

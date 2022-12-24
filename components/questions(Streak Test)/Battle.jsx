@@ -1,6 +1,10 @@
 import Image from "next/legacy/image";
 import styled from "styled-components";
-import ContainerWithHead from "../shared/ContainerWithHead";
+
+import ContainerWithHead from "../shared/Containers/ContainerWithHead";
+
+//* svg Icons
+
 import face from "@/public/images/Practice&Learn/face.svg";
 import { AiFillHeart } from "react-icons/ai";
 

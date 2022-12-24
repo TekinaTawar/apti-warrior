@@ -1,12 +1,15 @@
+import { useState } from "react";
 import styled from "styled-components";
 
-import ContainerWithHead from "../shared/ContainerWithHead";
+import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 import BattleTypeCard from "@/components/practice&learn/BattleTypeCard";
+
+//* Icons 
+
 import streak from "@/public/images/Practice&Learn/streak.svg";
 import topic from "@/public/images/Practice&Learn/topic.svg";
 import sprint from "@/public/images/Practice&Learn/sprint.svg";
 
-import { useState } from "react";
 
 const _ChooseBattle = styled(ContainerWithHead)`
   display: grid;

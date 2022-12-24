@@ -1,14 +1,22 @@
+import { useState } from "react";
 import styled from "styled-components";
 
+import ContainerWithImage from "@/components/shared/Containers/ContainerWithImage";
 import Header from "@/components/shared/Header";
 import SubjectsContainer from "@/components/training/SubjectsContainer";
+import QuizContainer from "@/components/QuizContainer";
 
-import ContainerWithImage from "@/components/shared/ContainerWithImage";
+//* svg Icons
+
 import borderVid from "@/public/images/training2/borderVid.svg";
 import border3 from "@/public/images/training2/border3.svg";
+
+// *React Icons
+
 import { FaPlay } from "react-icons/fa";
-import QuizContainer from "@/components/QuizContainer";
-import { useState } from "react";
+import { BsQuestionCircleFill } from "react-icons/bs";
+import { AiFillPlayCircle } from "react-icons/ai";
+import { FiChevronUp } from "react-icons/fi";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -66,20 +74,32 @@ const ModuleTopicContainer = styled(ContainerWithImage)`
 
     * {
       font-size: var(--step-0);
-      margin-bottom: var(--space-2xs-xs);
+      margin-bottom: var(--space-4xs-3xs);
     }
     li {
       font-size: var(--step--1);
+      display: flex;
+      align-content: center;
+      justify-content: flex-start;
+      gap: var(--space-2xs-xs);
+      cursor: pointer;
     }
   }
   h2 {
     margin-top: var(--space-2xs-xs);
+    margin-bottom: var(--space-2xs-xs);
     border-bottom: 8px double white;
+    white-space: nowrap;
+    font-size: var(--step--1);
+    font-family: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 
 const Training2 = () => {
-  const [showQuizContainer, setShowQuizContainer] = useState(true);
+  const [showQuizContainer, setShowQuizContainer] = useState(false);
   return (
     <MainContainer>
       <Header />
@@ -143,32 +163,116 @@ const Training2 = () => {
           </VideoTextContainer>
         </>
       )}
-      
+
       <ModuleTopicContainer
         image={border3}
         style={{ gridArea: "moduleTopicContainer" }}
       >
         <ul>
-          <h2>Topic 1: The Tigers&apos;s of Cave</h2>
-          <li>1.1: Quiz</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Quiz</li>
+          <h2>
+            Topic 1: The Tigers&apos;s of Cave <FiChevronUp />
+          </h2>
+          <li>
+            <i>
+              <BsQuestionCircleFill />
+            </i>
+            1.1:Prognostic Test
+          </li>
+          <li>
+            <i>
+              <AiFillPlayCircle />
+            </i>
+            1.1: Should plastic be banned?
+          </li>
+          <li>
+            <i>
+              <BsQuestionCircleFill />
+            </i>
+            1.1: Prognostic Test
+          </li>
+          <li>
+            <i>
+              <AiFillPlayCircle />
+            </i>
+            1.1: Should plastic be banned?
+          </li>
+          <li>
+            <i>
+              <AiFillPlayCircle />
+            </i>
+            1.1: Should plastic be banned?
+          </li>
+          <li>
+            <i>
+              <BsQuestionCircleFill />
+            </i>
+            1.1: Retention Test
+          </li>
+          <li>
+            <i>
+              <BsQuestionCircleFill />
+            </i>
+            1.1: Diagnostic Test
+          </li>
+          <li>
+            <i>
+              <BsQuestionCircleFill />
+            </i>
+            1.1: Quiz Time
+          </li>
         </ul>
         <ul>
-          <h2>Topic 1: The Tigers&apos;s of Cave</h2>
-          <li>1.1: Quiz</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Should plastic be banned?</li>
-          <li>1.1: Quiz</li>
+          <h2>
+            Topic 1: The Tigers&apos;s of Cave <FiChevronUp />
+          </h2>
+          <li>
+            <i>
+              <BsQuestionCircleFill />
+            </i>
+            1.1: Diagnostic Quiz
+          </li>
+          <li>
+            <i>
+              <AiFillPlayCircle />
+            </i>
+            1.1: Should plastic be banned?
+          </li>
+          <li>
+            <i>
+              <BsQuestionCircleFill />
+            </i>
+            1.1: Prognostic Test
+          </li>
+          <li>
+            <i>
+              <AiFillPlayCircle />
+            </i>
+            1.1: Should plastic be banned?
+          </li>
+          <li>
+            <i>
+              <AiFillPlayCircle />
+            </i>
+            1.1: Should plastic be banned?
+          </li>
+          <li>
+            <i>
+              <BsQuestionCircleFill />
+            </i>
+            1.1: Retention Test
+          </li>
+          <li>
+            <i>
+              <BsQuestionCircleFill />
+            </i>
+            1.1: Diagnostic Test
+          </li>
+          <li>
+            <i>
+              <BsQuestionCircleFill />
+            </i>
+            1.1: Quiz Time
+          </li>
         </ul>
       </ModuleTopicContainer>
     </MainContainer>

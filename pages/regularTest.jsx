@@ -1,8 +1,9 @@
-import QuestionsNoContainer from "@/components/questions(Streak Test)/QuestionsNoContainer";
-import Header from "@/components/shared/Header";
 import styled from "styled-components";
+
+import Header from "@/components/shared/Header";
 import Mathematics from "@/components/questions(Streak Test)/Mathematics";
-import Button1 from "@/components/shared/Button/Button1";
+import QuestionsNoContainer from "@/components/questions(Streak Test)/QuestionsNoContainer";
+import Button1 from "@/components/shared/Buttons/Button1";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -27,7 +28,7 @@ const Buttons = styled.div`
   padding-bottom: var(--space-xs);
 `;
 
-const streakTest = () => {
+const regularTest = () => {
   return (
     <MainContainer>
       <Header />
@@ -39,4 +40,4 @@ const streakTest = () => {
     </MainContainer>
   );
 };
-export default streakTest;
+export default regularTest;
