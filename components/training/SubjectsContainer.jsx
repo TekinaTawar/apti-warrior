@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import ContainerWithHead from "@/components/shared/ContainerWithHead";
 import ContainerWithImage from "@/components/shared/ContainerWithImage";
+
+
+//* svg Icons
+
 import verticalBoxInsideBorder from "@/public/images/verticalBoxInsideBorder.svg";
 
 const _SubjectsContainer = styled(ContainerWithHead)`
@@ -36,6 +40,7 @@ const SubjectCard = styled.div`
   padding-block: var(--space-2xs-xs);
   gap: var(--space-2xs-xs);
   grid-template-areas: "subjectImage subjectTitle" "progressBar progressBar";
+  margin-bottom: var(--space-2xs-xs);
 
   .subjectImage {
     grid-area: subjectImage;

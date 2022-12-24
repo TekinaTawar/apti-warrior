@@ -1,11 +1,12 @@
-import Modal from "components/shared/Modal";
 import styled from "styled-components";
-
-import Button1 from "@/components/shared/Button/Button1";
 import { useForm } from "react-hook-form";
 
+import Modal from "components/shared/Modal";
+import Button1 from "@/components/shared/Buttons/Button1";
+
 const _LoginModal = styled(Modal)`
-  //to position the content inside the modal
+  //* to position the content inside the modal
+
   display: grid;
   grid-auto-rows: repeat(4, 1fr);
   justify-content: center;

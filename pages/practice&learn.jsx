@@ -1,9 +1,9 @@
+import styled from "styled-components";
+
 import Header from "@/components/shared/Header";
 import MapTitle from "@/components/practice&learn/MapTitle";
 import MapContainer from "@/components/practice&learn/MapContainer";
 import ChooseBattle from "@/components/practice&learn/ChooseBattle";
-
-import styled from "styled-components";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -18,7 +18,6 @@ const MainContainer = styled.main`
     "mapTitle  chooseBattle"
     "mapContainer  chooseBattle";
   row-gap: var(--space-xs-s);
-  
 `;
 
 const PracticeAndLearn = () => {

@@ -1,6 +1,9 @@
-import styled, { css } from "styled-components";
 import { useState } from "react";
+import styled, { css } from "styled-components";
+
 import ContainerWithHead from "../shared/ContainerWithHead";
+
+
 
 const _QuestionsNoContainer = styled(ContainerWithHead)`
   padding: var(--space-xs);
@@ -72,21 +75,24 @@ const QuestionNumber = styled.div`
           border: 0.5px solid #ffffff;
           border-radius: 50%;
           position: relative;
-          ::after{
-
+          ::after {
             position: absolute;
             content: "F";
             font-size: 12px;
             width: 50%;
             height: 50%;
-            background: linear-gradient(180deg, #b7e255 -17.56%, #4da717 49.54%);
+            background: linear-gradient(
+              180deg,
+              #b7e255 -17.56%,
+              #4da717 49.54%
+            );
             border-radius: 50%;
-            border: .5px solid white;
+            border: 0.5px solid white;
             transform: translate(80%, 80%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: black
+            color: black;
           }
         `;
     }
@@ -121,29 +127,3 @@ const QuestionsNoContainer = () => {
   );
 };
 export default QuestionsNoContainer;
-
-// #octagon {
-//   width: 100px;
-//   height: 100px;
-//   background: red;
-//   position: relative;
-// }
-// #octagon:before {
-//   content: "";
-//   width: 100px;
-//   height: 0;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   border-bottom: 29px solid red;
-//   border-left: 29px solid #eee;
-//   border-right: 29px solid #eee;
-// }
-// #octagon:after {
-//   content: "";
-//   width: 100px;
-//   height: 0;
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-// }

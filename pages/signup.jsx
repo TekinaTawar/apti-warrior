@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Modal from "@/components/shared/Modal";
 
-import Button1 from "@/components/shared/Button/Button1";
+import Button1 from "@/components/shared/Buttons/Button1";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -19,7 +19,7 @@ const SignupModal = styled(Modal)`
   align-content: space-around;
   grid-auto-rows: repeat(6, 1fr);
 `;
- 
+
 const WelcomeText = styled.h2`
   font-family: stormfaze;
   font-size: var(--step-0);
@@ -121,11 +121,14 @@ const Signup = () => {
             <input type="tel" name="phNumber" id="phNumber" />
           </group>
         </PhNoSection>
-        <Button1 style={{
-          alignSelf : "center",
-          justifySelf: "center"
-
-        }}>Continue</Button1>
+        <Button1
+          style={{
+            alignSelf: "center",
+            justifySelf: "center",
+          }}
+        >
+          Continue
+        </Button1>
       </SignupModal>
     </MainContainer>
   );

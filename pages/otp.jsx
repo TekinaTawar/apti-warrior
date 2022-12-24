@@ -3,8 +3,8 @@ import styled from "styled-components";
 import OtpInput from "react-otp-input";
 
 import Modal from "@/components/shared/Modal";
-import Button1 from "@/components/shared/Button/Button1";
-import Button from "@/components/shared/Button/Button";
+import Button1 from "@/components/shared/Buttons/Button1";
+import Button from "@/components/shared/Buttons/Button";
 
 const MainContainer = styled.main`
   /* background-color: orange; */

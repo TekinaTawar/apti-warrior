@@ -1,5 +1,9 @@
 import Image from "next/image";
 import styled from "styled-components";
+
+
+//* svg Icons
+
 import questionCircle from "@/public/images/Practice&Learn/questionCircle.svg";
 import time from "@/public/images/Practice&Learn/time.svg";
 import checkmark from "@/public/images/Practice&Learn/checkmark.svg";

@@ -4,7 +4,7 @@ const ModalOverlay = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  /* background-color: black; */
+  background: rgba(18, 18, 18, 0.8);
   /* opacity: 0.5; */
   backdrop-filter: blur(5px);
 
@@ -12,18 +12,19 @@ const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const _Modal = styled.div` 
+const _Modal = styled.div`
   position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: var(--step-0);
 `;
 
-const Modal3 = ({ children, setShowModal  }) => {
+const Modal = ({ children, setShowModal }) => {
   return (
     <>
       <ModalOverlay onClick={() => setShowModal(false)}></ModalOverlay>
-      <_Modal>
-        {children}
-      </_Modal>
+      <_Modal>{children}</_Modal>
     </>
   );
 };
-export default Modal3;
+export default Modal;

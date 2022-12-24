@@ -1,9 +1,13 @@
 import Image from "next/image";
 import styled from "styled-components";
+
 import Header from "@/components/shared/Header";
-import buttonBorder2 from "@/public/images/buttonBorder2.svg";
 import SubjectsContainer from "@/components/training/SubjectsContainer";
 import ContainerWithHead from "@/components/shared/ContainerWithHead";
+
+//* svg Icons
+
+import buttonBorder2 from "@/public/images/buttonBorder2.svg";
 
 const MainContainer = styled.main`
   position: absolute;

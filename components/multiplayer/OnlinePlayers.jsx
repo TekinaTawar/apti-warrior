@@ -1,10 +1,16 @@
 import styled from "styled-components";
+import ContainerWithHead from "../shared/ContainerWithHead";
+
+//* Icons
+
 import { CgProfile } from "react-icons/cg";
 import { AiFillStar } from "react-icons/ai";
 import { BsFillCircleFill } from "react-icons/bs";
-import ContainerWithHead from "../shared/ContainerWithHead";
 
 const _OnlinePlayers = styled(ContainerWithHead)`
+  min-height: 100%;
+  overflow-y: scroll;
+
   .leaderBoardContainer {
     display: grid;
     align-items: center;
@@ -37,7 +43,7 @@ const _OnlinePlayers = styled(ContainerWithHead)`
 const OnlinePlayers = () => {
   return (
     <_OnlinePlayers title="Online Players" grid-area="onlinePlayers">
-      {[...Array(5)].map((e, i) => (
+      {[...Array(10)].map((e, i) => (
         <div className="leaderBoardContainer" key={i}>
           <div className="medal">200</div>
           <div className="profileIcon">

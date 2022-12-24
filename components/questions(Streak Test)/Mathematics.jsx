@@ -1,15 +1,15 @@
-import styled from "styled-components";
-import BorderButton from "../shared/BorderButton";
-import RadioButtonGroup from "../shared/RadioButtonGroup";
 import { useState } from "react";
+import styled from "styled-components";
+
 import ContainerWithHead from "../shared/ContainerWithHead";
+import Button1 from "../shared/Buttons/Button1";
+import RadioButtonGroup from "../shared/RadioButtonGroup";
 
 const _Mathematics = styled(ContainerWithHead)`
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 1fr fit-content(50px);
   grid-template-areas: "questionSection options" "buttons buttons";
-  /* background-color: blue; */
   row-gap: var(--space-xs);
   padding: 1%;
 `;
@@ -124,10 +124,10 @@ const Mathematics = () => {
       </QuestionsOptions>
 
       <Buttons>
-        <BorderButton>Previous</BorderButton>
-        <BorderButton>Clear Response</BorderButton>
-        <BorderButton>Flag Question</BorderButton>
-        <BorderButton>Save & Next</BorderButton>
+        <Button1>Previous</Button1>
+        <Button1>Clear Response</Button1>
+        <Button1>Flag Question</Button1>
+        <Button1>Save & Next</Button1>
       </Buttons>
     </_Mathematics>
   );

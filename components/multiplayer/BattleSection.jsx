@@ -1,6 +1,10 @@
 import styled from "styled-components";
+
 import ContainerWithHead from "../shared/ContainerWithHead";
-import Button1 from "@/components/shared/Button/Button1";
+import ButtonHugging from "@/components/shared/Buttons/ButtonHugging";
+
+//* Icons
+
 import { GiBookmarklet, GiUnlitBomb } from "react-icons/gi";
 import { BsHeart } from "react-icons/bs";
 import { IoIosPeople } from "react-icons/io";
@@ -15,6 +19,7 @@ const _BattleSection = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+
     .button1 {
       grid-area: button1;
     }
@@ -43,9 +48,6 @@ const _Battles = styled(ContainerWithHead)`
         align-items: center;
         justify-items: center;
         gap: var(--space-3xs-2xs);
-
-
-        
       }
 
       i {
@@ -67,7 +69,6 @@ const _Battles = styled(ContainerWithHead)`
         color: #fff;
         border-radius: 3.75261px;
         font-weight: 700;
-        
       }
     }
   }
@@ -130,9 +131,9 @@ const BattleSection = () => {
         </div>
       </_Battles>
       <div className="battleButtons">
-        <Button1 className="button1">Join Battle</Button1>
+        <ButtonHugging className="button1">Join Battle</ButtonHugging>
 
-        <Button1 className="button2">Create Battle</Button1>
+        <ButtonHugging className="button2">Create Battle</ButtonHugging>
       </div>
     </_BattleSection>
   );
