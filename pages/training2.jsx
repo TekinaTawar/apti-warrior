@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import ContainerWithImage from "@/components/shared/ContainerWithImage";
+import ContainerWithImage from "@/components/shared/Containers/ContainerWithImage";
 import Header from "@/components/shared/Header";
 import SubjectsContainer from "@/components/training/SubjectsContainer";
 import QuizContainer from "@/components/QuizContainer";

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import ContainerWithImage from "@/components/shared/ContainerWithImage";
+import ContainerWithImage from "@/components/shared/Containers/ContainerWithImage";
 import borderVid from "@/public/images/training2/borderVid.svg";
 
 const MainContainer = styled.main`

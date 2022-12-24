@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Header from "@/components/shared/Header";
 import SubjectsContainer from "@/components/training/SubjectsContainer";
-import ContainerWithHead from "@/components/shared/ContainerWithHead";
+import ContainerWithHead from "@/components/shared/Containers/ContainerWithHead";
 
 //* svg Icons
 

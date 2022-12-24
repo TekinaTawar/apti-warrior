@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import ContainerWithHead from "../shared/ContainerWithHead";
+import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 import Button1 from "../shared/Buttons/Button1";
 import RadioButtonGroup from "../shared/RadioButtonGroup";
 
@@ -115,7 +115,7 @@ const Mathematics = () => {
       <QuestionsOptions>
         <h3>Options</h3>
         <RadioButtonGroup
-          groupName="options"
+          sectionName="options"
           options={optionsValue}
           option={option}
           setOption={setOption}

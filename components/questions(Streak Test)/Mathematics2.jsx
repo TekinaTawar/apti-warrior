@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import Button1 from "../shared/Buttons/Button1";
-import ContainerWithHead from "../shared/ContainerWithHead";
+import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 import RadioButtonGroup from "../shared/RadioButtonGroup";
 
 //* React Icons
@@ -156,7 +156,7 @@ const Mathematics2 = () => {
 
       <QuestionsOptions>
         <RadioButtonGroup
-          groupName="options"
+          sectionName="options"
           options={optionsValue}
           option={option}
           setOption={setOption}

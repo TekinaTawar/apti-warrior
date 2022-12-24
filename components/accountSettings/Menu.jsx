@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ContainerWithHead from "../shared/ContainerWithHead";
+import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 
 const _Menu = styled(ContainerWithHead)`
   grid-area: menu;

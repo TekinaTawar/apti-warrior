@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
 
-import ContainerWithHead from "../shared/ContainerWithHead";
+import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 
 
 

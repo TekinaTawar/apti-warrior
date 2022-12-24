@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import Modal from "@/components/shared/Modal";
+// import Modal from "@/components/shared/Modal";
 
 import Button1 from "@/components/shared/Buttons/Button1";
+import ContainerAuth from "@/components/shared/Containers/ContainerAuth";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -13,7 +14,7 @@ const MainContainer = styled.main`
   align-items: center;
 `;
 
-const SignupModal = styled(Modal)`
+const ContainerSignUp = styled(ContainerAuth)`
   display: grid;
   justify-content: center;
   align-content: space-around;
@@ -95,7 +96,7 @@ export const PhNoSection = styled.div`
 const Signup = () => {
   return (
     <MainContainer>
-      <SignupModal modalHead="SIGN UP">
+      <ContainerSignUp title="SIGN UP">
         <WelcomeText>WELCOME TO APTIWARROR</WelcomeText>
         <InputGroup>
           <label htmlFor="username">ENTER YOUR USER NAME</label>
@@ -116,10 +117,10 @@ const Signup = () => {
         </InputGroup>
         <PhNoSection>
           <label htmlFor="phNumber">ENTER YOUR MOBILE NUMBER</label>
-          <group className="phNumberInput">
+          <section className="phNumberInput">
             <span className="countryCode">+91</span>
             <input type="tel" name="phNumber" id="phNumber" />
-          </group>
+          </section>
         </PhNoSection>
         <Button1
           style={{
@@ -129,7 +130,7 @@ const Signup = () => {
         >
           Continue
         </Button1>
-      </SignupModal>
+      </ContainerSignUp>
     </MainContainer>
   );
 };

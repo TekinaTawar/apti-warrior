@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Button from "./Button";
 import buttonHugging from "@/public/images/buttonHugging.svg";
-import ContainerWithImage from "../ContainerWithImage";
+import ContainerWithImage from "../Containers/ContainerWithImage";
 
 const _ButtonHugging = styled(ContainerWithImage)`
   width: 70%;

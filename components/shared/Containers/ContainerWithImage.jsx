@@ -24,6 +24,8 @@ const _Container = styled.div`
   align-items: center;
 `;
 
+// !give styling like gridArea and margin that influence parent use style={{ //styles}}
+
 const ContainerWithImage2 = ({
   children,
   image,
@@ -41,6 +43,9 @@ const ContainerWithImage2 = ({
           pointerEvents: "none",
         }}
       />
+
+      {/* ! if you want internal box with color to shrink give width & height directly */}
+      {/* this is internal box */}
       <_Container className={className}>{children}</_Container>
     </_ContainerWithImage>
   );

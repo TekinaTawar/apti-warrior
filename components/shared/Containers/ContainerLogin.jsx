@@ -1,12 +1,9 @@
 import styled from "styled-components";
+import ContainerAuth from "./ContainerAuth";
 import { useForm } from "react-hook-form";
-
-import Modal from "components/shared/Modal";
 import Button1 from "@/components/shared/Buttons/Button1";
 
-const _LoginModal = styled(Modal)`
-  //* to position the content inside the modal
-
+const _ContainerLogin = styled(ContainerAuth)`
   display: grid;
   grid-auto-rows: repeat(4, 1fr);
   justify-content: center;
@@ -104,36 +101,30 @@ const PhNoSection = styled.div`
   }
 `;
 
-const LoginModal = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
-  const submitForm = (data) => {
-    console.log("submitted", data);
-  };
-
-  console.log("phonenumber", watch("phNumber"));
-
+const ContainerLogin = () => {
+    const { register, handleSubmit} = useForm();
+    const submitForm = (data) => {
+      console.log("submitted", data);
+    };
   return (
-    <_LoginModal modalHead="Login" onSubmit={handleSubmit(submitForm)}>
+    <_ContainerLogin title="Login" onSubmit={handleSubmit(submitForm)}>
       <WelcomeText>WELCOME TO APTIWARRIOR</WelcomeText>
-
       <PhNoSection>
         <label htmlFor="phNumber">ENTER YOUR MOBILE NUMBER</label>
-        <group className="phNumberInput" id="phNumber">
+        <section className="phNumberInput" id="phNumber">
           <span className="countryCode">+91</span>
           <input type="tel" {...register("phNumber")} />
-        </group>
+        </section>
       </PhNoSection>
-
       <Button1>Continue</Button1>
       <strong>OR</strong>
-
-      <group className="socialLogin">
+      <section className="socialLogin ">
         <h5>Login using your social media accounts</h5>
-        <group className="socialIcons">
+        <section className="socialIcons">
           <span>G</span> <span>F</span> <span>in</span>
-        </group>
-      </group>
-    </_LoginModal>
+        </section>
+      </section>
+    </_ContainerLogin>
   );
 };
-export default LoginModal;
+export default ContainerLogin;

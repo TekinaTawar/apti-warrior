@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import ContainerWithHead from "@/components/shared/ContainerWithHead";
-import ContainerWithImage from "@/components/shared/ContainerWithImage";
+import ContainerWithHead from "@/components/shared/Containers/ContainerWithHead";
+import ContainerWithImage from "@/components/shared/Containers/ContainerWithImage";
 
 
 //* svg Icons
