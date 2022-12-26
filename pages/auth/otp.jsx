@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useVerifyOtpMutation } from "@/redux/auth/authApiSlice";
 import { useRouter } from "next/router";
 import { selectOtpToken } from "@/redux/auth/authSlice";
+import Cookies from "universal-cookie";
 
 import Button1 from "@/components/shared/Buttons/Button1";
 import Button from "@/components/shared/Buttons/Button";
@@ -62,10 +63,13 @@ const Otp = () => {
   const [verifyOtp, { isLoading, isSuccess }] = useVerifyOtpMutation();
   const otpToken = useSelector(selectOtpToken);
   const router = useRouter();
+  const cookies = new Cookies();
 
-  const foo = ({ otp }) => {
+  const foo = async ({ otp }) => {
     console.log({ otp, otpToken });
-    verifyOtp({ otp, otpToken });
+    const data = await verifyOtp({ otp, otpToken }).unwrap();
+    localStorage.setItem("userToken", data?.access_token);
+    cookies.set("JWT", data?.access_token, { path: "/" });
   };
 
   if (isSuccess) {
