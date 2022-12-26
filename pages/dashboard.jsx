@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
+import Link from "next/link";
+
 import Header from "@/components/shared/Header";
 import armyMans from "@/public/images/dashboard/armyMans.png";
 import { useRouter } from "next/router";
@@ -18,7 +20,6 @@ import socials from "@/public/images/dashboard/socials.svg";
 import shoppingCart from "@/public/images/dashboard/shoppingCart.svg";
 import medalReward from "@/public/images/dashboard/medalReward.svg";
 import walkiesTalkie from "@/public/images/dashboard/walkiesTalkie.svg";
-import Link from "next/link";
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -119,9 +120,7 @@ const Dashboard = () => {
         <Link href="/training">
           <IconButton icon={book}>Training</IconButton>
         </Link>
-        <IconButton icon={analytics} onClick={() => router.push("/training2")}>
-          Analytics
-        </IconButton>
+        <IconButton icon={analytics}>Analytics</IconButton>
         <IconButton icon={trophy}>LeaderBoard</IconButton>
         <IconButtonPrimary icon={gun}>Battle</IconButtonPrimary>
       </div>

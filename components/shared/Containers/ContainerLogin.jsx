@@ -103,9 +103,13 @@ const PhNoSection = styled.div`
 
 const ContainerLogin = () => {
     const { register, handleSubmit} = useForm();
-    const submitForm = (data) => {
-      console.log("submitted", data);
+
+    // const [login, result] = useLoginMutation();
+
+    const submitForm = (value) => {
+      login({mobile: value.phNumber})
     };
+
   return (
     <_ContainerLogin title="Login" onSubmit={handleSubmit(submitForm)}>
       <WelcomeText>WELCOME TO APTIWARRIOR</WelcomeText>

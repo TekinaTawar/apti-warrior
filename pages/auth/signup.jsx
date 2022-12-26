@@ -1,8 +1,12 @@
 import styled from "styled-components";
-// import Modal from "@/components/shared/Modal";
+import { useForm } from "react-hook-form";
+import { useRegisterMutation } from "@/redux/auth/authApiSlice";
+import { setOtpToken } from "@/redux/auth/authSlice";
+import { useDispatch } from "react-redux";
 
 import Button1 from "@/components/shared/Buttons/Button1";
 import ContainerAuth from "@/components/shared/Containers/ContainerAuth";
+import { useRouter } from "next/router";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -29,7 +33,7 @@ const WelcomeText = styled.h2`
   display: inline-block;
 `;
 
-export const InputGroup = styled.div`
+const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -49,7 +53,7 @@ export const InputGroup = styled.div`
   }
 `;
 
-export const PhNoSection = styled.div`
+const PhNoSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-self: stretch;
@@ -94,32 +98,45 @@ export const PhNoSection = styled.div`
 `;
 
 const Signup = () => {
+  const { register, handleSubmit } = useForm();
+  const [registerUser, { isLoading, isSuccess }] = useRegisterMutation();
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  const registerAndsetOtpToken = async (value) => {
+    try {
+      const data = await registerUser(value).unwrap();
+      dispatch(setOtpToken(data.otp_token));
+      router.push("/auth/otp");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <MainContainer>
-      <ContainerSignUp title="SIGN UP">
+      <ContainerSignUp
+        title="SIGN UP"
+        onSubmit={handleSubmit(registerAndsetOtpToken)}
+      >
         <WelcomeText>WELCOME TO APTIWARROR</WelcomeText>
         <InputGroup>
           <label htmlFor="username">ENTER YOUR USER NAME</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            value="TekinaTawar"
-          />
+          <input type="text" id="username" {...register("username")} />
         </InputGroup>
         <InputGroup>
           <label htmlFor="name">ENTER YOUR FULL NAME</label>
-          <input type="text" name="name" id="name" />
+          <input type="text" id="name" {...register("name")} />
         </InputGroup>
         <InputGroup>
           <label htmlFor="email">ENTER YOUR EMAIL</label>
-          <input type="email" name="email" id="email" />
+          <input type="email" id="email" {...register("email")} />
         </InputGroup>
         <PhNoSection>
           <label htmlFor="phNumber">ENTER YOUR MOBILE NUMBER</label>
           <section className="phNumberInput">
             <span className="countryCode">+91</span>
-            <input type="tel" name="phNumber" id="phNumber" />
+            <input type="tel" id="phNumber" {...register("phNumber")} />
           </section>
         </PhNoSection>
         <Button1

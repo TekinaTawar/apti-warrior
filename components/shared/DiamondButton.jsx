@@ -36,14 +36,12 @@ const _DiamondButton = styled.div`
 `;
 
 const DiamondButton = ({ icon }) => {
-  console.log("🚀 ~ file: DiamondButton.jsx:45 ~ DiamondButton ~ icon", icon)
   return (
     <_DiamondButton>
       <button>
         {/* this is needed so that the image does not overflow out of the button */}
         <div className="iconContainer">
           <Image src={icon} alt="" fill />
-          
         </div>
       </button>
     </_DiamondButton>

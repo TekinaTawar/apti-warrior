@@ -61,15 +61,15 @@ const Home = () => {
           <h4>Check the Progress by Clicking the links below.</h4>
           <ul>
             <li>
-              <Link href="/login"> Login</Link>
+              <Link href="/auth/login"> Login</Link>
               <span>: design done</span>
             </li>
             <li>
-              <Link href="/signup"> signup</Link>
+              <Link href="/auth/signup"> signup</Link>
               <span>: design done</span>
             </li>
             <li>
-              <Link href="/otp">otp</Link>
+              <Link href="/auth/otp">otp</Link>
               <span>: design done</span>
             </li>
             <li>

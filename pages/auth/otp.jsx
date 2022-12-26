@@ -1,8 +1,11 @@
-import { useState } from "react";
 import styled from "styled-components";
 import OtpInput from "react-otp-input";
+import { useForm, Controller } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { useVerifyOtpMutation } from "@/redux/auth/authApiSlice";
+import { useRouter } from "next/router";
+import { selectOtpToken } from "@/redux/auth/authSlice";
 
-// import Modal from "@/components/shared/Modal";
 import Button1 from "@/components/shared/Buttons/Button1";
 import Button from "@/components/shared/Buttons/Button";
 import ContainerAuth from "@/components/shared/Containers/ContainerAuth";
@@ -18,7 +21,7 @@ const MainContainer = styled.main`
   align-items: center;
 `;
 
-const OtpModal = styled(ContainerAuth)`
+const ContainerOtp = styled(ContainerAuth)`
   display: grid;
   justify-content: center;
   align-content: space-around;
@@ -55,26 +58,43 @@ const EditButton = styled(Button)`
 `;
 
 const Otp = () => {
-  const [otp, setOtp] = useState();
+  const { handleSubmit, control } = useForm();
+  const [verifyOtp, { isLoading, isSuccess }] = useVerifyOtpMutation();
+  const otpToken = useSelector(selectOtpToken);
+  const router = useRouter();
+
+  const foo = ({ otp }) => {
+    console.log({ otp, otpToken });
+    verifyOtp({ otp, otpToken });
+  };
+
+  if (isSuccess) {
+    router.push("/dashboard");
+  }
 
   return (
     <MainContainer>
-      <OtpModal title={"OTP"}>
+      <ContainerOtp title={"OTP"} onSubmit={handleSubmit(foo)}>
         <h3 className="verifyMobileLabel">VERIFY YOUR MOBILE NUMBER</h3>
         <div className="mobileNumberEdit">
           <h3 className="mobileNo">+91-1234567890</h3>
           <EditButton> Edit </EditButton>
         </div>
-        <OtpInput
-          value={otp}
-          onChange={(otp) => setOtp(otp)}
-          numInputs={6}
-          containerStyle="otpContainer"
-          isInputNum={true}
+        <Controller
+          name="otp"
+          control={control}
+          render={({ field }) => (
+            <OtpInput
+              {...field}
+              numInputs={6}
+              containerStyle="otpContainer"
+              isInputNum={true}
+            />
+          )}
         />
         <h4>Enter your OTP</h4>
         <Button1>Verify</Button1>
-      </OtpModal>
+      </ContainerOtp>
     </MainContainer>
   );
 };
