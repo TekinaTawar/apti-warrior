@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import ContainerAuth from "./ContainerAuth";
-import { useForm } from "react-hook-form";
 import Button1 from "@/components/shared/Buttons/Button1";
+import { useForm } from "react-hook-form";
+import { useLoginMutation } from "@/redux/auth/authApiSlice";
+import { setOtpToken } from "@/redux/auth/authSlice";
+import { useDispatch } from "react-redux";
+import Cookies from "universal-cookie";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 const _ContainerLogin = styled(ContainerAuth)`
   display: grid;
@@ -102,13 +108,29 @@ const PhNoSection = styled.div`
 `;
 
 const ContainerLogin = () => {
-    const { register, handleSubmit} = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [login, { isLoading }] = useLoginMutation();
+  const dispatch = useDispatch();
+  const cookies = new Cookies();
+  const router = useRouter();
 
-    // const [login, result] = useLoginMutation();
+  console.log(errors);
 
-    const submitForm = (value) => {
-      login({mobile: value.phNumber})
-    };
+  // if(errors){
+  //   errors.map(error => () =>  toast.error(error))
+
+  // }
+
+  const submitForm = async (value) => {
+    const data = await login({ mobile: value.phNumber }).unwrap();
+    dispatch(setOtpToken(data.otp_token));
+    cookies.set("otpToken", data.otp_token, { path: "/" });
+    router.push("/auth/otp");
+  };
 
   return (
     <_ContainerLogin title="Login" onSubmit={handleSubmit(submitForm)}>
@@ -117,10 +139,13 @@ const ContainerLogin = () => {
         <label htmlFor="phNumber">ENTER YOUR MOBILE NUMBER</label>
         <section className="phNumberInput" id="phNumber">
           <span className="countryCode">+91</span>
-          <input type="tel" {...register("phNumber")} />
+          <input
+            type="tel"
+            {...register("phNumber", { required: true, maxLength: 10 })}
+          />
         </section>
       </PhNoSection>
-      <Button1>Continue</Button1>
+      <Button1 isLoading={isLoading}>Continue</Button1>
       <strong>OR</strong>
       <section className="socialLogin ">
         <h5>Login using your social media accounts</h5>

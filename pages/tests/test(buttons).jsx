@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button1 from "@/components/shared/Buttons/Button1";
 import ButtonHugging from "@/components/shared/Buttons/ButtonHugging";
+import { ToastContainer, toast } from "react-toastify";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -12,6 +13,7 @@ const MainContainer = styled.main`
 `;
 
 const Test3 = () => {
+  const notify = () => toast("Wow so easy!");
   return (
     <MainContainer>
       <Button1>Continue</Button1>
@@ -23,6 +25,7 @@ const Test3 = () => {
       <ButtonHugging>Loading</ButtonHugging>
       <ButtonHugging buttonState="disabled">disabled</ButtonHugging>
       <ButtonHugging buttonState="loading">Loading</ButtonHugging>
+      <button onClick={notify}>INdia</button>
     </MainContainer>
   );
 };

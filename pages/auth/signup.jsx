@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useRegisterMutation } from "@/redux/auth/authApiSlice";
 import { setOtpToken } from "@/redux/auth/authSlice";
 import { useDispatch } from "react-redux";
-
+import Cookies from "universal-cookie";
 import Button1 from "@/components/shared/Buttons/Button1";
 import ContainerAuth from "@/components/shared/Containers/ContainerAuth";
 import { useRouter } from "next/router";
@@ -102,11 +102,13 @@ const Signup = () => {
   const [registerUser, { isLoading, isSuccess }] = useRegisterMutation();
   const router = useRouter();
   const dispatch = useDispatch();
+  const cookies = new Cookies();
 
   const registerAndsetOtpToken = async (value) => {
     try {
       const data = await registerUser(value).unwrap();
       dispatch(setOtpToken(data.otp_token));
+      cookies.set("otpToken", data?.otp_token, { path: "/auth/otp" });
       router.push("/auth/otp");
     } catch (err) {
       console.log(err);

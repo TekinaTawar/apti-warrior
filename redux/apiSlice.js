@@ -5,7 +5,7 @@ const baseQuery = fetchBaseQuery({
   baseUrl: "https://617f-3-6-89-29.in.ngrok.io/v1",
   credentials: "include", //sends back http only secure cookie
   prepareHeaders: (headers, { getState }) => {
-    const token = getState().auth.accessToken; 
+    const token = getState().auth.accessToken;
     if (token) {
       headers.set("authorization", `Bearer ${token}`);
     }

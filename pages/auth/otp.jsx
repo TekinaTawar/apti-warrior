@@ -66,15 +66,17 @@ const Otp = () => {
   const cookies = new Cookies();
 
   const foo = async ({ otp }) => {
-    console.log({ otp, otpToken });
-    const data = await verifyOtp({ otp, otpToken }).unwrap();
-    localStorage.setItem("userToken", data?.access_token);
-    cookies.set("JWT", data?.access_token, { path: "/" });
+    try {
+      console.log({ otp, otpToken });
+      const data = await verifyOtp({ otp, otpToken }).unwrap();
+      localStorage.setItem("userToken", data?.access_token);
+      cookies.set("jwt", data?.access_token, { path: "/" });
+      cookies.remove("otpToken", {path: "/"});
+      router.push("/dashboard");
+    } catch (e) {
+      console.log(e);
+    }
   };
-
-  if (isSuccess) {
-    router.push("/dashboard");
-  }
 
   return (
     <MainContainer>
