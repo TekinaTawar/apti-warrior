@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { number, z } from "zod";
 
 const _ContainerLogin = styled(ContainerAuth)`
   display: grid;
@@ -118,12 +120,9 @@ const ContainerLogin = () => {
   const cookies = new Cookies();
   const router = useRouter();
 
-  console.log(errors);
-
-  // if(errors){
-  //   errors.map(error => () =>  toast.error(error))
-
-  // }
+  const schema = z.object({
+    phNumber: number().
+  })
 
   const submitForm = async (value) => {
     const data = await login({ mobile: value.phNumber }).unwrap();
@@ -141,7 +140,7 @@ const ContainerLogin = () => {
           <span className="countryCode">+91</span>
           <input
             type="tel"
-            {...register("phNumber", { required: true, maxLength: 10 })}
+            {...register("phNumber")}
           />
         </section>
       </PhNoSection>
