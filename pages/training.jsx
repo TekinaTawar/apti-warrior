@@ -1,13 +1,16 @@
 import Image from "next/image";
 import styled from "styled-components";
-
+//components
 import Header from "@/components/shared/Header";
 import SubjectsContainer from "@/components/training/SubjectsContainer";
 import ContainerWithHead from "@/components/shared/Containers/ContainerWithHead";
-
-//* svg Icons
-
+//images
 import buttonBorder2 from "@/public/images/buttonBorder2.svg";
+//redux
+import { useSelector } from "react-redux";
+import { selectCourseId, useGetCourseSubjectsQuery } from "@/redux/course/courseSlice";
+import { useGetCourseDetailQuery } from "@/redux/course/courseSlice";
+
 
 const MainContainer = styled.main`
   position: absolute;
@@ -99,6 +102,16 @@ const ModuleCard = styled.div`
 `;
 
 const Training = () => {
+
+  const courseId = useSelector(selectCourseId);
+  // const { data, error, isLoading } = useGetCourseDetailQuery(courseId);
+  // console.log(courseId)
+  // console.log(data);
+
+  const { data, error, isLoading } = useGetCourseSubjectsQuery(courseId);
+  console.log(data);
+  
+
   return (
     <MainContainer>
       <Header />

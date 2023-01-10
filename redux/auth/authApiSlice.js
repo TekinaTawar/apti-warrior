@@ -1,7 +1,6 @@
-import { apiSlice } from "@/redux/apiSlice";
+import { aptiApiSlice } from "@/redux/aptiApiSlice";
 
-
-export const authApiSlice = apiSlice.injectEndpoints({
+export const authApiSlice = aptiApiSlice.injectEndpoints({
   overrideExisting: true,
   endpoints: (builder) => ({
     login: builder.mutation({
@@ -27,12 +26,12 @@ export const authApiSlice = apiSlice.injectEndpoints({
     verifyOtp: builder.mutation({
       query: ({ otp, otpToken }) => {
         const payload = { otp: otp, otp_token: otpToken };
-        console.log("🚀 ~ file: authApiSlice.js:30 ~ payload", payload);
+        console.log("🚀 ~ file: authaptiApiSlice.js:30 ~ payload", payload);
         return {
           url: "/user/verify-otp/",
           method: "POST",
           //get otp token from register mutation.
-          body: { otp: otp, otp_token: otpToken}, //otp_token is a placeholder
+          body: { otp: otp, otp_token: otpToken }, //otp_token is a placeholder
         };
       },
     }),

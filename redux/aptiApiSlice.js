@@ -1,11 +1,16 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials, logOut } from "@/redux/auth/authSlice";
+import Cookies from "universal-cookie";
 
-const baseQuery = fetchBaseQuery({
+const cookies = new Cookies();
+
+const aptiWarriorQuery = fetchBaseQuery({
   baseUrl: "https://617f-3-6-89-29.in.ngrok.io/v1",
   credentials: "include", //sends back http only secure cookie
   prepareHeaders: (headers, { getState }) => {
-    const token = getState().auth.accessToken;
+    // const token = getState().auth.accessToken;
+    const token = cookies.get("jwt");
+    console.log(token)
     if (token) {
       headers.set("authorization", `Bearer ${token}`);
     }
@@ -13,29 +18,30 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-const baseQueryWithReauth = async (args, api, extraOptions) => {
-  let result = await baseQuery(args, api, extraOptions);
+const aptiWarriorQueryWithReauth = async (args, api, extraOptions) => {
+  let result = await aptiWarriorQuery(args, api, extraOptions);
 
   if (result?.error?.originalStatus === 403) {
     // put condition for expriration of access token
     console.log("sending refresh  token");
     // send refresh token to get new access token
-    const refreshResult = await baseQuery("/refresh", api, extraOptions);
+    const refreshResult = await aptiWarriorQuery("/refresh", api, extraOptions);
     console.log(refreshResult);
     if (refreshResult?.data) {
       const user = api.getState().auth.user;
       //store the new token
       api.dispatch(setCredentials(...refreshResult.data, user));
       //retry the original query with new access token
-      result = await baseQuery(args, api, extraOptions);
+      result = await aptiWarriorQuery(args, api, extraOptions);
     } else {
       api.dispatch(logOut());
     }
   }
+  console.log(result.meta.request.headers.values());
   return result;
 };
 
-export const apiSlice = createApi({
-  baseQuery: baseQueryWithReauth,
+export const aptiApiSlice = createApi({
+  baseQuery: aptiWarriorQueryWithReauth,
   endpoints: (_) => ({}),
 });

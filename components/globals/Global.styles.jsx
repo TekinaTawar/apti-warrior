@@ -175,29 +175,22 @@ input {
   font-family: 'Courier New', Courier, monospace;
 }
 
-body{
-  /* > * ::-webkit-scrollbar {
-    display: none;
-  } */
-}
+#__next *{
+  ::-webkit-scrollbar {
+    width: 8px;
 
-
-/* scroll bar styles
-::-webkit-scrollbar {
-  width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 }
-Track
-::-webkit-scrollbar-track {
-  background: #f0f0f0;
-}
-Handle
-::-webkit-scrollbar-thumb {
-  background: #cecece;
-}
-Handle on hover
-::-webkit-scrollbar-thumb:hover {
-  background: #a7a7a7;
-} */
 
 `;
 

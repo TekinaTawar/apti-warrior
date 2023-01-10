@@ -9,7 +9,7 @@ import Cookies from "universal-cookie";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { number, z } from "zod";
+import { z } from "zod";
 
 const _ContainerLogin = styled(ContainerAuth)`
   display: grid;
@@ -110,26 +110,41 @@ const PhNoSection = styled.div`
 `;
 
 const ContainerLogin = () => {
+  const schema = z.object({
+    phNumber: z
+      .string()
+      .length(10, { message: "Phone Number must be 10 digits long" })
+      .regex(/^[1-9]\d{9}$/, {
+        message: "Phone number should only include numbers",
+      }),
+  });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: zodResolver(schema) });
   const [login, { isLoading }] = useLoginMutation();
   const dispatch = useDispatch();
   const cookies = new Cookies();
   const router = useRouter();
 
-  const schema = z.object({
-    phNumber: number().
-  })
-
   const submitForm = async (value) => {
+    console.log(value.phNumber, "phNumber"); // to delete
+
     const data = await login({ mobile: value.phNumber }).unwrap();
     dispatch(setOtpToken(data.otp_token));
     cookies.set("otpToken", data.otp_token, { path: "/" });
     router.push("/auth/otp");
   };
+
+  if (errors.phNumber) { 
+    console.log(errors.phNumber.message, "errors.phNumber.message"); // to delete
+  }
+
+  if (errors.phNumber) {
+    toast.error(errors.phNumber.message);
+  }
 
   return (
     <_ContainerLogin title="Login" onSubmit={handleSubmit(submitForm)}>
@@ -138,10 +153,7 @@ const ContainerLogin = () => {
         <label htmlFor="phNumber">ENTER YOUR MOBILE NUMBER</label>
         <section className="phNumberInput" id="phNumber">
           <span className="countryCode">+91</span>
-          <input
-            type="tel"
-            {...register("phNumber")}
-          />
+          <input type="tel" {...register("phNumber")} />
         </section>
       </PhNoSection>
       <Button1 isLoading={isLoading}>Continue</Button1>
