@@ -110,6 +110,7 @@ const PhNoSection = styled.div`
 `;
 
 const ContainerLogin = () => {
+  //local validation
   const schema = z.object({
     phNumber: z
       .string()
@@ -130,17 +131,21 @@ const ContainerLogin = () => {
   const router = useRouter();
 
   const submitForm = async (value) => {
-    console.log(value.phNumber, "phNumber"); // to delete
+    try {
+      const data = await login({ mobile: value.phNumber }).unwrap();
 
-    const data = await login({ mobile: value.phNumber }).unwrap();
-    dispatch(setOtpToken(data.otp_token));
-    cookies.set("otpToken", data.otp_token, { path: "/" });
-    router.push("/auth/otp");
+      dispatch(setOtpToken(data.otp_token));
+      cookies.set("otpToken", data.otp_token, { path: "/" });
+      router.push("/auth/otp");
+    } catch (e) {
+      // console.log(e);
+      toast.error(e.data.message);
+    }
   };
 
-  if (errors.phNumber) { 
-    console.log(errors.phNumber.message, "errors.phNumber.message"); // to delete
-  }
+  // if (errors.phNumber) { 
+  //   console.log(errors.phNumber.message, "errors.phNumber.message"); // to delete
+  // }
 
   if (errors.phNumber) {
     toast.error(errors.phNumber.message);

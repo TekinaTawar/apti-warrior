@@ -6,6 +6,9 @@ export const courseApiSlice = aptiApiSlice.injectEndpoints({
   endpoints: (builder) => {
     // console.log(builder);
     return {
+      getMasterCourse: builder.query({
+         query: () => `/master/course/`,
+      }),
       getCourseDetail: builder.query({
         query: (courseId) => `/course/${courseId}/`,
       }),
@@ -43,6 +46,7 @@ export default courseSlice.reducer;
 
 // Query hooks
 export const {
+  useGetMasterCourseQuery,
   useGetCourseDetailQuery,
   useGetCourseSubjectsQuery,
   useGetSubjectModulesQuery,
@@ -54,7 +58,6 @@ export const {
 export const selectCourseId = (state) => state.course.courseId;
 export const selectCourse = (state) => state.course.course;
 export const selectCourseSubjects = (state) => state.course.subjects;
-
 
 // Actions
 export const {} = courseSlice.actions;

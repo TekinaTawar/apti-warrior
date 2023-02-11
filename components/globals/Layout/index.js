@@ -3,6 +3,9 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import bg from "public/images/bg.png";
+import { useSelector } from "react-redux";
+import { selectError } from "@/redux/UI/uiSlice";
+import { toast } from "react-toastify";
 
 const BgImage = styled(Image)`
   position: absolute;
@@ -13,6 +16,9 @@ const BgImage = styled(Image)`
 `;
 
 const Layout = ({ children }) => {
+  // const _error = useSelector(selectError);
+
+  // toast.error(_error);
   return (
     <>
       <Head>

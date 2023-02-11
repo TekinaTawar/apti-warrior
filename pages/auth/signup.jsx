@@ -7,6 +7,13 @@ import Cookies from "universal-cookie";
 import Button1 from "@/components/shared/Buttons/Button1";
 import ContainerAuth from "@/components/shared/Containers/ContainerAuth";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+import { useGetMasterCourseQuery } from "@/redux/course/courseSlice";
+
+//*Styled Component
 
 const MainContainer = styled.main`
   position: absolute;
@@ -29,6 +36,7 @@ const WelcomeText = styled.h2`
   font-family: stormfaze;
   font-size: var(--step-0);
   padding-bottom: 1rem;
+  padding-top: 0.5rem;
   border-bottom: 1px solid #ebac45;
   display: inline-block;
 `;
@@ -40,7 +48,8 @@ const InputGroup = styled.div`
   & > label {
     font-size: 0.8rem;
   }
-  & > input {
+  & > input,
+  select {
     background-color: black;
     border: 1px solid var(--golden-yellow3);
     height: 2.4rem;
@@ -97,23 +106,71 @@ const PhNoSection = styled.div`
   }
 `;
 
-const Signup = () => {
-  const { register, handleSubmit } = useForm();
+//*Styled Component
+
+const SignUp = () => {
+  //local validation
+  const schema = z.object({
+    phNumber: z
+      .string()
+      .length(10, { message: "Phone Number must be 10 digits long" })
+      .regex(/^[1-9]\d{9}$/, {
+        message: "Phone number should only include numbers",
+      }),
+    username: z
+      .string()
+      .min(8, { message: "Username must be at least 8 characters long" })
+      .max(20, { message: "Username must be at least 20 characters long" })
+      .regex(/^[a-zA-Z0-9]+$/, {
+        message: "Username should not contain special characters",
+      }),
+    name: z
+      .string()
+      .min(2, { message: "name should be more then 2 characters" })
+      .max(50, { message: "name should be less then 50 characters" })
+      .regex(/^[a-zA-Z]+$/, {
+        message: "name should not contain special characters or numbers",
+      }),
+    email: z.string().email(),
+    course: z.string({ message: "This field is required." }),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(schema) });
   const [registerUser, { isLoading, isSuccess }] = useRegisterMutation();
   const router = useRouter();
   const dispatch = useDispatch();
   const cookies = new Cookies();
 
+  const { data, error } = useGetMasterCourseQuery();
+  // console.log(data);
+
   const registerAndsetOtpToken = async (value) => {
     try {
       const data = await registerUser(value).unwrap();
+
       dispatch(setOtpToken(data.otp_token));
       cookies.set("otpToken", data?.otp_token, { path: "/auth/otp" });
       router.push("/auth/otp");
-    } catch (err) {
-      console.log(err);
+    } catch (e) {
+      toast.error(e.data.message);
     }
   };
+
+  // if (errors) {
+  //   console.log(errors);
+  // }
+
+  if (errors.phNumber) {
+    toast.error(errors.username?.message);
+    toast.error(errors.name?.message);
+    toast.error(errors.email?.message);
+    toast.error(errors.phNumber?.message);
+    toast.error(errors.course?.message);
+  }
 
   return (
     <MainContainer>
@@ -132,7 +189,7 @@ const Signup = () => {
         </InputGroup>
         <InputGroup>
           <label htmlFor="email">ENTER YOUR EMAIL</label>
-          <input type="email" id="email" {...register("email")} />
+          <input type="text" id="email" {...register("email")} />
         </InputGroup>
         <PhNoSection>
           <label htmlFor="phNumber">ENTER YOUR MOBILE NUMBER</label>
@@ -141,6 +198,24 @@ const Signup = () => {
             <input type="tel" id="phNumber" {...register("phNumber")} />
           </section>
         </PhNoSection>
+        <InputGroup>
+          <label htmlFor="course">COURSE</label>
+
+          {error ? (
+            <> Errors </>
+          ) : data ? (
+            <select {...register("course")}>
+              <option value={data.results[0]} id="course">
+                {data.results[0].title}
+              </option>
+              ;
+              <option value={data.results[1]} id="course">
+                {data.results[1].title}
+              </option>
+              ;
+            </select>
+          ) : null}
+        </InputGroup>
         <Button1
           style={{
             alignSelf: "center",
@@ -154,4 +229,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;

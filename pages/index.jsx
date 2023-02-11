@@ -55,7 +55,11 @@ const Banner = styled(ContainerWithImage)`
 const Home = () => {
   return (
     <MainContainer>
-      <Banner image={borderVid} style={{ height: "60%", width: "60%" }} takeExternalSize={false}>
+      <Banner
+        image={borderVid}
+        style={{ height: "75%", width: "60%" }}
+        takeExternalSize={false}
+      >
         <div className="content">
           <h2>Apti Warrior</h2>
           <h4>Check the Progress by Clicking the links below.</h4>
@@ -89,10 +93,6 @@ const Home = () => {
               <span>: one section of UI , functionality pending..</span>
             </li>
             <li>
-              <Link href="/test">test</Link>
-              <span>: For the Developer only to test current things.</span>
-            </li>
-            <li>
               <Link href="/practice&learn">Practice&Learn</Link>
               <span>: UI done but functionality pending.</span>
             </li>
@@ -111,6 +111,15 @@ const Home = () => {
             <li>
               <Link href="/settings">Settings</Link>
               <span>: one section of UI ..</span>
+            </li>
+            ------------------------------------------------------------------------------------------------
+            <li>
+              <Link href="/tests/test(buttons)">test(buttons)</Link>
+              <span>: For the Developer only to test current things.</span>
+            </li>
+            <li>
+              <Link href="/tests/test(modal)">test(Modal)</Link>
+              <span>: For the Developer only to test current things.</span>
             </li>
           </ul>
         </div>

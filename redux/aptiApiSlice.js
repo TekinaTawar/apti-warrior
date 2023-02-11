@@ -10,7 +10,7 @@ const aptiWarriorQuery = fetchBaseQuery({
   prepareHeaders: (headers, { getState }) => {
     // const token = getState().auth.accessToken;
     const token = cookies.get("jwt");
-    console.log(token)
+   
     if (token) {
       headers.set("authorization", `Bearer ${token}`);
     }
@@ -20,6 +20,11 @@ const aptiWarriorQuery = fetchBaseQuery({
 
 const aptiWarriorQueryWithReauth = async (args, api, extraOptions) => {
   let result = await aptiWarriorQuery(args, api, extraOptions);
+
+  if (result?.error){
+    console.log(result.error);
+    
+  }
 
   if (result?.error?.originalStatus === 403) {
     // put condition for expriration of access token
@@ -37,7 +42,6 @@ const aptiWarriorQueryWithReauth = async (args, api, extraOptions) => {
       api.dispatch(logOut());
     }
   }
-  console.log(result.meta.request.headers.values());
   return result;
 };
 
