@@ -3,32 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const courseApiSlice = aptiApiSlice.injectEndpoints({
   overrideExisting: true,
-  endpoints: (builder) => {
-    // console.log(builder);
-    return {
-      getMasterCourse: builder.query({
-         query: () => `/master/course/`,
-      }),
-      getCourseDetail: builder.query({
-        query: (courseId) => `/course/${courseId}/`,
-      }),
-      getCourseSubjects: builder.query({
-        query: (courseId) => `/course/${courseId}/subject/`,
-      }),
-      getSubjectModules: builder.query({
-        query: (courseId, subjectId) =>
-          `/course/${courseId}/subject/${subjectId}/module/`,
-      }),
-      getModuleTopics: builder.query({
-        query: (courseId, subjectId, moduleId) =>
-          `/course/${courseId}/subject/${subjectId}/module/${moduleId}/topic/`,
-      }),
-      getTopicLectures: builder.query({
-        query: (courseId, subjectId, moduleId, topicId) =>
-          `/course/${courseId}/subject/${subjectId}/module/${moduleId}/topic/${topicId}/lecture/`,
-      }),
-    };
-  },
+  endpoints: (builder) => ({
+    getMasterCourses: builder.query({
+      query: () => `/master/course/`,
+    }),
+    getSubjects: builder.query({
+      query: (course_id) => `/course/${course_id}/subject/`,
+    }),
+  }),
 });
 
 export const courseSlice = createSlice({
@@ -45,19 +27,9 @@ export const courseSlice = createSlice({
 export default courseSlice.reducer;
 
 // Query hooks
-export const {
-  useGetMasterCourseQuery,
-  useGetCourseDetailQuery,
-  useGetCourseSubjectsQuery,
-  useGetSubjectModulesQuery,
-  useGetModuleTopicsQuery,
-  useGetTopicLecturesQuery,
-} = courseApiSlice;
+export const { useGetMasterCoursesQuery, useLazyGetSubjectsQuery } = courseApiSlice;
 
 // Selectors
-export const selectCourseId = (state) => state.course.courseId;
-export const selectCourse = (state) => state.course.course;
-export const selectCourseSubjects = (state) => state.course.subjects;
 
 // Actions
 export const {} = courseSlice.actions;

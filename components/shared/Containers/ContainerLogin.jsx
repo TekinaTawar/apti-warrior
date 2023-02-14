@@ -130,7 +130,9 @@ const ContainerLogin = () => {
   const cookies = new Cookies();
   const router = useRouter();
 
+
   const submitForm = async (value) => {
+    console.log("running submit Form", value);
     try {
       const data = await login({ mobile: value.phNumber }).unwrap();
 

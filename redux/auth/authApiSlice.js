@@ -11,7 +11,7 @@ export const authApiSlice = aptiApiSlice.injectEndpoints({
       }),
     }),
     register: builder.mutation({
-      query: ({ username, name, email, phNumber }) => ({
+      query: ({ username, name, email, phNumber, course }) => ({
         url: "/user/register/",
         method: "POST",
         body: {
@@ -20,6 +20,7 @@ export const authApiSlice = aptiApiSlice.injectEndpoints({
           email: email,
           mobile: phNumber,
           mobile_extension: "+91",
+          course: [course],
         },
       }),
     }),

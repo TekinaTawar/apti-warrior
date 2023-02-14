@@ -8,9 +8,9 @@ import ContainerWithHead from "@/components/shared/Containers/ContainerWithHead"
 import buttonBorder2 from "@/public/images/buttonBorder2.svg";
 //redux
 import { useSelector } from "react-redux";
-import { selectCourseId, useGetCourseSubjectsQuery } from "@/redux/course/courseSlice";
-import { useGetCourseDetailQuery } from "@/redux/course/courseSlice";
 
+import { selectUserCourses, useGetUserProfileQuery } from "@/redux/user/userSlice";
+import { useLazyGetSubjectsQuery } from "@/redux/course/courseSlice";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -102,15 +102,18 @@ const ModuleCard = styled.div`
 `;
 
 const Training = () => {
+  // const courses = useSelector(selectUserCourses);
+  // console.log(courses);
 
-  const courseId = useSelector(selectCourseId);
-  // const { data, error, isLoading } = useGetCourseDetailQuery(courseId);
-  // console.log(courseId)
-  // console.log(data);
+  const {data, isSuccess} = useGetUserProfileQuery();
+  const [trigger] = useLazyGetSubjectsQuery();
 
-  const { data, error, isLoading } = useGetCourseSubjectsQuery(courseId);
   console.log(data);
-  
+  if(isSuccess){
+    trigger(data.profile.courses[0].id)
+  }
+
+  // const { data, error, isLoading } = useGetCourseSubjectsQuery(courseId);
 
   return (
     <MainContainer>
