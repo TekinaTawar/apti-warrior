@@ -2,7 +2,6 @@ import styled from "styled-components";
 import ContainerWithHead from "@/components/shared/Containers/ContainerWithHead";
 import ContainerWithImage from "@/components/shared/Containers/ContainerWithImage";
 
-
 //* svg Icons
 
 import verticalBoxInsideBorder from "@/public/images/verticalBoxInsideBorder.svg";
@@ -41,6 +40,10 @@ const SubjectCard = styled.div`
   gap: var(--space-2xs-xs);
   grid-template-areas: "subjectImage subjectTitle" "progressBar progressBar";
   margin-bottom: var(--space-2xs-xs);
+
+  :hover {
+    cursor: pointer;
+  }
 
   .subjectImage {
     grid-area: subjectImage;
@@ -94,7 +97,10 @@ const SubjectCard = styled.div`
 const SubjectsContainer = () => {
   return (
     <_SubjectsContainer title="Subjects" gridArea="subjectsContainer">
-      <_ContainerWithImage image={verticalBoxInsideBorder}  style={{ gridArea: "frame" }}>
+      <_ContainerWithImage
+        image={verticalBoxInsideBorder}
+        style={{ gridArea: "frame" }}
+      >
         {[...Array(6)].map((e, i) => (
           <SubjectCard key={i}>
             <div className="subjectImage"></div>

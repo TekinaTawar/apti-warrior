@@ -9,7 +9,10 @@ import buttonBorder2 from "@/public/images/buttonBorder2.svg";
 //redux
 import { useSelector } from "react-redux";
 
-import { selectUserCourses, useGetUserProfileQuery } from "@/redux/user/userSlice";
+import {
+  selectUserCourses,
+  useGetUserProfileQuery,
+} from "@/redux/user/userSlice";
 import { useLazyGetSubjectsQuery } from "@/redux/course/courseSlice";
 
 const MainContainer = styled.main`
@@ -47,6 +50,10 @@ const ModuleCard = styled.div`
   padding-block: var(--space-xs-s);
   gap: var(--space-2xs-xs);
   grid-template-areas: "moduleImage moduleTitle" "progressBar progressBar";
+
+  :hover {
+    cursor: pointer;
+  }
 
   .moduleImage {
     grid-area: moduleImage;
@@ -105,13 +112,14 @@ const Training = () => {
   // const courses = useSelector(selectUserCourses);
   // console.log(courses);
 
-  const {data, isSuccess} = useGetUserProfileQuery();
+  const { data, isSuccess } = useGetUserProfileQuery();
   const [trigger] = useLazyGetSubjectsQuery();
+  console.log(useLazyGetSubjectsQuery());
 
   console.log(data);
-  if(isSuccess){
-    trigger(data.profile.courses[0].id)
-  }
+  // if(isSuccess){
+  //   trigger(data.profile.courses[0].id);
+  // }
 
   // const { data, error, isLoading } = useGetCourseSubjectsQuery(courseId);
 

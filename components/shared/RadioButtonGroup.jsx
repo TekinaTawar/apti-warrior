@@ -22,6 +22,9 @@ const _Options = styled.div`
       padding-inline: var(--space-3xs-2xs);
       padding-block: var(--space-3xs-2xs);
     }
+    :hover {
+      cursor: pointer;
+    }
   }
 
   input:checked ~ label {

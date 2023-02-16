@@ -5,6 +5,7 @@ import authReducer from "@/redux/auth/authSlice";
 import courseReducer from "@/redux/course/courseSlice";
 import uiReducer from "@/redux/UI/uiSlice";
 
+console.log(aptiApiSlice);
 
 export const store = configureStore({
   reducer: {

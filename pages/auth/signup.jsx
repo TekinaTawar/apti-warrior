@@ -207,9 +207,9 @@ const SignUp = () => {
             {isGetCourseSuccess ? (
               <>
                 <option value="">--Select--</option>
-                {data?.results.map((result, i) => (
-                  <option key={i} value={result.id}>
-                    {result.title}
+                {data?.results.map(({ id, title }) => (
+                  <option key={id} value={id}>
+                    {title}
                   </option>
                 ))}
               </>

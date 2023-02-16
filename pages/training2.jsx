@@ -36,7 +36,11 @@ const MainContainer = styled.main`
   row-gap: var(--space-2xs-xs);
 `;
 
-const VideoContainer = styled(ContainerWithImage)``;
+const VideoContainer = styled(ContainerWithImage)`
+  :hover {
+    cursor: pointer;
+  }
+`;
 
 const VideoTextContainer = styled.div`
   grid-area: videoTextContainer;
