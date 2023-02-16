@@ -119,7 +119,7 @@ const Dashboard = () => {
         />
       </div>
       <div className="iconButtonSection">
-        <Link href="/training">
+        <Link href="/tests/testSelectTrainingMode">
           <IconButton icon={book}>Training</IconButton>
         </Link>
         <IconButton icon={analytics}>Analytics</IconButton>
