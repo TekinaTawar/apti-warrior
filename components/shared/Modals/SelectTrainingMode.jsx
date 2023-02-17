@@ -12,13 +12,15 @@ const TrainingMode = styled(ContainerAuth)`
   display: grid;
   padding-inline: var(--space-xs-s);
   padding-block: var(--space-xs-s);
+`;
 
- 
+const _Modal = styled(Modal)`
+  background: transparent;
 `;
 
 const SelectTrainingMode = ({ setShowModal }) => {
   return (
-    <Modal onClose={() => setShowModal(false)} setShowModal={setShowModal}>
+    <_Modal onClose={() => setShowModal(false)} setShowModal={setShowModal}>
       <TrainingMode title="Training">
         <Link href="/training">
           <IconButton icon={eLearning}>Learn</IconButton>
@@ -27,7 +29,7 @@ const SelectTrainingMode = ({ setShowModal }) => {
           <IconButton icon={dumbbellsPractice}>Practice</IconButton>
         </Link>
       </TrainingMode>
-    </Modal>
+    </_Modal>
   );
 };
 export default SelectTrainingMode;

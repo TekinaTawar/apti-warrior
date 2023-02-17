@@ -15,7 +15,7 @@ const _IconButtonPrimary = styled.button`
   width: var(--space-6xl-7xl);
 
   & .borderbuttonContainer {
-    width: 99%;
+    width: 88%;
     height: 90%;
     margin-inline: auto;
     /* background-color: var(--primary-200); */
@@ -54,7 +54,7 @@ const _IconButtonPrimary = styled.button`
 const IconButtonPrimary = ({ children, icon }) => {
   return (
     <_IconButtonPrimary>
-      <Image src={buttonBorder1} alt="button border" fill sizes="100vw" />
+      <Image src={buttonBorder1} alt="button border" fill sizes="100vw" style={{ paddingInline: "var(--space-xs-s)"}} />
       <div className="borderbuttonContainer">
         <i>
           <Image src={icon} alt="book" fill sizes="100vw" />

@@ -75,6 +75,7 @@ const MainContainer = styled.main`
     align-self: stretch;
     justify-content: space-around;
     align-items: center;
+    
   }
 `;
 
