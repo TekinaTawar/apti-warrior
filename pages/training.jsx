@@ -13,7 +13,9 @@ import {
   selectUserCourses,
   useGetUserProfileQuery,
 } from "@/redux/user/userSlice";
-import { useLazyGetSubjectsQuery } from "@/redux/course/courseSlice";
+// import { useLazyGetSubjectsQuery } from "@/redux/course/courseSlice";
+
+//*Styled Component
 
 const MainContainer = styled.main`
   position: absolute;
@@ -108,20 +110,13 @@ const ModuleCard = styled.div`
   }
 `;
 
+//*Styled Component
+
 const Training = () => {
-  // const courses = useSelector(selectUserCourses);
-  // console.log(courses);
+  const courses = useSelector(selectUserCourses);
 
-  const { data, isSuccess } = useGetUserProfileQuery();
-  const [trigger] = useLazyGetSubjectsQuery();
-  console.log(useLazyGetSubjectsQuery());
-
-  console.log(data);
-  // if(isSuccess){
-  //   trigger(data.profile.courses[0].id);
-  // }
-
-  // const { data, error, isLoading } = useGetCourseSubjectsQuery(courseId);
+  const { data, i̥sSuccess } = useGetUserProfileQuery();
+  console.log("🚀 ~ file: training.jsx:116 ~ Training ~ data", data);
 
   return (
     <MainContainer>

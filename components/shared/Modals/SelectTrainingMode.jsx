@@ -8,6 +8,9 @@ import dumbbellsPractice from "@/public/images/Practice&Learn/dumbbellsPractice.
 import Link from "next/link";
 import IconButton from "../IconButton";
 
+
+//*Styled Component
+
 const TrainingMode = styled(ContainerAuth)`
   display: grid;
   padding-inline: var(--space-xs-s);
@@ -17,6 +20,8 @@ const TrainingMode = styled(ContainerAuth)`
 const _Modal = styled(Modal)`
   background: transparent;
 `;
+
+//*Styled Component
 
 const SelectTrainingMode = ({ setShowModal }) => {
   return (

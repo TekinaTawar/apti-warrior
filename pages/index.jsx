@@ -66,76 +66,80 @@ const Home = () => {
           <ul>
             <li>
               <Link href="/auth/login"> Login</Link>
-              <span>: design done</span>
+              <span>:- design done</span>
             </li>
             <li>
-              <Link href="/auth/signup"> signup</Link>
-              <span>: design done</span>
+              <Link href="/auth/signup"> Sign-Up</Link>
+              <span>:- design done</span>
             </li>
             <li>
-              <Link href="/auth/otp">otp</Link>
-              <span>: design done</span>
+              <Link href="/auth/otp">Otp</Link>
+              <span>:- design done</span>
             </li>
             <li>
-              <Link href="/dashboard">dashboard</Link>
-              <span>: design done (mobile layout some confusions)</span>
+              <Link href="/dashboard">Dashboard</Link>
+              <span>:- design done (mobile layout some confusions)</span>
             </li>
             <li>
-              <Link href="/training">training-area</Link>
-              <span>: done</span>
+              <Link href="/training">Training-area</Link>
+              <span>:- done</span>
             </li>
             <li>
-              <Link href="/training2">training-area/1</Link>
-              <span>: done</span>
+              <Link href="/training2">Training-area/1</Link>
+              <span>:- video lecture and quiz page done....</span>
+            </li>
+            <li>
+              <Link href="/practice">Practice</Link>
+              <span>:- Sprint,Steak,Simulation choice Page done....</span>
             </li>
             <li>
               <Link href="/regularTest">Regular Test</Link>
-              <span>: one section of UI , functionality pending..</span>
+              <span>:- one section of UI , functionality pending....</span>
             </li>
             <li>
               <Link href="/practice&learn">Practice&Learn</Link>
-              <span>: UI done but functionality pending.</span>
+              <span>:- UI done but functionality pending...</span>
             </li>
             <li>
               <Link href="/multiplayerDashboard">Multiplayer Dashboard</Link>
-              <span>: UI done but functionality pending.</span>
+              <span>:- UI done but functionality pending...</span>
             </li>
             <li>
               <Link href="/streakTest2">Streak Test 2</Link>
-              <span>: one section of UI , functionality pending..</span>
+              <span>:- one section of UI , functionality pending...</span>
             </li>
             <li>
               <Link href="/sprintTest">Sprint Test</Link>
-              <span>: one section of UI , functionality pending..</span>
-            </li>
-            <li>
-              <Link href="/settings">Settings</Link>
-              <span>: one section of UI ..</span>
-            </li>
-            ------------------------------------------------------------------------------------------------
-            <li>
-              <Link href="/tests/test(buttons)">test(buttons)</Link>
-              <span>: For the Developer only to test current things.</span>
-            </li>
-            <li>
-              <Link href="/tests/test(modal)">test(Modal)</Link>
-              <span>: For the Developer only to test current things.</span>
+              <span>:- one section of UI , functionality pending...</span>
             </li>
             {/* <li>
-              <Link href="/tests/test(containerWithImage)">test(containerWithImage)</Link>
-              <span>: For the Developer only to test current things.</span>
+              <Link href="/settings">Settings</Link>
+              <span>: one section of UI ..</span>
+            </li> */}
+            ------------------------------------------------------------------------------------------------
+            <li>
+              <Link href="/tests/test(buttons)">Test(buttons)</Link>
+              <span>:- For the Developer only to test current things....</span>
+            </li>
+            <li>
+              <Link href="/tests/test(modal)">Test(Modal)</Link>
+              <span>:- For the Developer only to test current things....</span>
+            </li>
+            {/* <li>
+              <Link href="/tests/test(containerWithImage)">Test(containerWithImage)</Link>
+              <span>:- For the Developer only to test current things.</span>
             </li> */}
             <li>
               <Link href="/tests/testCustomBattleModal">
-                testCustomBattleModal
+                Test Custom Battle Modal
               </Link>
-              <span>: For the Developer only to test current things.</span>
+              <span>:- For the Developer only to test current things</span>
             </li>
             <li>
               <Link href="/tests/testSelectTrainingMode">
-                testSelectTrainingMode
+                Test Select TrainingMode
               </Link>
-              <span>: For the Developer only to test current things.</span>
+              <span>:- For the Developer only to test current things....</span>
             </li>
           </ul>
         </div>

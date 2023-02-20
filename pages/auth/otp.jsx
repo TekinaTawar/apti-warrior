@@ -11,6 +11,8 @@ import Button1 from "@/components/shared/Buttons/Button1";
 import Button from "@/components/shared/Buttons/Button";
 import ContainerAuth from "@/components/shared/Containers/ContainerAuth";
 
+//*Styled Component
+
 const MainContainer = styled.main`
   /* background-color: orange; */
   position: absolute;
@@ -58,6 +60,9 @@ const EditButton = styled(Button)`
   font-family: metropolis;
 `;
 
+//*Styled Component
+
+
 const Otp = () => {
   const { handleSubmit, control } = useForm();
   const [verifyOtp, { isLoading, isSuccess }] = useVerifyOtpMutation();
@@ -65,9 +70,9 @@ const Otp = () => {
   const router = useRouter();
   const cookies = new Cookies();
 
-  const foo = async ({ otp }) => {
+  const foo = async ({ ot̥p }) => {
     try {
-      console.log({ otp, otpToken });
+      // console.log({ otp, otpToken });
       const data = await verifyOtp({ otp, otpToken }).unwrap();
       localStorage.setItem("userToken", data?.access_token);
       cookies.set("jwt", data?.access_token, { path: "/" });

@@ -109,7 +109,9 @@ const PhNoSection = styled.div`
 //*Styled Component
 
 const SignUp = () => {
-  //local validation
+
+  //*schema validation
+
   const schema = z.object({
     phNumber: z
       .string()
@@ -136,6 +138,8 @@ const SignUp = () => {
     course: z.string().min(30, { message: "Choose a valid Course" }),
   });
 
+  //*schema validation
+  
   const {
     register,
     handleSubmit,
@@ -150,11 +154,8 @@ const SignUp = () => {
   const { data, isSuccess: isGetCourseSuccess } = useGetMasterCoursesQuery();
 
   const registerAndSetOtpToken = async (value) => {
-    console.log("running");
     try {
-      console.log(value);
       const data = await registerUser(value).unwrap();
-
       dispatch(setOtpToken(data.otp_token));
       cookies.set("otpToken", data?.otp_token, { path: "/auth/otp" });
       router.push("/auth/otp");
@@ -170,10 +171,6 @@ const SignUp = () => {
     toast.error(errors.phNumber?.message);
     toast.error(errors.course?.message);
   }
-
-  const foo = (e) => {
-    console.log("running foo");
-  };
 
   return (
     <MainContainer>
