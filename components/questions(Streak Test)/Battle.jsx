@@ -8,10 +8,12 @@ import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 import face from "@/public/images/Practice&Learn/face.svg";
 import { AiFillHeart } from "react-icons/ai";
 
-const _Battle = styled(ContainerWithHead)``;
+const _Battle = styled(ContainerWithHead)`
+  padding-block: var(--space-3xs-2xs);
+`;
 const ModuleCards = styled.div`
   z-index: 1;
-  width: 90%;
+  width: 95%;
   margin-inline: auto;
   height: 70%;
   position: relative;
@@ -27,12 +29,11 @@ const ModuleCards = styled.div`
     display: grid;
     grid-template-columns: fit-content(10px) 1fr;
     grid-template-rows: fit-content(10px) 1fr; // check in dev tools if this is working
-    /* justify-items: space-between; */
     align-items: center;
-    padding-inline: var(--space-4xs-3xs);
-    padding-block: var(--space-4xs-3xs);
+    padding-inline: var(--space-3xs-2xs);
+    padding-block: var(--space-3xs-2xs);
     gap: var(--space-2xs-xs);
-    grid-template-areas: "moduleImage moduleTitle" "progressBar progressBar";
+    grid-template-areas: "moduleImage moduleTitle" "moduleImage life" "moduleImage progressBar";
     border-radius: 10px;
 
     .moduleImage {
@@ -43,7 +44,7 @@ const ModuleCards = styled.div`
 
     .moduleTitle {
       grid-area: moduleTitle;
-      font-size: var(--step--1);
+      font-size: var(--step-0);
       font-family: metropolis;
       font-weight: 700;
     }
@@ -51,13 +52,16 @@ const ModuleCards = styled.div`
     .moduleProgress {
       grid-area: progressBar;
       display: grid;
-      grid-template-rows: 1fr 1fr;
-      justify-items: center;
-      padding-bottom: 5px;
+      grid-template-columns: fit-content(50px) 1fr;
+      align-items: center;
+      justify-content: center;
+      padding-block: var(--space-4xs-3xs);
+      gap: var(--space-2xs-xs);
 
       .progressBarContainer {
         border: 2px solid var(--primary-0);
         height: var(--space-2xs);
+        width: var(--space-4xl-5xl);
         border-radius: 8px;
         justify-self: stretch;
 
@@ -68,7 +72,8 @@ const ModuleCards = styled.div`
           background: red;
         }
       }
-      span {
+      .life {
+        grid-area: life;
         font-family: metropolis;
         font-size: var(--step--2);
       }
@@ -78,7 +83,7 @@ const ModuleCards = styled.div`
 
 const Battle = () => {
   return (
-    <_Battle title="Battle" gridArea="opponents">
+    <_Battle gridArea="opponents">
       <ModuleCards>
         {[...Array(4)].map((_, i) => (
           <div key={i} className="moduleCard">
@@ -86,9 +91,8 @@ const Battle = () => {
               <Image src={face} alt="face" fill />
             </div>
             <div className="moduleTitle">Module {i}</div>
-
+            <span className="life">Life</span>
             <div className="moduleProgress">
-              <span>Life</span>
               <AiFillHeart style={{ color: "red" }} />
               <div className="progressBarContainer">
                 <div className="progressLine"> </div>

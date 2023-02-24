@@ -1,12 +1,18 @@
 import Image from "next/image";
 import styled from "styled-components";
-//components
+
+//*import components
+
 import Header from "@/components/shared/Header";
 import SubjectsContainer from "@/components/training/SubjectsContainer";
 import ContainerWithHead from "@/components/shared/Containers/ContainerWithHead";
-//images
+
+//*images
+
 import buttonBorder2 from "@/public/images/buttonBorder2.svg";
-//redux
+
+//*redux
+
 import { useSelector } from "react-redux";
 
 import {
@@ -115,8 +121,8 @@ const ModuleCard = styled.div`
 const Training = () => {
   const courses = useSelector(selectUserCourses);
 
-  const { data, i̥sSuccess } = useGetUserProfileQuery();
-  console.log("🚀 ~ file: training.jsx:116 ~ Training ~ data", data);
+  const { data, isSuccess } = useGetUserProfileQuery();
+  // console.log("🚀 ~ file: training.jsx:116 ~ Training ~ data", data);
 
   return (
     <MainContainer>

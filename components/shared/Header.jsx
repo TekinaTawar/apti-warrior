@@ -4,6 +4,10 @@ import { FaMoneyBill } from "react-icons/fa";
 import { IoDiamondOutline } from "react-icons/io5";
 import { BsGear } from "react-icons/bs";
 
+//redux
+import { useSelector } from "react-redux";
+import { useGetUserProfileQuery } from "@/redux/user/userSlice";
+
 const _Header = styled.header`
   color: white;
   background-image: linear-gradient(to right, var(--gray-0), var(--gray-200));
@@ -96,34 +100,69 @@ const _Header = styled.header`
 `;
 
 const Header = () => {
+  const { data, isSuccess } = useGetUserProfileQuery();
+  console.log("🚀 ~ file: training.jsx:104 ~ Training ~ data", data);
   return (
     <_Header>
-      <div className="userDetailSection">
-        <div className="profilePhotoContainer">{/* image */}</div>
-        <h3 className="username">Hemant Kant Malviya</h3>
-        <h5 className="level">Level 28</h5>
-      </div>
-      <div className="trainingPoint">
-        <i>
-          <CiDumbbell />
-        </i>
-        <span>1668</span>
-      </div>
-      <div className="moneyDetail">
-        <i>
-          <FaMoneyBill />
-        </i>
-        <span>3.5M</span>
-      </div>
-      <div className="diamondDetail">
-        <i>
-          <IoDiamondOutline />
-        </i>
-        <span>289</span>
-      </div>
-      <i className="settingsIcon">
-        <BsGear />
-      </i>
+      {isSuccess ? (
+        <>
+          <div className="userDetailSection">
+            <div className="profilePhotoContainer">{/* image */}</div>
+            <h3 className="username">{data.username}</h3>
+            <h5 className="level">Level {data.profile.level}</h5>
+          </div>
+          <div className="trainingPoint">
+            <i>
+              <CiDumbbell />
+            </i>
+            <span>1668</span>
+          </div>
+          <div className="moneyDetail">
+            <i>
+              <FaMoneyBill />
+            </i>
+            <span>3.5M</span>
+          </div>
+          <div className="diamondDetail">
+            <i>
+              <IoDiamondOutline />
+            </i>
+            <span>289</span>
+          </div>
+          <i className="settingsIcon">
+            <BsGear />
+          </i>
+        </>
+      ) : (
+        <>
+          <div className="userDetailSection">
+            <div className="profilePhotoContainer">{/* image */}</div>
+            <h3 className="username">Hemant Kant Malviya</h3>
+            <h5 className="level">Level 28</h5>
+          </div>
+          <div className="trainingPoint">
+            <i>
+              <CiDumbbell />
+            </i>
+            <span>1668</span>
+          </div>
+          <div className="moneyDetail">
+            <i>
+              <FaMoneyBill />
+            </i>
+            <span>3.5M</span>
+          </div>
+          <div className="diamondDetail">
+            <i>
+              <IoDiamondOutline />
+            </i>
+            <span>289</span>
+          </div>
+          <i className="settingsIcon">
+            <BsGear />
+          </i>
+        </>
+      )}
     </_Header>
   );
 };

@@ -62,6 +62,7 @@ const EditButton = styled(Button)`
 
 //*Styled Component
 
+
 const Otp = () => {
   const { handleSubmit, control } = useForm();
   const [verifyOtp, { isLoading, isSuccess }] = useVerifyOtpMutation();
@@ -75,7 +76,7 @@ const Otp = () => {
       const data = await verifyOtp({ otp, otpToken }).unwrap();
       localStorage.setItem("userToken", data?.access_token);
       cookies.set("jwt", data?.access_token, { path: "/" });
-      cookies.remove("otpToken", { path: "/" });
+      cookies.remove("otpToken", {path: "/"});
       router.push("/dashboard");
     } catch (e) {
       console.log(e);

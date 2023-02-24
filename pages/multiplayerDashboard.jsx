@@ -5,6 +5,7 @@ import OnlinePlayers from "@/components/multiplayer/OnlinePlayers";
 import LeaderBoard from "@/components/multiplayer/LeaderBoard";
 import BattleSection from "@/components/multiplayer/BattleSection";
 
+//*Styled Component
 
 const MainContainer = styled.main`
   position: absolute;
@@ -21,6 +22,8 @@ const MainContainer = styled.main`
   row-gap: var(--space-xs-s);
   column-gap: var(--space-xs-s);
 `;
+
+//*Styled Component
 
 const multiplayerDashboard1 = () => {
   return (

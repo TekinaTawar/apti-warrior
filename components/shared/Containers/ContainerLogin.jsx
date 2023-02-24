@@ -130,12 +130,11 @@ const ContainerLogin = () => {
   const cookies = new Cookies();
   const router = useRouter();
 
-
   const submitForm = async (value) => {
     console.log("running submit Form", value);
     try {
       const data = await login({ mobile: value.phNumber }).unwrap();
-
+      
       dispatch(setOtpToken(data.otp_token));
       cookies.set("otpToken", data.otp_token, { path: "/" });
       router.push("/auth/otp");
@@ -145,7 +144,7 @@ const ContainerLogin = () => {
     }
   };
 
-  // if (errors.phNumber) { 
+  // if (errors.phNumber) {
   //   console.log(errors.phNumber.message, "errors.phNumber.message"); // to delete
   // }
 

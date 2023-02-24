@@ -20,7 +20,9 @@ import socials from "@/public/images/dashboard/socials.svg";
 import shoppingCart from "@/public/images/dashboard/shoppingCart.svg";
 import medalReward from "@/public/images/dashboard/medalReward.svg";
 import walkiesTalkie from "@/public/images/dashboard/walkiesTalkie.svg";
-import { useGetUserProfileQuery } from "@/redux/user/userSlice";
+
+
+
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -81,7 +83,7 @@ const MainContainer = styled.main`
 
 const Dashboard = () => {
   const router = useRouter();
-  const { data, isSuccess } = useGetUserProfileQuery();
+
   return (
     <MainContainer>
       <Header />
