@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useRegisterMutation } from "@/redux/auth/authApiSlice";
-import { setOtpToken } from "@/redux/auth/authSlice";
+import { setOtpPhoneNumber, setOtpToken } from "@/redux/auth/authSlice";
 import { useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
 import Button1 from "@/components/shared/Buttons/Button1";
@@ -109,7 +109,6 @@ const PhNoSection = styled.div`
 //*Styled Component
 
 const SignUp = () => {
-
   //*schema validation
 
   const schema = z.object({
@@ -139,7 +138,7 @@ const SignUp = () => {
   });
 
   //*schema validation
-  
+
   const {
     register,
     handleSubmit,
@@ -158,6 +157,8 @@ const SignUp = () => {
       const data = await registerUser(value).unwrap();
       dispatch(setOtpToken(data.otp_token));
       cookies.set("otpToken", data?.otp_token, { path: "/auth/otp" });
+      dispatch(setOtpPhoneNumber(value.phNumber));
+      console.log(value.phNumber)
       router.push("/auth/otp");
     } catch (e) {
       toast.error(e.data.message);
@@ -220,6 +221,7 @@ const SignUp = () => {
             alignSelf: "center",
             justifySelf: "center",
           }}
+          isLoading={isLoading}
         >
           Continue
         </Button1>

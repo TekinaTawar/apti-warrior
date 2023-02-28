@@ -65,11 +65,11 @@ const Home = () => {
           <h4>Check the Progress by Clicking the links below.</h4>
           <ul>
             <li>
-              <Link href="/auth/login"> Login</Link>
+              <Link href="/auth/signup"> Sign-Up</Link>
               <span>:- design done</span>
             </li>
             <li>
-              <Link href="/auth/signup"> Sign-Up</Link>
+              <Link href="/auth/login"> Login</Link>
               <span>:- design done</span>
             </li>
             <li>
