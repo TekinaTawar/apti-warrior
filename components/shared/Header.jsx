@@ -6,7 +6,7 @@ import { BsGear } from "react-icons/bs";
 
 //redux
 import { useSelector } from "react-redux";
-import { useGetUserProfileQuery } from "@/redux/user/userSlice";
+import { selectUserProfile } from "@/redux/user/userSlice";
 
 const _Header = styled.header`
   color: white;
@@ -100,13 +100,15 @@ const _Header = styled.header`
 `;
 
 const Header = () => {
+  const userProfile = useSelector(selectUserProfile);
+
   return (
     <_Header>
       <>
         <div className="userDetailSection">
           <div className="profilePhotoContainer">{/* image */}</div>
-          <h3 className="username">Hemant Kant Malviya</h3>
-          <h5 className="level">Level 28</h5>
+          <h3 className="username">{userProfile?.data?.username ?? "username"} </h3>
+          <h5 className="level">Level {userProfile?.data?.profile?.level ?? "0"}</h5>
         </div>
         <div className="trainingPoint">
           <i>

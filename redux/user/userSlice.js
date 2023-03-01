@@ -6,6 +6,7 @@ export const userApiSlice = aptiApiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getUserProfile: builder.query({
             query: () => `/user/profile/`,
+            keepUnusedDataFor: 5*60,
         }),
     })
 })
@@ -16,4 +17,4 @@ export const userApiSlice = aptiApiSlice.injectEndpoints({
 export const {useGetUserProfileQuery} = userApiSlice; 
 
 // selectors
-export const selectUserCourses = (state) => state.api.queries;
+export const selectUserProfile = userApiSlice.endpoints.getUserProfile.select({}); 
