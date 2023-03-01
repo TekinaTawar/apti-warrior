@@ -146,7 +146,7 @@ const Training = () => {
   return (
     <MainContainer>
       <Header />
-      <SubjectsContainer subjects={subjects?.results ?? []} />
+      <SubjectsContainer subjects={subjects?.results ?? []} onClick={handleSubjectClick} />
       <ModulesContainer
         withLegs={true}
         title={"Modules"}

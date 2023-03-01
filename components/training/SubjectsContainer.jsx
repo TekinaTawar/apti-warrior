@@ -98,7 +98,7 @@ const SubjectCard = styled.div`
 
 //*Styled Component
 
-const SubjectsContainer = ({subjects}) => {
+const SubjectsContainer = ({subjects, onClick}) => {
   return (
     <_SubjectsContainer title="Subjects" gridArea="subjectsContainer">
       <_ContainerWithImage
@@ -106,7 +106,7 @@ const SubjectsContainer = ({subjects}) => {
         style={{ gridArea: "frame" }}
       >
         {subjects.map((subject) => (
-          <SubjectCard key={subject?.id}>
+          <SubjectCard key={subject?.id} onClick ={()=> onClick(subject?.id)} >
             <div className="subjectImage"></div>
             <div className="subjectTitle">{subject?.title}</div>
             <div className="progressBar">
