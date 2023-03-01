@@ -10,12 +10,23 @@ export const courseApiSlice = aptiApiSlice.injectEndpoints({
     getSubjects: builder.query({
       query: (course_id) => `/course/${course_id}/subject/`,
     }),
+    // getModules: builder.query({
+    //   query: ({ courseId: course_id, subjectId: subject_id }) => `/course/${course_id}/subject/${subject_id}/module/`,
+    // }),
+    getModules: builder.query({
+      query: ({courseId: course_id, selectedSubject: subject_id}) => {        
+        console.log("🚀 ~ file: courseSlice.js:18 ~ course_id:", course_id)
+        console.log("🚀 ~ file: courseSlice.js:18 ~ subject_id:", subject_id)
+        return `/course/${course_id}/subject/${subject_id}/module/`
+      },
+    })
+
   }),
 });
 
 export const courseSlice = createSlice({
   name: "course",
-  initialState: { courseId: "6770f30e-42a1-4194-a419-407b63ea1585" },
+  initialState: { },
   // reducers: {
   //   setCourse: (state, action) => {
   //     state.course = action.payload;
@@ -27,7 +38,7 @@ export const courseSlice = createSlice({
 export default courseSlice.reducer;
 
 // Query hooks
-export const { useGetMasterCoursesQuery, useLazyGetSubjectsQuery } = courseApiSlice;
+export const { useGetMasterCoursesQuery, useGetSubjectsQuery, useGetModulesQuery } = courseApiSlice;
 
 // Selectors
 

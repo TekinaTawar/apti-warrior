@@ -17,4 +17,4 @@ export const userApiSlice = aptiApiSlice.injectEndpoints({
 export const {useGetUserProfileQuery} = userApiSlice; 
 
 // selectors
-export const selectUserProfile = userApiSlice.endpoints.getUserProfile.select({}); 
+export const selectUserProfile = userApiSlice.endpoints.getUserProfile.select({});

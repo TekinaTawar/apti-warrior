@@ -98,17 +98,17 @@ const SubjectCard = styled.div`
 
 //*Styled Component
 
-const SubjectsContainer = () => {
+const SubjectsContainer = ({subjects}) => {
   return (
     <_SubjectsContainer title="Subjects" gridArea="subjectsContainer">
       <_ContainerWithImage
         image={verticalBoxInsideBorder}
         style={{ gridArea: "frame" }}
       >
-        {[...Array(6)].map((e, i) => (
-          <SubjectCard key={i}>
+        {subjects.map((subject) => (
+          <SubjectCard key={subject?.id}>
             <div className="subjectImage"></div>
-            <div className="subjectTitle">Digital Marketing</div>
+            <div className="subjectTitle">{subject?.title}</div>
             <div className="progressBar">
               <div className="progressBarContainer">
                 <div className="progressLine"> </div>

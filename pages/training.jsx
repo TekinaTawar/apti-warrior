@@ -1,27 +1,18 @@
 import Image from "next/image";
 import styled from "styled-components";
-
+import { useState, useEffect } from "react";
 //*import components
-
 import Header from "@/components/shared/Header";
 import SubjectsContainer from "@/components/training/SubjectsContainer";
 import ContainerWithHead from "@/components/shared/Containers/ContainerWithHead";
-
 //*images
-
 import buttonBorder2 from "@/public/images/buttonBorder2.svg";
-
 //*redux
-
-import { useSelector } from "react-redux";
-
+import { useGetUserProfileQuery } from "@/redux/user/userSlice";
 import {
-  selectUserCourses,
-  useGetUserProfileQuery,
-} from "@/redux/user/userSlice";
-// import { useLazyGetSubjectsQuery } from "@/redux/course/courseSlice";
-
-//*Styled Component
+  useGetSubjectsQuery,
+  useGetModulesQuery,
+} from "@/redux/course/courseSlice";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -116,28 +107,56 @@ const ModuleCard = styled.div`
   }
 `;
 
-//*Styled Component
-
 const Training = () => {
-  const courses = useSelector(selectUserCourses);
+  console.log("rendering");
+  const { data, isSuccess: isUserProfileSuccess } = useGetUserProfileQuery({});
+  const courseId = data?.profile.courses[0].id;
+  console.log("🚀 ~ file: training.jsx:112 ~ Training ~ courseId:", courseId);
 
-  const { data, isSuccess } = useGetUserProfileQuery();
-  // console.log("🚀 ~ file: training.jsx:116 ~ Training ~ data", data);
+  const { data: subjects, isSuccess: isSubjectsSuccess } = useGetSubjectsQuery(
+    courseId,
+    { skip: !isUserProfileSuccess }
+  );
+  console.log("🚀 ~ file: training.jsx:115 ~ Training ~ subjects:", subjects);
+
+  const [selectedSubject, setSelectedSubject] = useState(undefined);
+
+  useEffect(() => {
+    if (isSubjectsSuccess) {
+      console.log("printing subject id", subjects?.results[0].id);
+      setSelectedSubject(subjects?.results[0].id);
+    }
+  }, [isSubjectsSuccess]);
+
+  console.log(
+    "🚀 ~ file: training.jsx:118 ~ Training ~ selectedSubject:",
+    selectedSubject
+  );
+
+  const { data: modules } = useGetModulesQuery(
+    { courseId, selectedSubject },
+    { skip: !selectedSubject }
+  );
+  console.log("🚀 ~ file: training.jsx:123 ~ Training ~ modules:", modules);
+
+  const handleSubjectClick = (id) => {
+    setSelectedSubject(id);
+  };
 
   return (
     <MainContainer>
       <Header />
-      <SubjectsContainer />
+      <SubjectsContainer subjects={subjects?.results ?? []} />
       <ModulesContainer
         withLegs={true}
         title={"Modules"}
         gridArea="modulesContainer"
       >
-        {[...Array(9)].map((_, i) => (
-          <ModuleCard key={i}>
+        {(modules?.results??[]).map((module) => (
+          <ModuleCard key={module.id}>
             <Image src={buttonBorder2} alt="buttonBorder1" fill sizes="100vw" />
             <div className="moduleImage"></div>
-            <div className="moduleTitle">Module {i}</div>
+            <div className="moduleTitle">{module.title}</div>
             <div className="moduleProgress">
               <div className="progressBarContainer">
                 <div className="progressLine"> </div>
