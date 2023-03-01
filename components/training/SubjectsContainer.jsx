@@ -6,6 +6,8 @@ import ContainerWithImage from "@/components/shared/Containers/ContainerWithImag
 
 import verticalBoxInsideBorder from "@/public/images/verticalBoxInsideBorder.svg";
 
+//*Styled Component
+
 const _SubjectsContainer = styled(ContainerWithHead)`
   padding: 2%;
   margin-left: 2%;
@@ -93,6 +95,8 @@ const SubjectCard = styled.div`
     }
   }
 `;
+
+//*Styled Component
 
 const SubjectsContainer = () => {
   return (

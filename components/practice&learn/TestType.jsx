@@ -7,7 +7,7 @@ import aimStreak from "@/public/images/Practice&Learn/aimStreak.svg";
 import simulation from "@/public/images/Practice&Learn/simulation.svg";
 
 //*style Component//
-const _TestType = styled.div`
+const _TestType = styled.div` 
   grid-area: testType;
   display: flex;
   flex-direction: row;
@@ -29,7 +29,12 @@ const _TestType = styled.div`
     padding-block: var(--space-xs-s);
     position: relative;
     background: var(--black);
-    
+
+    .innerContainer {
+      border-bottom: 4px dotted var(--primary-0);
+      height: 25rem;
+    }
+
     :hover {
       cursor: pointer;
     }
@@ -51,16 +56,22 @@ const TestType = () => {
   return (
     <_TestType>
       <div className="container">
-        <Image src={vector} alt="vector" objectFit="fill" />
-        <div className="testTitle">Sprint </div>
+        <div className="innerContainer">
+          <Image src={vector} alt="vector" />
+          <div className="testTitle">Sprint </div>
+        </div>
       </div>
       <div className="container">
-        <Image src={aimStreak} alt="aimStreak" objectFit="fill" />
-        <div className="testTitle">Streak </div>
+        <div className="innerContainer">
+          <Image src={aimStreak} alt="aimStreak" />
+          <div className="testTitle">Streak </div>
+        </div>
       </div>
       <div className="container">
-        <Image src={simulation} alt="simulation" objectFit="fill" />
-        <div className="testTitle">Simulation </div>
+        <div className="innerContainer">
+          <Image src={simulation} alt="simulation" />
+          <div className="testTitle">Simulation </div>
+        </div>
       </div>
     </_TestType>
   );

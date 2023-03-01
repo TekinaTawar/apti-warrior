@@ -136,6 +136,12 @@ const Home = () => {
               <span>:- For the Developer only to test current things</span>
             </li>
             <li>
+              <Link href="/tests/testAwaitingOpponents">
+              Test Awaiting Opponents
+              </Link>
+              <span>:- For the Developer only to test current things</span>
+            </li>
+            <li>
               <Link href="/tests/testSelectTrainingMode">
                 Test Select TrainingMode
               </Link>

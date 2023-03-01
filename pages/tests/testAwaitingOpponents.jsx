@@ -1,4 +1,5 @@
-import CustomBattle from "@/components/customBattle/CustomBattle";
+
+import AwaitingOpponents from "@/components/customBattle/AwaitingOpponents";
 import styled from "styled-components";
 
 const MainContainer = styled.main`
@@ -10,11 +11,11 @@ const MainContainer = styled.main`
   align-items: center;
 `;
 
-const testCustomBattleModal = () => {
+const testAwaitingOpponents = () => {
   return (
     <MainContainer>
-      <CustomBattle />
-    </MainContainer>
-  );
-};
-export default testCustomBattleModal;
+    <AwaitingOpponents />
+  </MainContainer>
+  )
+}
+export default testAwaitingOpponents

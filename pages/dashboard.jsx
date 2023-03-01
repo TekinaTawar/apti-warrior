@@ -1,11 +1,12 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
-
-import Header from "@/components/shared/Header";
-import armyMans from "@/public/images/dashboard/armyMans.png";
 import { useRouter } from "next/router";
+import Header from "@/components/shared/Header";
 
+
+// * Icons
+import armyMans from "@/public/images/dashboard/armyMans.png";
 import IconButton from "@/components/shared/IconButton";
 import book from "@/public/images/dashboard/book.svg";
 import analytics from "@/public/images/dashboard/analytics.svg";
@@ -21,8 +22,10 @@ import shoppingCart from "@/public/images/dashboard/shoppingCart.svg";
 import medalReward from "@/public/images/dashboard/medalReward.svg";
 import walkiesTalkie from "@/public/images/dashboard/walkiesTalkie.svg";
 
+//* Icons
 
 
+//*Styled Components
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -80,6 +83,8 @@ const MainContainer = styled.main`
     
   }
 `;
+
+//*Styled Components
 
 const Dashboard = () => {
   const router = useRouter();

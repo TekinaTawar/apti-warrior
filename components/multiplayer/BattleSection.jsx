@@ -8,7 +8,7 @@ import ButtonHugging from "@/components/shared/Buttons/ButtonHugging";
 //* Icons
 
 import { GiBookmarklet, GiUnlitBomb } from "react-icons/gi";
-import { BsHeart } from "react-icons/bs";
+import { BsFillHeartFill} from "react-icons/bs";
 import { IoIosPeople } from "react-icons/io";
 import { AiOutlineFieldTime } from "react-icons/ai";
 
@@ -101,7 +101,7 @@ const BattleSection = () => {
               </th>
               <th>
                 <i>
-                  <BsHeart />
+                  <BsFillHeartFill />
                 </i>
                 <span>Life</span>
               </th>

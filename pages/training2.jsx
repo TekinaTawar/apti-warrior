@@ -18,6 +18,8 @@ import { BsQuestionCircleFill } from "react-icons/bs";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { FiChevronUp } from "react-icons/fi";
 
+//*Styled Components
+
 const MainContainer = styled.main`
   position: absolute;
   width: 100%;
@@ -102,8 +104,10 @@ const ModuleTopicContainer = styled(ContainerWithImage)`
   }
 `;
 
+//*Styled Components
+
 const Training2 = () => {
-  const [showQuizContainer, setShowQuizContainer] = useState(false);
+  const [showQuizContainer, setShowQuizContainer] = useState(true);
   return (
     <MainContainer>
       <Header />

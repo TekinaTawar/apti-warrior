@@ -15,6 +15,8 @@ import diamond from "@/public/images/Practice&Learn/diamond.svg";
 import dumbbells from "@/public/images/Practice&Learn/dumbbells.svg";
 import xp from "@/public/images/Practice&Learn/xp.svg";
 
+//*Styled Component
+
 const _QuizContainer = styled(ContainerWithImage)``;
 
 const QuizType = styled.div`
@@ -40,6 +42,12 @@ const QuizType = styled.div`
   .correct {
     padding-left: var(--space-xl-2xl);
   }
+  .correctNumber {
+    color: var(--good);
+    font-size: var(--step-0);
+    font-weight: 600;
+  }
+
   .testDetails {
     display: flex;
     column-gap: var(--space-m-l);
@@ -66,6 +74,8 @@ const QuizType = styled.div`
     }
   }
 `;
+
+//* Styled Component
 
 const QuizContainer = () => {
   return (
@@ -121,7 +131,8 @@ const QuizContainer = () => {
           </div>
         </div>
         <p className="correct">
-          Your best attempt: <span>5</span> correct answers
+          Your best attempt : <span className="correctNumber">10</span> correct
+          answers
         </p>
         <ButtonHugging>START TEST</ButtonHugging>
       </QuizType>
