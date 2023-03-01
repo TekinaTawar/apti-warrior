@@ -3,9 +3,10 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import bg from "public/images/bg.png";
-import { useSelector } from "react-redux";
-import { selectError } from "@/redux/UI/uiSlice";
-import { toast } from "react-toastify";
+
+import Cookies from "universal-cookie";
+import { useRouter } from "next/router";
+import { useGetUserProfileQuery } from "@/redux/user/userSlice";
 
 const BgImage = styled(Image)`
   position: absolute;
@@ -16,9 +17,21 @@ const BgImage = styled(Image)`
 `;
 
 const Layout = ({ children }) => {
-  // const _error = useSelector(selectError);
+  const cookies = new Cookies();
+  // const router = useRouter();
+  const jwt = cookies.get("jwt");
+  const {} = useGetUserProfileQuery({skip: !jwt});
 
-  // toast.error(_error);
+
+  // if (jwt) {
+  //   if (router.pathname.startsWith("/auth")) {
+  //     router.push("/dashboard");
+  //   }
+  // } else {
+  //   if (!router.pathname.startsWith("/auth")) {
+  //     router.push("/auth/login");
+  //   }
+  // }
   return (
     <>
       <Head>

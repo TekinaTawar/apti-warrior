@@ -72,7 +72,6 @@ const Otp = () => {
 
   const foo = async ({ otp }) => {
     try {
-      // console.log({ otp, otpToken });
       const data = await verifyOtp({ otp, otpToken }).unwrap();
       localStorage.setItem("userToken", data?.access_token);
       cookies.set("jwt", data?.access_token, { path: "/" });
@@ -89,7 +88,7 @@ const Otp = () => {
         <h3 className="verifyMobileLabel">VERIFY YOUR MOBILE NUMBER</h3>
         <div className="mobileNumberEdit">
           <h3 className="mobileNo">+91-{otpPhoneNumber}</h3>
-          <EditButton onClick={() => router.push("/auth/signup")}>
+          <EditButton onClick={() => router.back()}>
             Edit
           </EditButton>
         </div>

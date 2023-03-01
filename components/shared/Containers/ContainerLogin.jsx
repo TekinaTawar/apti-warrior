@@ -3,7 +3,7 @@ import ContainerAuth from "./ContainerAuth";
 import Button1 from "@/components/shared/Buttons/Button1";
 import { useForm } from "react-hook-form";
 import { useLoginMutation } from "@/redux/auth/authApiSlice";
-import { setOtpToken } from "@/redux/auth/authSlice";
+import { setOtpPhoneNumber, setOtpToken } from "@/redux/auth/authSlice";
 import { useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
 import { useRouter } from "next/router";
@@ -137,6 +137,7 @@ const ContainerLogin = () => {
       
       dispatch(setOtpToken(data.otp_token));
       cookies.set("otpToken", data.otp_token, { path: "/" });
+      dispatch(setOtpPhoneNumber(value.phNumber));
       router.push("/auth/otp");
     } catch (e) {
       // console.log(e);

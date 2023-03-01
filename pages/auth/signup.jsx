@@ -156,7 +156,7 @@ const SignUp = () => {
     try {
       const data = await registerUser(value).unwrap();
       dispatch(setOtpToken(data.otp_token));
-      cookies.set("otpToken", data?.otp_token, { path: "/auth/otp" });
+      cookies.set("otpToken", data.otp_token, { path: "/" });
       dispatch(setOtpPhoneNumber(value.phNumber));
       console.log(value.phNumber)
       router.push("/auth/otp");
