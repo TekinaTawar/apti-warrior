@@ -68,9 +68,9 @@ const _ContainerCard = styled.div`
   }
 `;
 
-const ContainerCard = ({onClick, cardId, cardTitle}) => {
+const ContainerCard = ({ onClick, cardId, cardTitle }) => {
   return (
-    <_ContainerCard key={cardId} onClick={() => onClick(cardId)}>
+    <_ContainerCard onClick={() => onClick(cardId)}>
       <div className="cardImage"></div>
       <div className="cardTitle">{cardTitle??"cardTitle"}</div>
       <div className="progressBar">

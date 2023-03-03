@@ -6,7 +6,8 @@ const SubjectsContainer = ({ subjects, onClick }) => {
     <VerticalContainer title="Subjects" gridArea="subjectsContainer">
       {subjects.map((subject) => (
         <ContainerCard
-          cardId={subject?.id}
+          key = {subject?.id}
+          cardId={subject?.id ?? 0}
           cardTitle={subject?.title}
           onClick={onClick}
         />

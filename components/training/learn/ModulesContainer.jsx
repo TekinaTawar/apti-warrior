@@ -6,6 +6,7 @@ const ModulesContainer = ({ modules, onClick }) => {
     <VerticalContainer title="Modules" gridArea="modulesContainer">
       {modules.map((module) => (
         <ContainerCard
+          key={module?.id}
           cardId={module?.id}
           cardTitle={module?.title}
           onClick={onClick}

@@ -79,7 +79,7 @@ const Button = ({ className, children, isLoading, isDisabled, ...props }) => {
   };
   return (
     <_Button {...props} buttonState={getButtonState()} className={className}>
-      {children}
+      {children} 
     </_Button>
   );
 };

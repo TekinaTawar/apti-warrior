@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 import ContainerWithImage from "../../shared/Containers/ContainerWithImage";
 import ButtonHugging from "@/components/shared/Buttons/ButtonHugging";
@@ -77,16 +78,20 @@ const QuizType = styled.div`
 
 //* Styled Component
 
-const QuizContainer = () => {
+const QuizContainer = ({ test }) => {
+  const router = useRouter();
+  // console.log(router.asPath);
+  // console.log(router)
+
   return (
     <_QuizContainer image={borderVid} style={{ gridArea: "span 2" }}>
       <QuizType>
-        <h2>Some Random Topic Name</h2>
+        <h2>{test.title}</h2>
         <p>
-          Congratulations on completing the topic Some random topic name.Lets
-          check take a small test to revise our learnings.
+          Congratulations on completing the lecture. Lets check. take a small
+          test to revise our learnings.
         </p>
-        <p>All the best and do well!</p>
+        <p>All the best 👍 and do well!</p>
 
         <div className="testDetails">
           <div className="testName">
@@ -134,7 +139,13 @@ const QuizContainer = () => {
           Your best attempt : <span className="correctNumber">10</span> correct
           answers
         </p>
-        <ButtonHugging>START TEST</ButtonHugging>
+        <ButtonHugging
+          onClick={() => {
+            router.push(`${router.asPath}/test/${test.id}`);
+          }}
+        >
+          START TEST
+        </ButtonHugging>
       </QuizType>
     </_QuizContainer>
   );

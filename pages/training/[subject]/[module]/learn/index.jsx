@@ -31,8 +31,6 @@ const MainContainer = styled.main`
     "Header Header Header"
     "modulesContainer videoContainer moduleTopicContainer"
     "modulesContainer videoTextContainer moduleTopicContainer";
-  /* "subjectsContainer quizContainer moduleTopicContainer"
-    "subjectsContainer quizContainer moduleTopicContainer"; */
   column-gap: var(--space-2xs-xs);
   row-gap: var(--space-2xs-xs);
 `;
@@ -110,16 +108,13 @@ const Training2 = () => {
   const courseId = data?.profile.courses[0].id;
 
   const { subject, module } = router.query;
-  console.log(`subject: ${subject} module: ${module}`);
 
   const { data: modules } = useGetModulesQuery(
     { courseId, subjectId: subject },
     { skip: !(isUserProfileSuccess && subject) }
   );
-  console.log("🚀 ~ file: learn.jsx:118 ~ Training2 ~ modules:", modules);
 
   const [selectedModule, setSelectedModule] = useState(undefined);
-  console.log("🚀 ~ file: learn.jsx:126 ~ selectedModule:", selectedModule);
 
   useEffect(() => {
     if (module) {
@@ -131,7 +126,6 @@ const Training2 = () => {
     { courseId, subjectId: subject, moduleId: selectedModule },
     { skip: !(isUserProfileSuccess && selectedModule) }
   );
-  console.log("🚀 ~ file: learn.jsx:124 ~ Training2 ~ topics:", topics);
 
   const [selectedLecture, setSelectedLecture] = useState(undefined);
 
@@ -147,26 +141,26 @@ const Training2 = () => {
             image={borderVid}
             style={{ gridArea: " videoContainer" }}
           >
-            <FaPlay size={50} />
+            {/* <FaPlay size={50} /> */}
+            {/* <video
+              controls
+              src={selectedLecture?.item_details?.video_url}
+            ></video> */}
           </VideoContainer>
 
           <VideoTextContainer>
-            <h1>Digital Marketing</h1>
-            <p></p>
+            <h1>{selectedLecture?.item_details?.title}</h1>
+            <p>{selectedLecture?.item_details?.description}</p>
           </VideoTextContainer>
         </>
       );
     } else if (selectedLecture?.type === "Test") {
       return (
         <>
-          <QuizContainer />
+          <QuizContainer test={selectedLecture?.item_details} />
         </>
       );
     }
-  };
-
-  const handleModuleClick = (id) => {
-    setSelectedModule(id);
   };
 
   return (
