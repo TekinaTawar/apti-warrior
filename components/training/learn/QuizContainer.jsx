@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-import ContainerWithImage from "./shared/Containers/ContainerWithImage";
+import ContainerWithImage from "../../shared/Containers/ContainerWithImage";
 import ButtonHugging from "@/components/shared/Buttons/ButtonHugging";
 
 //*   svg Icons

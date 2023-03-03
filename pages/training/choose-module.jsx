@@ -1,9 +1,10 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 //*import components
 import Header from "@/components/shared/Header";
-import SubjectsContainer from "@/components/training/SubjectsContainer";
+import SubjectsContainer from "@/components/training/chooseModule/SubjectsContainer";
 import ContainerWithHead from "@/components/shared/Containers/ContainerWithHead";
 //*images
 import buttonBorder2 from "@/public/images/buttonBorder2.svg";
@@ -107,20 +108,19 @@ const ModuleCard = styled.div`
   }
 `;
 
-const Training = () => {
+const ChooseModule = () => {
   console.log("rendering");
+
+  const router = useRouter();
   const { data, isSuccess: isUserProfileSuccess } = useGetUserProfileQuery({});
   const courseId = data?.profile.courses[0].id;
-  console.log("🚀 ~ file: training.jsx:112 ~ Training ~ courseId:", courseId);
 
   const { data: subjects, isSuccess: isSubjectsSuccess } = useGetSubjectsQuery(
     courseId,
     { skip: !isUserProfileSuccess }
   );
-  console.log("🚀 ~ file: training.jsx:115 ~ Training ~ subjects:", subjects);
 
   const [selectedSubject, setSelectedSubject] = useState(undefined);
-
   useEffect(() => {
     if (isSubjectsSuccess) {
       console.log("printing subject id", subjects?.results[0].id);
@@ -128,32 +128,30 @@ const Training = () => {
     }
   }, [isSubjectsSuccess]);
 
-  console.log(
-    "🚀 ~ file: training.jsx:118 ~ Training ~ selectedSubject:",
-    selectedSubject
-  );
-
   const { data: modules } = useGetModulesQuery(
-    { courseId, selectedSubject },
+    { courseId, subjectId: selectedSubject },
     { skip: !selectedSubject }
   );
-  console.log("🚀 ~ file: training.jsx:123 ~ Training ~ modules:", modules);
-
-  const handleSubjectClick = (id) => {
-    setSelectedSubject(id);
-  };
 
   return (
     <MainContainer>
       <Header />
-      <SubjectsContainer subjects={subjects?.results ?? []} onClick={handleSubjectClick} />
+      <SubjectsContainer
+        subjects={subjects?.results ?? []}
+        onClick={(id)=>setSelectedSubject(id)}
+      />
       <ModulesContainer
         withLegs={true}
         title={"Modules"}
         gridArea="modulesContainer"
       >
-        {(modules?.results??[]).map((module) => (
-          <ModuleCard key={module.id}>
+        {(modules?.results ?? []).map((module) => (
+          <ModuleCard
+            key={module.id}
+            onClick={() =>
+              router.push(`/training/${selectedSubject}/${module.id}/learn`)
+            }
+          >
             <Image src={buttonBorder2} alt="buttonBorder1" fill sizes="100vw" />
             <div className="moduleImage"></div>
             <div className="moduleTitle">{module.title}</div>
@@ -169,4 +167,4 @@ const Training = () => {
     </MainContainer>
   );
 };
-export default Training;
+export default ChooseModule;

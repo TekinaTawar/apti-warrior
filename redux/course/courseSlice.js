@@ -10,23 +10,33 @@ export const courseApiSlice = aptiApiSlice.injectEndpoints({
     getSubjects: builder.query({
       query: (course_id) => `/course/${course_id}/subject/`,
     }),
-    // getModules: builder.query({
-    //   query: ({ courseId: course_id, subjectId: subject_id }) => `/course/${course_id}/subject/${subject_id}/module/`,
-    // }),
     getModules: builder.query({
-      query: ({courseId: course_id, selectedSubject: subject_id}) => {        
-        console.log("🚀 ~ file: courseSlice.js:18 ~ course_id:", course_id)
-        console.log("🚀 ~ file: courseSlice.js:18 ~ subject_id:", subject_id)
-        return `/course/${course_id}/subject/${subject_id}/module/`
-      },
-    })
-
+      query: ({ courseId: course_id, subjectId: subject_id }) =>
+        `/course/${course_id}/subject/${subject_id}/module/`,
+    }),
+    getTopics: builder.query({
+      query: ({
+        courseId: course_id,
+        subjectId: subject_id,
+        moduleId: module_id,
+      }) =>
+        `/course/${course_id}/subject/${subject_id}/module/${module_id}/topic/`,
+    }),
+    getLectures: builder.query({
+      query: ({
+        courseId: course_id,
+        subjectId: subject_id,
+        moduleId: module_id,
+        topicId: topic_id,
+      }) =>
+        `/course/${course_id}/subject/${subject_id}/module/${module_id}/topic/${topic_id}/items/`,
+    }),
   }),
 });
 
 export const courseSlice = createSlice({
   name: "course",
-  initialState: { },
+  initialState: {},
   // reducers: {
   //   setCourse: (state, action) => {
   //     state.course = action.payload;
@@ -38,7 +48,13 @@ export const courseSlice = createSlice({
 export default courseSlice.reducer;
 
 // Query hooks
-export const { useGetMasterCoursesQuery, useGetSubjectsQuery, useGetModulesQuery } = courseApiSlice;
+export const {
+  useGetMasterCoursesQuery,
+  useGetSubjectsQuery,
+  useGetModulesQuery,
+  useGetTopicsQuery,
+  useGetLecturesQuery,
+} = courseApiSlice;
 
 // Selectors
 
