@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Header from "@/components/shared/Header";
 
-
 // * Icons
 import armyMans from "@/public/images/dashboard/armyMans.png";
 import IconButton from "@/components/shared/IconButton";
@@ -23,7 +22,6 @@ import medalReward from "@/public/images/dashboard/medalReward.svg";
 import walkiesTalkie from "@/public/images/dashboard/walkiesTalkie.svg";
 
 //* Icons
-
 
 //*Styled Components
 
@@ -80,7 +78,6 @@ const MainContainer = styled.main`
     align-self: stretch;
     justify-content: space-around;
     align-items: center;
-    
   }
 `;
 
@@ -127,7 +124,7 @@ const Dashboard = () => {
         />
       </div>
       <div className="iconButtonSection">
-        <Link href="/training">
+        <Link href="/training/choose-module">
           <IconButton icon={book}>Training</IconButton>
         </Link>
         <IconButton icon={analytics}>Analytics</IconButton>
