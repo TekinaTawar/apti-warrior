@@ -32,24 +32,23 @@ const _Options = styled.div`
   }
 `;
 
-// option is fpr useState, options = {option, label} for radio button
+// option is for useState, options = {option, label} for radio button
 const RadioButtonGroup = ({ sectionName, options, option, setOption }) => {
   return (
     <>
-      {options.map((value, i) => (
-        <_Options key={i}>
+      {options.map((_option) => (
+        <_Options key={_option.value}>
           <input
             type="radio"
             name={sectionName}
-            id={value.value}
-            value={value.value}
+            id={_option.value}
+            value={_option.value}
             onChange={(e) => {
-              // console.log("India", e);
               setOption(e.target.value);
             }}
-            checked={value.value == option}
+            checked={_option.value == option}
           />
-          <label htmlFor={value.value}>{value.label}</label>
+          <label htmlFor={_option.value}>{_option.label}</label>
         </_Options>
       ))}
     </>

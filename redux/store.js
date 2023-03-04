@@ -4,6 +4,7 @@ import { aptiApiSlice } from "@/redux/aptiApiSlice";
 import authReducer from "@/redux/auth/authSlice";
 import courseReducer from "@/redux/course/courseSlice";
 import uiReducer from "@/redux/UI/uiSlice";
+import testReducer from "@/redux/test/testSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     auth: authReducer,
     course: courseReducer,
     ui: uiReducer,
+    test: testReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(aptiApiSlice.middleware),

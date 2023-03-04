@@ -1,15 +1,16 @@
-import { useState } from "react";
 import styled, { css } from "styled-components";
-
+// * components
 import ContainerWithHead from "../shared/Containers/ContainerWithHead";
-
-
+import Timer from "./Timer";
+// * redux
+import { useDispatch } from "react-redux";
+import { setCurrentQuestionIndex } from "@/redux/test/testSlice";
 
 const _QuestionsNoContainer = styled(ContainerWithHead)`
   padding: var(--space-xs);
   display: grid;
+  grid-auto-rows: fit-content(20px);
   grid-template-columns: repeat(5, 1fr);
-  /* grid-template-rows: repeat(4, 50px); */
   grid-template-areas: "question question question question question";
   align-items: center;
   justify-items: center;
@@ -27,6 +28,13 @@ const _QuestionsNoContainer = styled(ContainerWithHead)`
   }
 `;
 
+const QuestionNoContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const QuestionNumber = styled.div`
   height: var(--space-m-l);
   width: var(--space-m-l);
@@ -41,87 +49,82 @@ const QuestionNumber = styled.div`
   justify-content: center;
   cursor: pointer;
 
-  ${({ questionState }) => {
-    switch (questionState) {
-      case "Correct":
-        return css`
-          color: white;
-          background: linear-gradient(180deg, #b7e255 -17.56%, #4da717 49.54%);
-          /* border: 1px solid rgba(255, 255, 255, 0.3); */
-          border-radius: 2px;
-          clip-path: polygon(31% 0, 70% 0, 100% 36%, 100% 100%, 0 100%, 0 38%);
-          /* transform: translateY(2px); */
-          padding-top: 6px;
-        `;
-      case "Incorrect":
-        return css`
-          color: white;
-          background: linear-gradient(180.4deg, #ac2708 35.82%, #ed5206 99.66%);
-          /* border: 1px solid rgba(255, 255, 255, 0.3); */
-          clip-path: polygon(31% 0, 70% 0, 100% 36%, 100% 100%, 0 100%, 0 38%);
-          padding-top: 6px;
-        `;
-      case "Skipped":
-        return css`
-          color: white;
-          background: #7c579c;
-          border: 0.5px solid #ffffff;
-          border-radius: 50%;
-        `;
-      case "Flagged":
-        return css`
-          color: white;
-          background: #7c579c;
-          border: 0.5px solid #ffffff;
-          border-radius: 50%;
-          position: relative;
-          ::after {
-            position: absolute;
-            content: "F";
-            font-size: 12px;
-            width: 50%;
-            height: 50%;
-            background: linear-gradient(
-              180deg,
-              #b7e255 -17.56%,
-              #4da717 49.54%
-            );
-            border-radius: 50%;
-            border: 0.5px solid white;
-            transform: translate(80%, 80%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: black;
-          }
-        `;
-    }
-  }}
+  &.attempted {
+    color: white;
+    background: linear-gradient(180deg, #b7e255 -17.56%, #4da717 49.54%);
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    border-radius: 2px;
+    clip-path: polygon(31% 0, 70% 0, 100% 36%, 100% 100%, 0 100%, 0 38%);
+    /* transform: translateY(2px); */
+    padding-top: 6px;
+  }
+
+  &.skipped {
+    color: white;
+    background: linear-gradient(180.4deg, #ac2708 35.82%, #ed5206 99.66%);
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    clip-path: polygon(31% 0, 70% 0, 100% 36%, 100% 100%, 0 100%, 0 38%);
+    padding-top: 6px;
+  }
+
+  &.current {
+    // not in use yet
+    color: white;
+    background: #7c579c;
+    border: 0.5px solid #ffffff;
+    border-radius: 50%;
+  }
 `;
 
-const QuestionsNoContainer = () => {
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-  const questions = [...Array(60)];
-  const questionStatus = ["Idle", "Correct", "Incorrect", "Flagged", "Skipped"];
-  const [questionsState, setQuestionsState] = useState(
-    questions.map((question, index) => {
-      var obj = {};
-      obj[index] = questionStatus[getRandomInt(5)];
-      return obj;
-    })
-  );
+const Flag = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(40%, 40%);
+  background: linear-gradient(180deg, #b7e255 -17.56%, #4da717 49.54%);
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border: 0.5px solid white;
+  font-weight: 700;
+`;
 
-  console.log(questionsState[1][1]);
+const QuestionsNoContainer = ({currentTestDetails, currentQuestionIndex}) => {
+  const dispatch = useDispatch();
+  var questions = [];
+  var time = 0;
+
+  if (currentTestDetails) {
+    questions = currentTestDetails.questions;
+    time = currentTestDetails?.test_data.time;
+  }
+
+  const getQuestionStatus = (question, i) => {
+    if (i=== currentQuestionIndex) return "current";
+    if (question.is_attempted) return "attempted";
+    else if (question.is_skipped) return "skipped";
+  };
 
   return (
-    <_QuestionsNoContainer title="23:45" gridArea="QuestionsNoContainer">
+    <_QuestionsNoContainer
+      title={<Timer time={time} />}
+      gridArea="QuestionsNoContainer"
+    >
       <h3>Questions</h3>
-      {questions.map((_, i) => (
-        <QuestionNumber key={i} questionState={questionsState[i][i]}>
-          {i}
-        </QuestionNumber>
+      {questions.map((question, i) => (
+        <QuestionNoContainer
+          key={question.id}
+          onClick={() => dispatch(setCurrentQuestionIndex(i))}
+        >
+          <QuestionNumber className={getQuestionStatus(question, i)}>
+            {i + 1}
+          </QuestionNumber>
+          {question.is_flagged && <Flag>F</Flag>}
+        </QuestionNoContainer>
       ))}
     </_QuestionsNoContainer>
   );

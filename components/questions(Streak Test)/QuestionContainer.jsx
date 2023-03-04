@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-
+// * components
 import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 import Button1 from "../shared/Buttons/Button1";
 import RadioButtonGroup from "../shared/RadioButtonGroup";
+// * redux
+import { useDispatch } from "react-redux";
+import {
+  setCurrentAttempted,
+  setCurrentQuestionIndex,
+  setCurrentSkipped,
+  toggleFlag,
+} from "@/redux/test/testSlice";
 
-const _Mathematics = styled(ContainerWithHead)`
+const _QuestionContainer = styled(ContainerWithHead)`
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 1fr fit-content(50px);
@@ -72,35 +80,51 @@ const Buttons = styled.div`
   padding-bottom: var(--space-xs);
 `;
 
-const Mathematics = () => {
-  const [option, setOption] = useState({});
+const QuestionContainer = ({ currentTestDetails, currentQuestionIndex }) => {
+  const dispatch = useDispatch();
+  const currentQuestion = currentTestDetails?.questions?.[currentQuestionIndex];
 
-  const optionsValue = [
-    ["A", 123],
-    ["B", 214],
-    ["C", 134],
-    ["D", 234],
-  ].map((option, key) => {
+  const [option, setOption] = useState();
+
+  useEffect(() => {
+    if (currentQuestion) {
+      if (currentQuestion?.answer_id) setOption(currentQuestion?.answer_id);
+    }
+  }, [currentQuestion]);
+
+  const optionsValue = (currentQuestion?.options ?? []).map((_option, i) => {
     return {
-      value: option[1],
+      value: _option.id,
       label: (
         <>
-          <span>{option[0]}</span>
-          <p>{option[1]}</p>
+          <span>{String.fromCharCode(65 + i)}</span>
+          <p>{_option.option}</p>
         </>
       ),
     };
   });
 
-  // console.log(optionsValue);
+  const saveAndNext = () => {
+    if (option) dispatch(setCurrentAttempted(option));
+    else dispatch(setCurrentSkipped());
+    dispatch(
+      setCurrentQuestionIndex(
+        currentTestDetails?.questions.length === currentQuestionIndex + 1
+          ? 0
+          : currentQuestionIndex + 1
+      )
+    );
+    setOption(undefined);
+  };
+
   return (
-    <_Mathematics title="Mathematics" gridArea="Mathematics" withLegs={true}>
+    <_QuestionContainer
+      title="English"
+      gridArea="QuestionContainer"
+      withLegs={true}
+    >
       <QuestionSection>
-        <p className="question">
-          Q. Annual income of A is 10% more than of B whereas income of B is 20%
-          more than that of C. If monthly income of C is $ 2000 then what is the
-          sum of monthly incomes of A, B and C?
-        </p>
+        <p className="question">{currentQuestion?.question || "Question"}</p>
         <div className="questionsImage"></div>
         <div className="options">
           {[...Array(4)].map((_, i) => (
@@ -124,12 +148,24 @@ const Mathematics = () => {
       </QuestionsOptions>
 
       <Buttons>
-        <Button1>Previous</Button1>
-        <Button1>Clear Response</Button1>
-        <Button1>Flag Question</Button1>
-        <Button1>Save & Next</Button1>
+        <Button1
+          isDisabled={currentQuestionIndex === 0}
+          onClick={() =>
+            !currentQuestionIndex
+              ? ""
+              : dispatch(setCurrentQuestionIndex(currentQuestionIndex - 1))
+          }
+        >
+          Previous
+        </Button1>
+        <Button1 onClick={() => setOption(undefined)}>Clear Response</Button1>
+        <Button1 onClick={() => dispatch(toggleFlag())}>
+          {currentQuestion?.is_flagged ? "Un" : ""}
+          Flag Question
+        </Button1>
+        <Button1 onClick={saveAndNext}>Save & Next</Button1>
       </Buttons>
-    </_Mathematics>
+    </_QuestionContainer>
   );
 };
-export default Mathematics;
+export default QuestionContainer;
