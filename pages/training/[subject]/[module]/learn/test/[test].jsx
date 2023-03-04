@@ -39,7 +39,7 @@ const Buttons = styled.div`
   padding-bottom: var(--space-xs);
 `;
 
-const regularTest = () => {
+const ChooseModule = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [submitTest, { isLoading }] = useSubmitTestMutation();
@@ -86,4 +86,4 @@ const regularTest = () => {
     </MainContainer>
   );
 };
-export default regularTest;
+export default ChooseModule;

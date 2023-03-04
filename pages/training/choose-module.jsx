@@ -123,7 +123,6 @@ const ChooseModule = () => {
   const [selectedSubject, setSelectedSubject] = useState(undefined);
   useEffect(() => {
     if (isSubjectsSuccess) {
-      console.log("printing subject id", subjects?.results[0].id);
       setSelectedSubject(subjects?.results[0].id);
     }
   }, [isSubjectsSuccess]);
