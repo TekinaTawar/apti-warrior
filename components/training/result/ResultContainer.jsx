@@ -3,8 +3,13 @@ import styled from "styled-components";
 import Image from "next/image";
 //#region images
 import victoryHead from "@/public/images/result/victoryHead.svg";
+import defeatHead from "@/public/images/result/defeatHead.svg";
 import resultContainerImage from "@/public/images/result/resultContainer.svg";
+import resultContainerImageDefeat from "@/public/images/result/resultContainerDefeat.svg";
+import noMedal from "@/public/images/result/noMedal.svg";
 import bronzeMedal from "@/public/images/result/bronzeMedal.svg";
+import silverMedal from "@/public/images/result/silverMedal.svg";
+import goldMedal from "@/public/images/result/goldMedal.svg";
 import leafs from "@/public/images/result/leafs.svg";
 import star from "@/public/images/icons/star.svg";
 import money from "@/public/images/icons/money.png";
@@ -14,6 +19,12 @@ import target from "@/public/images/icons/target.svg";
 //#endregion images
 import ProgressBar from "@/components/shared/ProgressBar/ProgressBar";
 import Button1 from "@/components/shared/Buttons/Button1";
+//#region redux
+import { useSelector } from "react-redux";
+import {
+  selectTestResult,
+  useGetTestResultDetailsQuery,
+} from "@/redux/test/testSlice";
 
 const Overlay = styled.div`
   grid-area: 2 / 1 / -1 / -1;
@@ -39,6 +50,8 @@ const ResultHead = styled(ContainerWithImage)`
   font-size: var(--step--3);
   font-weight: 400;
   color: var(--primary-0);
+
+  
 `;
 
 const ResultContentContainer = styled(ContainerWithImage)`
@@ -230,39 +243,68 @@ const RightButton = styled(Button1)`
 `;
 
 const ResultContainer = () => {
+  const testResult = useSelector(selectTestResult);
+  const test_result_id = testResult?.id;
+
+  const { data: testResultDetails, isSuccess: isTestResultDetailsSuccess } =
+    useGetTestResultDetailsQuery(test_result_id);
+  const TRD = testResultDetails;
+
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = timeInSeconds % 60;
+    return `${minutes < 10 ? "0" : ""}${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}`;
+  };
+
+  const getMedal = () => {
+    if (TRD?.medal_details?.medal_count === 0) return noMedal;
+    else if (TRD?.medal_details?.medal_count === 1) return bronzeMedal;
+    else if (TRD?.medal_details?.medal_count === 2) return silverMedal;
+    else if (TRD?.medal_details?.medal_count === 3) return goldMedal;
+  };
+
+  if (!isTestResultDetailsSuccess) return <></>;
+
   return (
     <>
       <Overlay></Overlay>
       <_ResultContainer>
         <ResultHead
-          image={victoryHead}
+          image={TRD?.is_victory ? victoryHead : defeatHead}
           style={{
             width: "100%",
             height: "115px",
             zIndex: 1,
             transform: "translateY(28px)",
           }}
+          isVictory={TRD?.is_victory}
         >
-          <h1>Victory</h1>
+          <h1>{TRD?.is_victory ? "VICTORY" : "DEFEAT"}</h1>
         </ResultHead>
         <ResultContentContainer
-          image={resultContainerImage}
+          image={
+            TRD?.is_victory ? resultContainerImage : resultContainerImageDefeat
+          }
           style={{
             transform: "translateY(-30px)",
           }}
         >
           <Score>
             <p className="label">Score</p>
-            <p className="score">07/15</p>
+            <p className="score">{`${TRD?.answer_correctly}/${TRD?.total_questions}`}</p>
           </Score>
           <Medal>
             <ContainerWithImage image={leafs} className="leafsContainer">
-              <Image src={bronzeMedal} alt="bronze medal" fill style={{}} />
+              <Image src={getMedal()} alt="bronze medal" fill style={{}} />
             </ContainerWithImage>
           </Medal>
-          <_ProgressBar />
+          <_ProgressBar
+            progress={(TRD?.answer_correctly / TRD?.total_questions) * 100}
+          />
           <Message>
-            Great job! You missed silver by just<span> 2 points</span>
+            Great job! You missed bronze by just<span> 2 points</span>
           </Message>
           <AssetsRecived>
             <li className="asset">
@@ -272,28 +314,36 @@ const ResultContainer = () => {
                 className="assetIcon"
                 style={{ padding: "5px" }}
               />
-              <p className="assetAmount">+60</p>
+              <p className="assetAmount">{testResultDetails?.xp_gained ?? 0}</p>
               <p className="assetName">XP</p>
             </li>
             <li className="asset">
               <Image src={money} alt="money" className="assetIcon" />
-              <p className="assetAmount">+25</p>
+              <p className="assetAmount">
+                {testResultDetails?.cash_gained ?? 0}
+              </p>
               <p className="assetName">CASH</p>
             </li>
             <li className="asset">
               <Image src={diamond} alt="star" className="assetIcon" />
-              <p className="assetAmount">+6</p>
+              <p className="assetAmount">
+                {testResultDetails?.gems_gained ?? 0}
+              </p>
               <p className="assetName">GEMS</p>
             </li>
           </AssetsRecived>
           <TimeTaken>
             <Image src={time} alt="time" className="icon" />
-            <strong className="value">1m:15s</strong>
+            <strong className="value">
+              {formatTime(testResultDetails?.test_time ?? 0)}
+            </strong>
             <label className="label">Time?Que</label>
           </TimeTaken>
           <Accuracy>
             <Image src={target} alt="accuracy" className="icon" />
-            <strong className="value">100%</strong>
+            <strong className="value">
+              {testResultDetails?.Accuracy ?? 0}%
+            </strong>
             <label className="label">Accuracy</label>
           </Accuracy>
           <RightButton>Return Home</RightButton>

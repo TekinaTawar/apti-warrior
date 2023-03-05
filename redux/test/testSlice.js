@@ -31,7 +31,7 @@ export const testApiSlice = aptiApiSlice.injectEndpoints({
       },
     }),
     getTestResultDetails: builder.query({
-      query: (test_result_id) => `/test/result/${test_result_id}`,
+      query: (test_result_id) => `/test/result/${test_result_id}/`,
     }),
   }),
 });
@@ -80,7 +80,7 @@ export const testSlice = createSlice({
 });
 
 // Query hooks
-export const { useGetTestDetailsQuery, useSubmitTestMutation } = testApiSlice;
+export const { useGetTestDetailsQuery, useSubmitTestMutation, useGetTestResultDetailsQuery } = testApiSlice;
 
 // Actions
 export const {

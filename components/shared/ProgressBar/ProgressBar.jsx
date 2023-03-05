@@ -43,7 +43,7 @@ const Progress = styled.div`
   clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
 `;
 
-const ProgressBar = ({ progress = 75, className }) => {
+const ProgressBar = ({ progress, className }) => {
   return (
     <_ProgressBar className={className}>
       <Twinkle progress={progress} />

@@ -14,6 +14,7 @@ import {
   setCurrentTestDetails,
   selectCurrentQuestionIndex,
   selectCurrentTestDetails,
+  setTestResult,
 } from "@/redux/test/testSlice";
 
 const MainContainer = styled.main`
@@ -63,8 +64,9 @@ const Index = () => {
     console.log(data);
 
     if (data) {
+      dispatch(setTestResult(data));
       router.push(
-        `/training/${subject}/${module}/learn/test/${data.test}/result`
+        `/training/${subject}/${module}/learn/test/${test}/result`
       );
     }
   };
