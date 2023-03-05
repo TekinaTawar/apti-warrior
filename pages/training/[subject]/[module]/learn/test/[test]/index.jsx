@@ -39,7 +39,7 @@ const Buttons = styled.div`
   padding-bottom: var(--space-xs);
 `;
 
-const ChooseModule = () => {
+const Index = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [submitTest, { isLoading }] = useSubmitTestMutation();
@@ -59,6 +59,8 @@ const ChooseModule = () => {
 
   const handleSubmitTest = async () => {
     const { data } = await submitTest(currentTestDetails);
+
+    console.log(data);
 
     if (data) {
       router.push(
@@ -86,4 +88,4 @@ const ChooseModule = () => {
     </MainContainer>
   );
 };
-export default ChooseModule;
+export default Index;

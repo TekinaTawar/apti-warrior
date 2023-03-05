@@ -11,7 +11,8 @@ const _Button1 = styled(ContainerWithImage)`
   background-color: var(--secondary-0);
   font-family: stormfaze;
   color: white;
-
+  padding-inline: var(--space-s-m);
+  padding-block: var(--space-2xs-xs);
 
 `;
 

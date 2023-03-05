@@ -30,6 +30,9 @@ export const testApiSlice = aptiApiSlice.injectEndpoints({
         };
       },
     }),
+    getTestResultDetails: builder.query({
+      query: (test_result_id) => `/test/result/${test_result_id}`,
+    }),
   }),
 });
 
@@ -70,6 +73,9 @@ export const testSlice = createSlice({
       state.currentTestDetails.questions[state.currentQuestionIndex].answer_id =
         action.payload;
     },
+    setTestResult: (state, action) => {
+      state.testResult = action.payload;
+    },
   },
 });
 
@@ -83,6 +89,7 @@ export const {
   toggleFlag,
   setCurrentSkipped,
   setCurrentAttempted,
+  setTestResult,
 } = testSlice.actions;
 
 // Selectors
@@ -90,6 +97,7 @@ export const selectCurrentTestDetails = (state) =>
   state.test.currentTestDetails;
 export const selectCurrentQuestionIndex = (state) =>
   state.test.currentQuestionIndex;
+export const selectTestResult = (state) => state.test.testResult;
 
 // Reducer
 export default testSlice.reducer;

@@ -26,7 +26,7 @@ const _Container = styled.div`
 
 // !give styling like gridArea and margin that influence parent use style={{ //styles}}
 
-const ContainerWithImage2 = ({
+const ContainerWithImage = ({
   children,
   image,
   className,
@@ -50,4 +50,4 @@ const ContainerWithImage2 = ({
     </_ContainerWithImage>
   );
 };
-export default ContainerWithImage2;
+export default ContainerWithImage;

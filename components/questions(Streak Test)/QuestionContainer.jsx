@@ -107,13 +107,10 @@ const QuestionContainer = ({ currentTestDetails, currentQuestionIndex }) => {
   const saveAndNext = () => {
     if (option) dispatch(setCurrentAttempted(option));
     else dispatch(setCurrentSkipped());
-    dispatch(
-      setCurrentQuestionIndex(
-        currentTestDetails?.questions.length === currentQuestionIndex + 1
-          ? 0
-          : currentQuestionIndex + 1
-      )
-    );
+    currentTestDetails?.questions.length === currentQuestionIndex + 1
+      ? ""
+      : dispatch(setCurrentQuestionIndex(currentQuestionIndex + 1));
+
     setOption(undefined);
   };
 
@@ -163,7 +160,11 @@ const QuestionContainer = ({ currentTestDetails, currentQuestionIndex }) => {
           {currentQuestion?.is_flagged ? "Un" : ""}
           Flag Question
         </Button1>
-        <Button1 onClick={saveAndNext}>Save & Next</Button1>
+        <Button1 onClick={saveAndNext}>
+          {currentTestDetails?.questions.length === currentQuestionIndex + 1
+            ? "Save"
+            : "Save & Next"}
+        </Button1>
       </Buttons>
     </_QuestionContainer>
   );

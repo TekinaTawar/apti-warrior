@@ -137,7 +137,7 @@ const ChooseModule = () => {
       <Header />
       <SubjectsContainer
         subjects={subjects?.results ?? []}
-        onClick={(id)=>setSelectedSubject(id)}
+        onClick={(id) => setSelectedSubject(id)}
       />
       <ModulesContainer
         withLegs={true}

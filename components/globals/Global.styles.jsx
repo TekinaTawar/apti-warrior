@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
+//#region fonts
 @font-face {
   font-family: stormfaze;
   src: url(/fonts/stormfaze/stormfaze.ttf);
@@ -51,6 +52,8 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
 }
 
+//#endregion fonts
+
 :root{
   //Colors
   --black: hsl(0, 0%, 0%);
@@ -82,15 +85,15 @@ const GlobalStyle = createGlobalStyle`
   
   //Font sizes
   /* @link https://utopia.fyi/type/calculator?c=360,19,1.16,1920,24,1.21,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
-  --step--3: clamp(0.76rem, calc(0.74rem + 0.09vw), 0.85rem);
-  --step--2: clamp(0.88rem, calc(0.85rem + 0.15vw), 1.02rem);
-  --step--1: clamp(1.02rem, calc(0.97rem + 0.22vw), 1.24rem); //use it as the most normal size
-  --step-0: clamp(1.19rem, calc(1.12rem + 0.32vw), 1.50rem);
-  --step-1: clamp(1.38rem, calc(1.28rem + 0.45vw), 1.82rem);
-  --step-2: clamp(1.60rem, calc(1.46rem + 0.61vw), 2.20rem);
-  --step-3: clamp(1.85rem, calc(1.67rem + 0.82vw), 2.66rem);
-  --step-4: clamp(2.15rem, calc(1.90rem + 1.09vw), 3.22rem);
-  --step-5: clamp(2.49rem, calc(2.17rem + 1.43vw), 3.89rem);
+  --step--3: clamp(0.76rem, calc(0.74rem + 0.09vw), 0.85rem);// 12->14px
+  --step--2: clamp(0.88rem, calc(0.85rem + 0.15vw), 1.02rem);// 14->16px
+  --step--1: clamp(1.02rem, calc(0.97rem + 0.22vw), 1.24rem);// 16->20px use it as the most normal size
+  --step-0: clamp(1.19rem, calc(1.12rem + 0.32vw), 1.50rem); // 19->24px
+  --step-1: clamp(1.38rem, calc(1.28rem + 0.45vw), 1.82rem); // 22->29px
+  --step-2: clamp(1.60rem, calc(1.46rem + 0.61vw), 2.20rem); // 25->35px
+  --step-3: clamp(1.85rem, calc(1.67rem + 0.82vw), 2.66rem); // 30->42px
+  --step-4: clamp(2.15rem, calc(1.90rem + 1.09vw), 3.22rem); // 34->51px
+  --step-5: clamp(2.49rem, calc(2.17rem + 1.43vw), 3.89rem); // 40->62px
 
 
   //Dynamic spaces

@@ -11,8 +11,8 @@ import borderVid from "@/public/images/training2/borderVid.svg";
 import questionCircle from "@/public/images/Practice&Learn/questionCircle.svg";
 import time from "@/public/images/Practice&Learn/time.svg";
 import checkmark from "@/public/images/Practice&Learn/checkmark.svg";
-import money from "@/public/images/Practice&Learn/money.svg";
-import diamond from "@/public/images/Practice&Learn/diamond.svg";
+import money from "@/public/images/Practice&Learn/money.png";
+import diamond from "@/public/images/icons/diamond.png";  
 import dumbbells from "@/public/images/Practice&Learn/dumbbells.svg";
 import xp from "@/public/images/Practice&Learn/xp.svg";
 
