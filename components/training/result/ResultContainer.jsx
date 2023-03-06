@@ -1,5 +1,5 @@
 import ContainerWithImage from "@/components/shared/Containers/ContainerWithImage";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Image from "next/image";
 //#region images
 import victoryHead from "@/public/images/result/victoryHead.svg";
@@ -51,7 +51,9 @@ const ResultHead = styled(ContainerWithImage)`
   font-weight: 400;
   color: var(--primary-0);
 
-  
+  ${({ isVictory }) => !isVictory && css`
+    color: white;
+  `}
 `;
 
 const ResultContentContainer = styled(ContainerWithImage)`
@@ -265,7 +267,7 @@ const ResultContainer = () => {
     else if (TRD?.medal_details?.medal_count === 3) return goldMedal;
   };
 
-  if (!isTestResultDetailsSuccess) return <></>;
+  // if (!isTestResultDetailsSuccess) return <></>;
 
   return (
     <>
@@ -275,7 +277,7 @@ const ResultContainer = () => {
           image={TRD?.is_victory ? victoryHead : defeatHead}
           style={{
             width: "100%",
-            height: "115px",
+            height: `${TRD?.is_victory ? "115px": "150px"}`,
             zIndex: 1,
             transform: "translateY(28px)",
           }}
@@ -285,7 +287,7 @@ const ResultContainer = () => {
         </ResultHead>
         <ResultContentContainer
           image={
-            TRD?.is_victory ? resultContainerImage : resultContainerImageDefeat
+            !TRD?.is_victory ? resultContainerImage : resultContainerImageDefeat
           }
           style={{
             transform: "translateY(-30px)",
