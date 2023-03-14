@@ -97,6 +97,15 @@ const _Header = styled.header`
       align-self: center;
     }
   }
+
+  .settingsIcon {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    :hover {
+      transform: rotate(90deg);
+      
+    }
+  }
 `;
 
 const Header = () => {
@@ -107,8 +116,12 @@ const Header = () => {
       <>
         <div className="userDetailSection">
           <div className="profilePhotoContainer">{/* image */}</div>
-          <h3 className="username">{userProfile?.data?.username ?? "username"} </h3>
-          <h5 className="level">Level {userProfile?.data?.profile?.level ?? "0"}</h5>
+          <h3 className="username">
+            {userProfile?.data?.username ?? "username"}{" "}
+          </h3>
+          <h5 className="level">
+            Level {userProfile?.data?.profile?.level ?? "0"}
+          </h5>
         </div>
         <div className="trainingPoint">
           <i>

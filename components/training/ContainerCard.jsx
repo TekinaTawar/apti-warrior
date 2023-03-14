@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 const _ContainerCard = styled.div`
   border: 1px solid var(--primary-0);
@@ -18,6 +18,11 @@ const _ContainerCard = styled.div`
   :hover {
     cursor: pointer;
   }
+
+  ${({ selected }) =>
+    selected && css`
+    background: var(--secondary-0);
+  `}
 
   .cardImage {
     grid-area: cardImage;
@@ -47,12 +52,15 @@ const _ContainerCard = styled.div`
       height: var(--space-s);
       border-radius: 3px;
       box-shadow: 0px 0px 20px 0px var(--primary--100);
+      display: flex;
+      justify-content: start;
+      align-items: center;
 
       .progressLine {
         /* background-color: var(--primary-0); */
-        height: 100%;
-        width: 75%;
-        border: 1px solid black;
+        height: 90%;
+        width: 75%;   
+        
         background-image: repeating-linear-gradient(
           115deg,
           transparent 0px 1px,
@@ -68,9 +76,9 @@ const _ContainerCard = styled.div`
   }
 `;
 
-const ContainerCard = ({ onClick, cardId, cardTitle }) => {
+const ContainerCard = ({ onClick, cardId, cardTitle, selected }) => {
   return (
-    <_ContainerCard onClick={() => onClick(cardId)}>
+    <_ContainerCard onClick={() => onClick(cardId)} selected={selected}>
       <div className="cardImage"></div>
       <div className="cardTitle">{cardTitle??"cardTitle"}</div>
       <div className="progressBar">

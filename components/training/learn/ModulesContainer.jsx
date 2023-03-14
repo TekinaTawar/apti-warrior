@@ -1,7 +1,7 @@
 import VerticalContainer from "../VerticalContainer";
 import ContainerCard from "../ContainerCard";
 
-const ModulesContainer = ({ modules, onClick }) => {
+const ModulesContainer = ({ modules, onClick, selectedModule }) => {
   return (
     <VerticalContainer title="Modules" gridArea="modulesContainer">
       {modules.map((module) => (
@@ -10,6 +10,7 @@ const ModulesContainer = ({ modules, onClick }) => {
           cardId={module?.id}
           cardTitle={module?.title}
           onClick={onClick}
+          selected={selectedModule === module?.id}
         />
       ))}
     </VerticalContainer>

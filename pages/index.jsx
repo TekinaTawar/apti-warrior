@@ -28,13 +28,14 @@ const Banner = styled(ContainerWithImage)`
   /* height: 60%; */
   .content {
     width: 100%;
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: var(--space-2xs);
     z-index: 1;
+    overflow-y: scroll;
 
     h2 {
       font-family: stormfaze;

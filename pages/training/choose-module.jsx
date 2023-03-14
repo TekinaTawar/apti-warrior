@@ -51,8 +51,15 @@ const ModuleCard = styled.div`
   gap: var(--space-2xs-xs);
   grid-template-areas: "moduleImage moduleTitle" "progressBar progressBar";
 
+
   :hover {
     cursor: pointer;
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(251, 255, 206, 0.7) 16.67%,
+      rgba(253, 205, 83, 0.37) 47.92%,
+      rgba(255, 228, 255, 0) 100%
+    );
   }
 
   .moduleImage {
@@ -109,7 +116,6 @@ const ModuleCard = styled.div`
 `;
 
 const ChooseModule = () => {
-  console.log("rendering");
 
   const router = useRouter();
   const { data, isSuccess: isUserProfileSuccess } = useGetUserProfileQuery({});
@@ -138,6 +144,7 @@ const ChooseModule = () => {
       <SubjectsContainer
         subjects={subjects?.results ?? []}
         onClick={(id) => setSelectedSubject(id)}
+        selectedSubject={selectedSubject}
       />
       <ModulesContainer
         withLegs={true}

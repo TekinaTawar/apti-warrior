@@ -39,6 +39,32 @@ const VideoContainer = styled(ContainerWithImage)`
   :hover {
     cursor: pointer;
   }
+
+  .content{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .video{
+      width: 100%;
+      height: 100%;
+      padding-inline: var(--space-4xs-3xs);
+      padding-block: 4px;
+
+      position: absolute;
+    }
+  }
+  /* border: 1px solid white; */
+
+  /* .video{
+    border: 1px solid white;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } */
 `;
 
 const VideoTextContainer = styled.div`
@@ -72,32 +98,24 @@ const ModuleTopicContainer = styled(ContainerWithImage)`
   overflow-y: scroll;
   display: block;
 
-  ul {
+  .topicAndLectures {
     border-bottom: 4px solid var(--primary-0);
-
-    * {
-      font-size: var(--step-0);
-      margin-bottom: var(--space-4xs-3xs);
-    }
-    li {
-      font-size: var(--step--1);
-      display: flex;
-      align-content: center;
-      justify-content: flex-start;
-      gap: var(--space-2xs-xs);
-      cursor: pointer;
-    }
-  }
-  h2 {
-    margin-top: var(--space-2xs-xs);
-    margin-bottom: var(--space-2xs-xs);
-    border-bottom: 8px double white;
-    white-space: nowrap;
-    font-size: var(--step--1);
-    font-family: 400;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding-bottom: var(--space-4xs-3xs);
+    flex-direction: column;
+    gap: var(--space-4xs-3xs);
+
+    .topicTitle {
+      margin-top: var(--space-2xs-xs);
+      margin-bottom: var(--space-4xs-3xs);
+      border-bottom: 8px double white;
+      white-space: nowrap;
+      font-size: var(--step--1);
+      font-family: 400;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 `;
 
@@ -129,10 +147,6 @@ const Training2 = () => {
 
   const [selectedLecture, setSelectedLecture] = useState(undefined);
 
-  const selectLecture = (lecture) => {
-    setSelectedLecture(lecture);
-  };
-
   const showLecture = () => {
     if (selectedLecture?.type === "Lecture") {
       return (
@@ -142,10 +156,13 @@ const Training2 = () => {
             style={{ gridArea: " videoContainer" }}
           >
             {/* <FaPlay size={50} /> */}
-            {/* <video
-              controls
-              src={selectedLecture?.item_details?.video_url}
-            ></video> */}
+            <div className="content">
+              <video
+                controls
+                src={selectedLecture?.item_details?.video_url}
+                className="video"
+              ></video>
+            </div>
           </VideoContainer>
 
           <VideoTextContainer>
@@ -170,6 +187,7 @@ const Training2 = () => {
       <ModulesContainer
         modules={modules?.results ?? []}
         onClick={(id) => setSelectedModule(id)}
+        selectedModule={selectedModule}
       />
 
       {showLecture()}
@@ -179,14 +197,15 @@ const Training2 = () => {
         style={{ gridArea: "moduleTopicContainer" }}
       >
         {(topics?.results ?? []).map((topic, i) => (
-          <ul key={topic.id}>
-            <h2>{`Topic ${i + 1}: ${topic.title}`}</h2>
+          <ul key={topic.id} className="topicAndLectures">
+            <h2 className="topicTitle">{`Topic ${i + 1}: ${topic.title}`}</h2>
             <LectureList
               courseId={courseId}
               subjectId={subject}
               moduleId={selectedModule}
               topicId={topic.id}
-              showLecture={selectLecture}
+              showLecture={(id) => setSelectedLecture(id)}
+              selectedLecture={selectedLecture}
             />
           </ul>
         ))}
