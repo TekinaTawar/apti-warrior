@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }) {
         draggable
         pauseOnHover
         theme="dark"
+        limit={3}
       />
       <Layout>
         <Component {...pageProps} />

@@ -1,6 +1,7 @@
 import ContainerWithImage from "@/components/shared/Containers/ContainerWithImage";
 import styled, { css } from "styled-components";
 import Image from "next/image";
+import { useRouter } from "next/router";
 //#region images
 import victoryHead from "@/public/images/result/victoryHead.svg";
 import defeatHead from "@/public/images/result/defeatHead.svg";
@@ -11,6 +12,7 @@ import bronzeMedal from "@/public/images/result/bronzeMedal.svg";
 import silverMedal from "@/public/images/result/silverMedal.svg";
 import goldMedal from "@/public/images/result/goldMedal.svg";
 import leafs from "@/public/images/result/leafs.svg";
+import defeatLeaves from "@/public/images/result/defeatLeaves.svg"
 import star from "@/public/images/icons/star.svg";
 import money from "@/public/images/icons/money.png";
 import diamond from "@/public/images/icons/diamond.png";
@@ -40,6 +42,7 @@ const _ResultContainer = styled.div`
   align-self: center;
   justify-self: center;
 `;
+
 const ResultHead = styled(ContainerWithImage)`
   z-index: 1;
   background-color: transparent;
@@ -51,9 +54,12 @@ const ResultHead = styled(ContainerWithImage)`
   font-weight: 400;
   color: var(--primary-0);
 
-  ${({ isVictory }) => !isVictory && css`
-    color: white;
-  `}
+  ${({ isVictory }) =>
+    !isVictory &&
+    css`
+      color: white;
+      align-self: center;
+    `}
 `;
 
 const ResultContentContainer = styled(ContainerWithImage)`
@@ -118,6 +124,7 @@ const _ProgressBar = styled(ProgressBar)`
 `;
 const Message = styled.div`
   grid-area: message;
+  justify-self: center;
   font-weight: 700;
   font-size: var(--step--2);
   color: hsla(126, 100%, 51%, 1);
@@ -126,6 +133,13 @@ const Message = styled.div`
   span {
     color: var(--primary-0);
   }
+
+  ${({ isVictory }) =>
+    !isVictory &&
+    css`
+      color: var(--bad);
+      font-size: var(--step--2);
+    `}
 `;
 const AssetsRecived = styled.div`
   grid-area: assetsRecived;
@@ -142,6 +156,19 @@ const AssetsRecived = styled.div`
   display: grid;
   grid-template-columns: repeat(3, fit-content(50px));
   justify-content: space-between;
+
+  ${({ isVictory }) =>
+    !isVictory &&
+    css`
+      .asset:not(.asset:first-child) {
+        display: none;
+      }
+
+      .asset:first-child{
+        grid-column: 1 / -1;
+        justify-self: center; 
+      }
+    `}
 
   .asset {
     display: grid;
@@ -245,11 +272,14 @@ const RightButton = styled(Button1)`
 `;
 
 const ResultContainer = () => {
-  const testResult = useSelector(selectTestResult);
-  const test_result_id = testResult?.id;
+  // const testResult = useSelector(selectTestResult);
+  // const test_result_id = testResult?.id;
+  const router = useRouter();
+
+  const { result: test_result_id } = router.query;
 
   const { data: testResultDetails, isSuccess: isTestResultDetailsSuccess } =
-    useGetTestResultDetailsQuery(test_result_id);
+    useGetTestResultDetailsQuery(test_result_id, { skip: !test_result_id });
   const TRD = testResultDetails;
 
   const formatTime = (timeInSeconds) => {
@@ -267,17 +297,17 @@ const ResultContainer = () => {
     else if (TRD?.medal_details?.medal_count === 3) return goldMedal;
   };
 
-  // if (!isTestResultDetailsSuccess) return <></>;
+  if (!isTestResultDetailsSuccess) return <></>;
 
   return (
     <>
       <Overlay></Overlay>
-      <_ResultContainer>
+      <_ResultContainer isVictory={TRD?.is_victory}>
         <ResultHead
           image={TRD?.is_victory ? victoryHead : defeatHead}
           style={{
             width: "100%",
-            height: `${TRD?.is_victory ? "115px": "150px"}`,
+            height: `${TRD?.is_victory ? "115px" : "160px"}`,
             zIndex: 1,
             transform: "translateY(28px)",
           }}
@@ -287,7 +317,7 @@ const ResultContainer = () => {
         </ResultHead>
         <ResultContentContainer
           image={
-            !TRD?.is_victory ? resultContainerImage : resultContainerImageDefeat
+            TRD?.is_victory ? resultContainerImage : resultContainerImageDefeat
           }
           style={{
             transform: "translateY(-30px)",
@@ -298,15 +328,21 @@ const ResultContainer = () => {
             <p className="score">{`${TRD?.answer_correctly}/${TRD?.total_questions}`}</p>
           </Score>
           <Medal>
-            <ContainerWithImage image={leafs} className="leafsContainer">
+            <ContainerWithImage image={TRD?.is_victory?leafs:defeatLeaves} className="leafsContainer">
               <Image src={getMedal()} alt="bronze medal" fill style={{}} />
             </ContainerWithImage>
           </Medal>
           <_ProgressBar
             progress={(TRD?.answer_correctly / TRD?.total_questions) * 100}
           />
-          <Message>
-            Great job! You missed bronze by just<span> 2 points</span>
+          <Message isVictory={TRD?.is_victory}>
+            {!TRD?.is_victory ? (
+              "Good attempt. But try harder next time"
+            ) : (
+              <>
+                Great job! You missed bronze by just<span> 2 points</span>
+              </>
+            )}
           </Message>
           <AssetsRecived>
             <li className="asset">

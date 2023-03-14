@@ -61,12 +61,10 @@ const Index = () => {
   const handleSubmitTest = async () => {
     const { data } = await submitTest(currentTestDetails);
 
-    console.log(data);
-
     if (data) {
       dispatch(setTestResult(data));
       router.push(
-        `/training/${subject}/${module}/learn/test/${test}/result`
+        `/training/${subject}/${module}/learn/test/${test}/result/${data.id}`
       );
     }
   };

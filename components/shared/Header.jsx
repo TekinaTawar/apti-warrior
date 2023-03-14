@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import Cookies from "universal-cookie";
+import {useRouter} from "next/router"
+import {useState} from "react";
 import { CiDumbbell } from "react-icons/ci";
 import { FaMoneyBill } from "react-icons/fa";
 import { IoDiamondOutline } from "react-icons/io5";
@@ -99,10 +102,42 @@ const _Header = styled.header`
   }
 
   .settingsIcon {
+    position: relative;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-    :hover {
-      transform: rotate(90deg);
+
+    .gearIcon {
+      transition: transform 0.2s ease-in-out;
+      :hover {
+        transform: rotate(90deg);
+      }
+    }
+
+    .logoutModal {
+      position: absolute;
+      background-color: black;
+      width: 140px;
+      top: 100%;
+      right: 90%;
+      z-index: 4;
+      border: 2px solid var(--primary-0);
+      border-inline: 3px solid var(--primary-0);
+      border-radius: 5px;
+      padding: 5px;
+      font-family: metropolis;
+      font-size: var(--step-0);
+      font-style: normal;
+      font-weight: 600;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      :hover {
+        transform: scale(1.1);
+      }
+
+      ${({showLogoutModal})=>showLogoutModal&&css`
+      display: flex;
+      `}
       
     }
   }
@@ -110,9 +145,17 @@ const _Header = styled.header`
 
 const Header = () => {
   const userProfile = useSelector(selectUserProfile);
+  const router = useRouter();
+  const [showLogoutModal, setShowLogoutModal] = useState(false)
+  const cookies = new Cookies();
+
+  const logout = () => {
+    cookies.remove("jwt")
+    router.push("/auth/login")
+  };
 
   return (
-    <_Header>
+    <_Header showLogoutModal={showLogoutModal}>
       <>
         <div className="userDetailSection">
           <div className="profilePhotoContainer">{/* image */}</div>
@@ -142,7 +185,8 @@ const Header = () => {
           <span>289</span>
         </div>
         <i className="settingsIcon">
-          <BsGear />
+          <BsGear className="gearIcon" onClick={()=> setShowLogoutModal(!showLogoutModal)} />
+          <div className="logoutModal" onClick={logout}>LogOut</div>
         </i>
       </>
     </_Header>

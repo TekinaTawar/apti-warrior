@@ -80,7 +80,7 @@ const GlobalStyle = createGlobalStyle`
   --secondary-100: hsl(79, 100%, 17%);
 
   --good: #89CC13;
-  --bad: #EF0B0B;
+  --bad: #FF0303;
   --neutral: #E38D01;
   
   //Font sizes
