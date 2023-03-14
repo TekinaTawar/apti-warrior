@@ -149,9 +149,9 @@ const Header = () => {
   const [showLogoutModal, setShowLogoutModal] = useState(false)
   const cookies = new Cookies();
 
-  const logout = () => {
-    cookies.remove("jwt")
-    router.push("/auth/login")
+  const logout = async () => {
+    await cookies.remove("jwt", {path: '/'});
+    await router.reload();
   };
 
   return (
