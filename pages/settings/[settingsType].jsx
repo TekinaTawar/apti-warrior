@@ -19,7 +19,7 @@ const MainContainer = styled.main`
   column-gap: var(--space-2xs-xs);
 `;
 
-const settings = () => {
+const Settings = () => {
   const router = useRouter();
   const { settingsType } = router.query;
 
@@ -31,4 +31,4 @@ const settings = () => {
     </MainContainer>
   );
 };
-export default settings;
+export default Settings;
