@@ -247,7 +247,7 @@ const SignUp = () => {
         </Button1>
         <SignUpAlternative>
           Already an user?{" "}
-          <Link href="/auth/signup" className="registerHere">
+          <Link href="/auth/login" className="registerHere">
             Login Here
           </Link>
         </SignUpAlternative>

@@ -1,4 +1,4 @@
-import VerticalContainer from "../VerticalContainer";
+import VerticalContainer from "../../shared/Containers/VerticalContainer";
 import ContainerCard from "../ContainerCard";
 
 const ModulesContainer = ({ modules, onClick, selectedModule }) => {

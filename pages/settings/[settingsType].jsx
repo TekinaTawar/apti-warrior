@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 import Menu from "@/components/accountSettings/Menu";
 import MenuDetails from "@/components/accountSettings/MenuDetails";
@@ -19,11 +20,14 @@ const MainContainer = styled.main`
 `;
 
 const settings = () => {
+  const router = useRouter();
+  const { settingsType } = router.query;
+
   return (
     <MainContainer>
       <Header />
-      <Menu />
-      <MenuDetails />
+      <Menu settingsType={settingsType}/>
+      <MenuDetails settingsType={settingsType} />
     </MainContainer>
   );
 };

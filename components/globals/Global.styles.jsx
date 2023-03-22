@@ -81,7 +81,7 @@ const GlobalStyle = createGlobalStyle`
 
   --good: #89CC13;
   --bad: #FF0303;
-  --neutral: #E38D01;
+  --neutral: #e38d01;
   
   //Font sizes
   /* @link https://utopia.fyi/type/calculator?c=360,19,1.16,1920,24,1.21,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */

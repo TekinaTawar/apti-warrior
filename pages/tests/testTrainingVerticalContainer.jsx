@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import VerticalContainer from "@/components/training/VerticalContainer";
+import VerticalContainer from "@/components/shared/Containers/VerticalContainer";
 
 const MainContainer = styled.main`
   position: absolute;
@@ -14,7 +14,9 @@ const MainContainer = styled.main`
 const TestTrainingVerticalContainer = () => {
   return (
     <MainContainer>
-      <VerticalContainer title="India" gridArea="IndiaContainer">{"abc"}</VerticalContainer>
+      <VerticalContainer title="India" gridArea="IndiaContainer">
+        {"abc"}
+      </VerticalContainer>
     </MainContainer>
   );
 };
