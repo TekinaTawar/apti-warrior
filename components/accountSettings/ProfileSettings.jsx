@@ -16,7 +16,7 @@ const _ProfileSettings = styled.div`
   height: 100%;
   display: grid;
   grid-template-rows: repeat(5, fit-content(50px));
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.2fr 0.8fr;
   grid-template-areas:
     "nameLevel stats"
     "tierTrophy stats"
@@ -295,6 +295,46 @@ const BestAchievement = styled(StyledDiv)`
 
 const Stats = styled(StyledDiv)`
   grid-area: stats;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+
+  .medals{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    padding-block: var(--space-xs-s);
+
+    .medal1, .medal2{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .medalLabel{
+        font-weight: 700;
+        font-size: var(--step-0);
+        width: 150px;
+        text-align: center;
+      }
+      .medalImage{
+        height: 120px;
+        width: 120px;
+      }
+    }
+  }
+  .stats{
+    display: flex;
+    flex-direction: column;
+    
+    .stat{
+      border-bottom: 1px solid var(--primary-0);
+      font-size: var(--step--1);
+      font-weight: 500;
+      padding-block: var(--space-3xs-2xs);
+      padding-inline: var(--space-xs-s);
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 `;
 
 const ProfileSettings = () => {
@@ -366,7 +406,42 @@ const ProfileSettings = () => {
         </div>
       </BestAchievement>
       <Stats>
-        
+        <div className="medals">
+          <div className="medal1">
+            <span className="medalLabel">Highest area rank</span>
+            <Image src={goldMedal} alt="gold medal" className="medalImage" />
+          </div>
+          <div className="medal2">
+            <span className="medalLabel">Current area rank</span>
+            <Image src={silverMedal} alt="silver medal" className="medalImage" />
+          </div>
+        </div>
+        <ul className="stats">
+          <li className="stat">
+            <span className="left">Win Rate</span>
+            <span className="right">68%</span>
+          </li>
+          <li className="stat">
+            <span className="left">Playing Since</span>
+            <span className="right">10 Oct 2022</span>
+          </li>
+          <li className="stat">
+            <span className="left">Accuracy</span>
+            <span className="right">68.9%</span>
+          </li>
+          <li className="stat">
+            <span className="left">Battles Played</span>
+            <span className="right">50</span>
+          </li>
+          <li className="stat">
+            <span className="left">Win Streak Record</span>
+            <span className="right">10</span>
+          </li>
+          <li className="stat">
+            <span className="left">Time Spend</span>
+            <span className="right">500 H</span>
+          </li>
+        </ul>
       </Stats>
     </_ProfileSettings>
   );

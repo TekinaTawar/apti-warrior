@@ -1,8 +1,14 @@
 import styled from "styled-components";
 import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 import ProfileSettings from "./ProfileSettings";
+import AccountSettings from "./AccountSettings";
+import AchievementsSettings from "./AchievementsSettings";
+import Settings from "./Settings";
+import SupportSettings from "./SupportSettings";
+
 
 const _MenuDetails = styled(ContainerWithHead)`
+  /* background-color: #232222; */
   padding-block: var(--space-xs-s);
   padding-inline: var(--space-s-m);
 `;
