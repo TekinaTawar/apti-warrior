@@ -98,7 +98,8 @@ const ModuleCard = styled.div`
       .progressLine {
         /* background-color: var(--primary-0); */
         height: 100%;
-        width: 75%;
+        /* width: ${({ progress }) => progress ? progress : 0}%}; */
+        width: ${({ cardProgress })=> cardProgress? cardProgress: 0}%; 
         border: 1px solid black;
         background-image: repeating-linear-gradient(
           115deg,
@@ -132,7 +133,6 @@ const ChooseModule = () => {
       setSelectedSubject(subjects?.results[0].id);
     }
   }, [isSubjectsSuccess]);
-
   const { data: modules } = useGetModulesQuery(
     { courseId, subjectId: selectedSubject },
     { skip: !selectedSubject }
@@ -154,6 +154,7 @@ const ChooseModule = () => {
         {(modules?.results ?? []).map((module) => (
           <ModuleCard
             key={module.id}
+            cardProgress= {module?.progress}
             onClick={() =>
               router.push(`/training/${selectedSubject}/${module.id}/learn`)
             }
@@ -165,7 +166,7 @@ const ChooseModule = () => {
               <div className="progressBarContainer">
                 <div className="progressLine"> </div>
               </div>
-              <span> 75% </span>
+              <span> {module?.progress}% </span>
             </div>
           </ModuleCard>
         ))}

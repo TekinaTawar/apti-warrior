@@ -30,7 +30,7 @@ const QuestionSection = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space; */
 
   .question {
     font-weight: 500;
@@ -121,16 +121,21 @@ const QuestionContainer = ({ currentTestDetails, currentQuestionIndex }) => {
       withLegs={true}
     >
       <QuestionSection>
-        <p className="question">{currentQuestion?.question || "Question"}</p>
-        <div className="questionsImage"></div>
-        <div className="options">
+        <p
+          className="question"
+          dangerouslySetInnerHTML={{
+            __html: currentQuestion?.question || "Question",
+          }}
+        ></p>
+        {/* <div className="questionsImage"></div> */}
+        {/* <div className="options">
           {[...Array(4)].map((_, i) => (
             <div className="option" key={i}>
               <p>A</p>
               <div className="categoriesImage"></div>
             </div>
           ))}
-        </div>
+        </div> */}
       </QuestionSection>
 
       <QuestionsOptions>

@@ -59,7 +59,7 @@ const _ContainerCard = styled.div`
       .progressLine {
         /* background-color: var(--primary-0); */
         height: 90%;
-        width: 75%;   
+        width: ${({ cardProgress })=> cardProgress? cardProgress: 0}%;   
         
         background-image: repeating-linear-gradient(
           115deg,
@@ -76,16 +76,16 @@ const _ContainerCard = styled.div`
   }
 `;
 
-const ContainerCard = ({ onClick, cardId, cardTitle, selected }) => {
+const ContainerCard = ({ onClick, cardId, cardTitle, cardProgress, selected }) => {
   return (
-    <_ContainerCard onClick={() => onClick(cardId)} selected={selected}>
+    <_ContainerCard onClick={() => onClick(cardId)} selected={selected} cardProgress={cardProgress}>
       <div className="cardImage"></div>
       <div className="cardTitle">{cardTitle??"cardTitle"}</div>
       <div className="progressBar">
         <div className="progressBarContainer">
           <div className="progressLine"> </div>
         </div>
-        <span> 75% </span>
+        <span> {cardProgress}%</span>
       </div>
     </_ContainerCard>
   );

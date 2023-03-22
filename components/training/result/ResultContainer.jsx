@@ -275,7 +275,7 @@ const ResultContainer = () => {
   // const testResult = useSelector(selectTestResult);
   // const test_result_id = testResult?.id;
   const router = useRouter();
-
+  const {subject, module} = router.query;
   const { result: test_result_id } = router.query;
 
   const { data: testResultDetails, isSuccess: isTestResultDetailsSuccess } =
@@ -384,8 +384,8 @@ const ResultContainer = () => {
             </strong>
             <label className="label">Accuracy</label>
           </Accuracy>
-          <RightButton>Return Home</RightButton>
-          <LeftButton>Analytics</LeftButton>
+          <RightButton onClick={()=>router.push(`/training/${subject}/${module}/learn/`)}>Return Home</RightButton>
+          <LeftButton onClick={()=>router.push(`/settings`)}>Analytics</LeftButton>
         </ResultContentContainer>
       </_ResultContainer>
     </>

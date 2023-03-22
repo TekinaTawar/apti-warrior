@@ -9,6 +9,7 @@ const ModulesContainer = ({ modules, onClick, selectedModule }) => {
           key={module?.id}
           cardId={module?.id}
           cardTitle={module?.title}
+          cardProgress={module?.progress}
           onClick={onClick}
           selected={selectedModule === module?.id}
         />

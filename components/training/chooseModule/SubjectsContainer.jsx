@@ -9,6 +9,7 @@ const SubjectsContainer = ({ subjects, onClick, selectedSubject }) => {
           key = {subject?.id}
           cardId={subject?.id ?? 0}
           cardTitle={subject?.title}
+          cardProgress={subject?.progress}
           onClick={onClick}
           selected = {selectedSubject === subject?.id}
         />
