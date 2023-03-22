@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useRegisterMutation } from "@/redux/auth/authApiSlice";
 import { setOtpPhoneNumber, setOtpToken } from "@/redux/auth/authSlice";
@@ -29,13 +30,14 @@ const ContainerSignUp = styled(ContainerAuth)`
   display: grid;
   justify-content: center;
   align-content: space-around;
-  grid-auto-rows: repeat(6, 1fr);
+  grid-auto-rows: fit-content(50px);
+  gap: 10px;
 `;
 
 const WelcomeText = styled.h2`
   font-family: stormfaze;
   font-size: var(--step-0);
-  padding-bottom: 1rem;
+  /* padding-bottom: 1rem; */
   padding-top: 0.5rem;
   border-bottom: 1px solid #ebac45;
   display: inline-block;
@@ -44,7 +46,7 @@ const WelcomeText = styled.h2`
 const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.2rem;
   & > label {
     font-size: 0.8rem;
   }
@@ -66,8 +68,8 @@ const PhNoSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-self: stretch;
-  font-size: var(--step--2);
-  row-gap: 0.5rem;
+  font-size: 0.8rem;
+  row-gap: 0.2rem;
 
   > .phNumberInput {
     /* background-color: pink; */
@@ -102,6 +104,24 @@ const PhNoSection = styled.div`
       :focus-visible {
         border-left: 2px solid white;
       }
+    }
+  }
+`;
+
+const SignUpAlternative = styled.p`
+  /* background-color:orange; */
+  font-size: var(--step--3);
+  font-weight: 200;
+  text-align: center;
+
+  .registerHere {
+    color: var(--primary-0);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+    
+    :hover {
+      transform: scale(2);
     }
   }
 `;
@@ -158,7 +178,7 @@ const SignUp = () => {
       dispatch(setOtpToken(data.otp_token));
       cookies.set("otpToken", data.otp_token, { path: "/" });
       dispatch(setOtpPhoneNumber(value.phNumber));
-      console.log(value.phNumber)
+      console.log(value.phNumber);
       router.push("/auth/otp");
     } catch (e) {
       toast.error(e.data.message);
@@ -225,6 +245,12 @@ const SignUp = () => {
         >
           Continue
         </Button1>
+        <SignUpAlternative>
+          Already an user?{" "}
+          <Link href="/auth/signup" className="registerHere">
+            Login Here
+          </Link>
+        </SignUpAlternative>
       </ContainerSignUp>
     </MainContainer>
   );

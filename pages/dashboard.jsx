@@ -127,8 +127,8 @@ const Dashboard = () => {
         <Link href="/training/choose-module">
           <IconButton icon={book}>Training</IconButton>
         </Link>
-        <IconButton icon={analytics}>Analytics</IconButton>
-        <IconButton icon={trophy}>LeaderBoard</IconButton>
+        <IconButton icon={analytics} disabled={true}>Analytics</IconButton>
+        <IconButton icon={trophy} disabled={true}>LeaderBoard</IconButton>
         <IconButtonPrimary icon={gun}>Battle</IconButtonPrimary>
       </div>
     </MainContainer>

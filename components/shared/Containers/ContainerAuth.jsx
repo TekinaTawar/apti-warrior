@@ -35,7 +35,7 @@ const ContainerAuth = ({ children, title, className, onSubmit }) => {
       image={containerAuthImage}
       style={{
         width: "clamp(22.5rem, calc(6.51rem + 71.05vw), 30.94rem)",
-        height: "clamp(550px, 8vh, 650px)",
+        height: "clamp(600px, 8vh, 650px)",
       }}
     >
       <h1 className="containerTitle">{title}</h1>

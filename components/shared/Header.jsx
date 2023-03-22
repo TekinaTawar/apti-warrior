@@ -170,19 +170,19 @@ const Header = () => {
           <i>
             <CiDumbbell />
           </i>
-          <span>1668</span>
+          <span>{userProfile?.data?.profile?.user_xp ?? "0"}</span>
         </div>
         <div className="moneyDetail">
           <i>
             <FaMoneyBill />
           </i>
-          <span>3.5M</span>
+          <span>{userProfile?.data?.profile?.cash ?? "0"}</span>
         </div>
         <div className="diamondDetail">
           <i>
             <IoDiamondOutline />
           </i>
-          <span>289</span>
+          <span>{userProfile?.data?.profile?.gems ?? "0"}</span>
         </div>
         <i className="settingsIcon">
           <BsGear className="gearIcon" onClick={()=> setShowLogoutModal(!showLogoutModal)} />

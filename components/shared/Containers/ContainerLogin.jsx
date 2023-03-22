@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 import ContainerAuth from "./ContainerAuth";
 import Button1 from "@/components/shared/Buttons/Button1";
 import { useForm } from "react-hook-form";
@@ -51,6 +52,22 @@ const _ContainerLogin = styled(ContainerAuth)`
         color: black;
         justify-content: center;
         align-items: center;
+      }
+    }
+  }
+
+  .loginAlternative {
+    /* background-color:orange; */
+    font-size: var(--step--3);
+    font-weight: 200;
+
+    .registerHere {
+      color: var(--primary-0);
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: underline;
+      :hover {
+        transform: scale(1.1);
       }
     }
   }
@@ -134,7 +151,7 @@ const ContainerLogin = () => {
     console.log("running submit Form", value);
     try {
       const data = await login({ mobile: value.phNumber }).unwrap();
-      
+
       dispatch(setOtpToken(data.otp_token));
       cookies.set("otpToken", data.otp_token, { path: "/" });
       dispatch(setOtpPhoneNumber(value.phNumber));
@@ -165,12 +182,19 @@ const ContainerLogin = () => {
       </PhNoSection>
       <Button1 isLoading={isLoading}>Continue</Button1>
       <strong>OR</strong>
-      <section className="socialLogin ">
+      {/* <section className="socialLogin ">
         <h5>Login using your social media accounts</h5>
         <section className="socialIcons">
           <span>G</span> <span>F</span> <span>in</span>
         </section>
-      </section>
+      </section> */}
+
+      <p className="loginAlternative">
+        If this is your first time{" "}
+        <Link href="/auth/signup" className="registerHere">
+          Register Here
+        </Link>
+      </p>
     </_ContainerLogin>
   );
 };
