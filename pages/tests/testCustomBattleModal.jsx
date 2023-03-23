@@ -1,4 +1,4 @@
-import AwaitingOpponents from "@/components/customBattle/AwaitingOpponents";
+import CustomBattle from "@/components/customBattle/CustomBattle";
 import styled from "styled-components";
 
 const MainContainer = styled.main`
@@ -13,7 +13,7 @@ const MainContainer = styled.main`
 const testCustomBattleModal = () => {
   return (
     <MainContainer>
-      <AwaitingOpponents />
+      <CustomBattle />
     </MainContainer>
   );
 };

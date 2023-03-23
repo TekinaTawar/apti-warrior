@@ -19,11 +19,11 @@ const _Modal = styled.div`
   font-size: var(--step-0);
 `;
 
-const Modal = ({ children, setShowModal }) => {
+const Modal = ({ children, className, setShowModal }) => {
   return (
     <>
       <ModalOverlay onClick={() => setShowModal(false)}></ModalOverlay>
-      <_Modal>{children}</_Modal>
+      <_Modal className={className}>{children}</_Modal>
     </>
   );
 };

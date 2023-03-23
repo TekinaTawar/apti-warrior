@@ -4,6 +4,9 @@ import styled from "styled-components";
 
 import bg from "public/images/bg.png";
 
+import Cookies from "universal-cookie";
+import { useGetUserProfileQuery } from "@/redux/user/userSlice";
+
 const BgImage = styled(Image)`
   position: absolute;
   height: 100%;
@@ -13,6 +16,10 @@ const BgImage = styled(Image)`
 `;
 
 const Layout = ({ children }) => {
+  const cookies = new Cookies();
+  const jwt = cookies.get("jwt");
+  const { } = useGetUserProfileQuery({} , {skip: !jwt});
+
   return (
     <>
       <Head>

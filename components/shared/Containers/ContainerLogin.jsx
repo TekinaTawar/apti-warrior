@@ -1,7 +1,16 @@
 import styled from "styled-components";
+import Link from "next/link";
 import ContainerAuth from "./ContainerAuth";
-import { useForm } from "react-hook-form";
 import Button1 from "@/components/shared/Buttons/Button1";
+import { useForm } from "react-hook-form";
+import { useLoginMutation } from "@/redux/auth/authApiSlice";
+import { setOtpPhoneNumber, setOtpToken } from "@/redux/auth/authSlice";
+import { useDispatch } from "react-redux";
+import Cookies from "universal-cookie";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
 const _ContainerLogin = styled(ContainerAuth)`
   display: grid;
@@ -43,6 +52,22 @@ const _ContainerLogin = styled(ContainerAuth)`
         color: black;
         justify-content: center;
         align-items: center;
+      }
+    }
+  }
+
+  .loginAlternative {
+    /* background-color:orange; */
+    font-size: var(--step--3);
+    font-weight: 200;
+
+    .registerHere {
+      color: var(--primary-0);
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: underline;
+      :hover {
+        transform: scale(1.1);
       }
     }
   }
@@ -102,13 +127,48 @@ const PhNoSection = styled.div`
 `;
 
 const ContainerLogin = () => {
-    const { register, handleSubmit} = useForm();
+  //local validation
+  const schema = z.object({
+    phNumber: z
+      .string()
+      .length(10, { message: "Phone Number must be 10 digits long" })
+      .regex(/^[1-9]\d{9}$/, {
+        message: "Phone number should only include numbers",
+      }),
+  });
 
-    // const [login, result] = useLoginMutation();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(schema) });
+  const [login, { isLoading }] = useLoginMutation();
+  const dispatch = useDispatch();
+  const cookies = new Cookies();
+  const router = useRouter();
 
-    const submitForm = (value) => {
-      login({mobile: value.phNumber})
-    };
+  const submitForm = async (value) => {
+    console.log("running submit Form", value);
+    try {
+      const data = await login({ mobile: value.phNumber }).unwrap();
+
+      dispatch(setOtpToken(data.otp_token));
+      cookies.set("otpToken", data.otp_token, { path: "/" });
+      dispatch(setOtpPhoneNumber(value.phNumber));
+      router.push("/auth/otp");
+    } catch (e) {
+      // console.log(e);
+      toast.error(e.data.message);
+    }
+  };
+
+  // if (errors.phNumber) {
+  //   console.log(errors.phNumber.message, "errors.phNumber.message"); // to delete
+  // }
+
+  if (errors.phNumber) {
+    toast.error(errors.phNumber.message);
+  }
 
   return (
     <_ContainerLogin title="Login" onSubmit={handleSubmit(submitForm)}>
@@ -120,14 +180,21 @@ const ContainerLogin = () => {
           <input type="tel" {...register("phNumber")} />
         </section>
       </PhNoSection>
-      <Button1>Continue</Button1>
+      <Button1 isLoading={isLoading}>Continue</Button1>
       <strong>OR</strong>
-      <section className="socialLogin ">
+      {/* <section className="socialLogin ">
         <h5>Login using your social media accounts</h5>
         <section className="socialIcons">
           <span>G</span> <span>F</span> <span>in</span>
         </section>
-      </section>
+      </section> */}
+
+      <p className="loginAlternative">
+        If this is your first time{" "}
+        <Link href="/auth/signup" className="registerHere">
+          Register Here
+        </Link>
+      </p>
     </_ContainerLogin>
   );
 };

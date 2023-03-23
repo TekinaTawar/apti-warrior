@@ -12,7 +12,6 @@ const _MapContainer = styled.div`
   grid-area: mapContainer;
   position: relative;
   background-color: var(--gray-200);
-
   display: grid;
   align-content: center;
 `;

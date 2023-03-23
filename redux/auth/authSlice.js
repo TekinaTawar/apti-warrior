@@ -17,6 +17,9 @@ const authSlice = createSlice({
     logOut: (state, _) => {
       state.accessToken = null;
     },
+    setOtpPhoneNumber: (state, action) => {
+      state.otpPhoneNumber = action.payload;
+    },
   },
 });
 
@@ -24,9 +27,10 @@ const authSlice = createSlice({
 export default authSlice.reducer;
 
 //actions
-export const { setOtpToken, removeOtpToken, setAccessToken, logOut } =
+export const { setOtpToken, removeOtpToken, setAccessToken, logOut, setOtpPhoneNumber } =
   authSlice.actions;
 
 //selectors
 export const selectOtpToken = (state) => state.auth.otpToken;
 export const selectAccessToken = (state) => state.auth.accessToken;
+export const selectOtpPhoneNumber = (state) => state.auth.otpPhoneNumber;

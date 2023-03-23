@@ -3,12 +3,13 @@ import ButtonHugging from "../shared/Buttons/ButtonHugging";
 import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 
 const _CustomBattle = styled(ContainerWithHead)`
+  width: 50vw;
   .battleButtons {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: var(--step-1);
+    gap: var(--space-xl-2xl);
     .button1 {
       grid-area: button1;
     }
@@ -19,23 +20,25 @@ const _CustomBattle = styled(ContainerWithHead)`
 `;
 
 const _customBattleContent = styled.div`
+  display: grid;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   font-family: "Metropolis";
   padding-block: var(--space-s-m);
   padding-inline: var(--space-s-m);
 
   .customBattle {
     display: flex;
-
+    padding-block: var(--space-s-m);
+    gap: var(--space-m-l);
     .battleHeadings {
       display: flex;
       flex-direction: column;
-      gap: var(--step-3);
+      justify-content: space-around;
       padding: var(--space-s-m);
 
       p {
-        font-size: var(--step--0);
+        font-size: var(--step--1);
         font-weight: 400;
       }
     }
@@ -44,7 +47,7 @@ const _customBattleContent = styled.div`
       display: flex;
       flex-direction: column;
       margin: 40px;
-      gap: 10px;
+      gap: 20px;
 
       select {
         font-weight: 500;
@@ -52,11 +55,11 @@ const _customBattleContent = styled.div`
         outline: 0;
         background: #232222;
         background-image: none;
-        color: #fff;
+        color: var(--whtie);
         padding-block: var(--space-3xs-2xs);
-        padding-inline: var(--space-3xs-2xs);
+        padding-inline: var(--space-l-xl);
         cursor: pointer;
-        border: 2px solid #fdcf1d;
+        border: 2px solid var(--primary-0);
         border-radius: 5px;
       }
     }
@@ -93,11 +96,8 @@ const CustomBattle = ({ closeModal }) => {
         </div>
 
         <div className="battleButtons">
-          <ButtonHugging className="button1">Start Battle</ButtonHugging>
-          <ButtonHugging
-            className="button2"
-            onClick={closeModal}
-          >
+          <ButtonHugging className="button1">Start </ButtonHugging>
+          <ButtonHugging className="button2" onClick={closeModal}>
             Cancel
           </ButtonHugging>
           {/* <button onClick={closeModal}>cancel</button> */}

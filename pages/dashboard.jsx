@@ -1,11 +1,11 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
-
-import Header from "@/components/shared/Header";
-import armyMans from "@/public/images/dashboard/armyMans.png";
 import { useRouter } from "next/router";
+import Header from "@/components/shared/Header";
 
+// * Icons
+import armyMans from "@/public/images/dashboard/armyMans.png";
 import IconButton from "@/components/shared/IconButton";
 import book from "@/public/images/dashboard/book.svg";
 import analytics from "@/public/images/dashboard/analytics.svg";
@@ -20,6 +20,10 @@ import socials from "@/public/images/dashboard/socials.svg";
 import shoppingCart from "@/public/images/dashboard/shoppingCart.svg";
 import medalReward from "@/public/images/dashboard/medalReward.svg";
 import walkiesTalkie from "@/public/images/dashboard/walkiesTalkie.svg";
+
+//* Icons
+
+//*Styled Components
 
 const MainContainer = styled.main`
   /* background-color: orange; */
@@ -77,8 +81,11 @@ const MainContainer = styled.main`
   }
 `;
 
+//*Styled Components
+
 const Dashboard = () => {
   const router = useRouter();
+
   return (
     <MainContainer>
       <Header />
@@ -117,11 +124,11 @@ const Dashboard = () => {
         />
       </div>
       <div className="iconButtonSection">
-        <Link href="/training">
+        <Link href="/training/choose-module">
           <IconButton icon={book}>Training</IconButton>
         </Link>
-        <IconButton icon={analytics}>Analytics</IconButton>
-        <IconButton icon={trophy}>LeaderBoard</IconButton>
+        <IconButton icon={analytics} disabled={true}>Analytics</IconButton>
+        <IconButton icon={trophy} disabled={true}>LeaderBoard</IconButton>
         <IconButtonPrimary icon={gun}>Battle</IconButtonPrimary>
       </div>
     </MainContainer>

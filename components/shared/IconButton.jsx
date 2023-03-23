@@ -1,6 +1,6 @@
 import Image from "next/image";
 import buttonBorder1 from "@/public/images/buttonBorder2.svg";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const _IconButton = styled.button`
   // this is a transparent button which contains absolute "borderImage" and "borderButtonContianer" is black and have width and height such that it seems it is indise the borderImage.
@@ -14,9 +14,10 @@ const _IconButton = styled.button`
   /* width: var(--space-6xl-7xl); */
   width: var(--space-6xl-7xl);
   cursor: pointer;
+  ${({ disabled }) => disabled && "cursor: not-allowed;"}
 
   & .borderbuttonContainer {
-    width: 99%;
+    width: 88%;
     height: 90%;
     margin-inline: auto;
     background-color: var(--gray-200);
@@ -26,6 +27,24 @@ const _IconButton = styled.button`
     align-content: stretch;
     align-items: center;
     padding-inline: var(--space-2xs);
+    position: relative;
+
+    ${({ disabled }) =>
+      disabled &&
+      css`
+        ::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-color: var(--gray-200);
+          opacity: 0.7;
+          z-index: 2;
+        }
+      `}
+    }
+    
+
 
     i {
       position: relative;
@@ -43,10 +62,19 @@ const _IconButton = styled.button`
   }
 `;
 
-const IconButton = ({ children, icon, onClick }) => {
+const IconButton = ({ children, icon, onClick, disabled = false }) => {
   return (
-    <_IconButton onClick={onClick}>
-      <Image src={buttonBorder1} alt="button border" fill sizes="100vw" />
+    <_IconButton onClick={onClick} disabled={disabled}>
+      <Image
+        src={buttonBorder1}
+        alt="button border"
+        fill
+        sizes="100vw"
+        style={{
+          paddingInline: "var(--space-xs-s)",
+          zIndex: "1",
+        }}
+      />
       <div className="borderbuttonContainer">
         <i>
           <Image src={icon} alt="book" fill sizes="100vw" />

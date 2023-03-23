@@ -7,8 +7,8 @@ const _Button = styled.button`
   color: inherit;
   font-size: inherit;
   text-transform: inherit;
-  padding-inline: var(--space-s-m);
-  padding-block: var(--space-2xs-xs);
+  /* padding-inline: inherit; */
+  /* padding-block: var(--space-2xs-xs); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +79,7 @@ const Button = ({ className, children, isLoading, isDisabled, ...props }) => {
   };
   return (
     <_Button {...props} buttonState={getButtonState()} className={className}>
-      {children}
+      {children} 
     </_Button>
   );
 };

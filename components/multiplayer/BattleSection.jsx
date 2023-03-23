@@ -1,14 +1,18 @@
 import styled from "styled-components";
 
+//*Styled Component
+
 import ContainerWithHead from "../shared/Containers/ContainerWithHead";
 import ButtonHugging from "@/components/shared/Buttons/ButtonHugging";
 
 //* Icons
 
 import { GiBookmarklet, GiUnlitBomb } from "react-icons/gi";
-import { BsHeart } from "react-icons/bs";
+import { BsFillHeartFill} from "react-icons/bs";
 import { IoIosPeople } from "react-icons/io";
 import { AiOutlineFieldTime } from "react-icons/ai";
+
+//*Styled Component
 
 const _BattleSection = styled.div`
   grid-area: BattleSection;
@@ -37,6 +41,12 @@ const _Battles = styled(ContainerWithHead)`
   .battleArea {
     grid-area: battle;
     display: grid;
+
+    .join {
+      :hover {
+        cursor: pointer;
+      }
+    }
 
     table {
       border-collapse: collapse;
@@ -74,6 +84,8 @@ const _Battles = styled(ContainerWithHead)`
   }
 `;
 
+//*Styled Component
+
 const BattleSection = () => {
   return (
     <_BattleSection>
@@ -89,7 +101,7 @@ const BattleSection = () => {
               </th>
               <th>
                 <i>
-                  <BsHeart />
+                  <BsFillHeartFill />
                 </i>
                 <span>Life</span>
               </th>
@@ -122,7 +134,7 @@ const BattleSection = () => {
                   <td>1/6</td>
                   <td>36</td>
                   <td>
-                    <button>Join</button>
+                    <button className="join">Join</button>
                   </td>
                 </tr>
               ))}
