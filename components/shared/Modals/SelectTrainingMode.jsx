@@ -1,13 +1,12 @@
 import Image from "next/legacy/image";
 import styled from "styled-components";
-import ContainerAuth from "../Containers/ContainerAuth";
+import ContainerAuth from "../../../assets/Depriciate/ContainerAuth";
 import Modal from "./Modal";
 import buttonBorder2 from "@/public/images/buttonBorder2.svg";
 import eLearning from "@/public/images/Practice&Learn/eLearning.svg";
 import dumbbellsPractice from "@/public/images/Practice&Learn/dumbbellsPractice.svg";
 import Link from "next/link";
 import IconButton from "../IconButton";
-
 
 //*Styled Component
 

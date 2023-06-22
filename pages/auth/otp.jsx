@@ -88,9 +88,7 @@ const Otp = () => {
         <h3 className="verifyMobileLabel">VERIFY YOUR MOBILE NUMBER</h3>
         <div className="mobileNumberEdit">
           <h3 className="mobileNo">+91-{otpPhoneNumber}</h3>
-          <EditButton onClick={() => router.back()}>
-            Edit
-          </EditButton>
+          <EditButton onClick={() => router.back()}>Edit</EditButton>
         </div>
         <Controller
           name="otp"

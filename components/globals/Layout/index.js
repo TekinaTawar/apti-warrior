@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 
-import bg from "public/images/bg.png";
+import bg from "@/public/images/bg.png";
 
 import Cookies from "universal-cookie";
 import { useGetUserProfileQuery } from "@/redux/user/userSlice";

@@ -119,7 +119,7 @@ const SignUpAlternative = styled.p`
     font-weight: 500;
     cursor: pointer;
     text-decoration: underline;
-    
+
     :hover {
       transform: scale(2);
     }

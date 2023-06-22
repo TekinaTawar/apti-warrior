@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
-import ContainerAuth from "./ContainerAuth";
+import ContainerAuth from "@/components/shared/Containers/ContainerAuth";
 import Button1 from "@/components/shared/Buttons/Button1";
 import { useForm } from "react-hook-form";
 import { useLoginMutation } from "@/redux/auth/authApiSlice";
